@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Movie Reviewer - Get Paid to Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .testimonial-popup {
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.5s ease-out;
+        }
+
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.5s ease-in;
+        }
+
+        /* Smooth transitions for interactive elements */
+        button {
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e50914;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8070f;
+        }
+
+        /* Netflix logo styling */
+        .netflix-logo {
+            background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* Image styling */
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            margin: 0 auto 16px auto;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Netflix red gradient background */
+        .netflix-gradient {
+            background: linear-gradient(135deg, #141414 0%, #000000 100%);
+        }
+
+        /* Step numbers styling */
+        .step-number {
+            background: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen netflix-gradient flex items-center justify-center p-4">
+        <div class="w-full max-w-sm">
+            <!-- Main floating card -->
+            <div class="bg-white rounded-2xl shadow-2xl p-6 animate-float">
+                <!-- Netflix Logo or Custom Image -->
+                <div class="flex justify-center mb-4">
+                    <div class="w-20 h-20 netflix-logo flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.71.002-22.95zM5.398 1.05V24c2.873-.086 5.81-.406 8.487-.606V1.05z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Alternative: Custom image placeholder (uncomment to use) -->
+                <!-- <img src="/images/netflix-logo.png" alt="Netflix Logo" class="logo-image"> -->
+
+                <!-- Title -->
+                <div class="text-center mb-6">
+                    <h1 class="text-xl font-bold text-gray-900 mb-2 leading-tight">Want to get paid to be a Netflix Movie Reviewer?</h1>
+                    <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <span>Verified by</span>
+                        <span class="font-semibold text-red-600">Netflix</span>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Steps -->
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">1</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Enter your email & basic info</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">2</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Answer a simple questionnaire</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">3</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Apply to your desired job</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">4</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Start reviewing movies</span>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">5</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Click "Apply" to start now</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button id="applyButton" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mb-6 text-lg">
+                    <span>APPLY</span>
+                </button>
+
+                <!-- Trust indicators -->
+                <div class="flex items-center justify-center gap-2 text-sm">
+                    <span class="font-semibold text-gray-900">Trusted by</span>
+                    <div class="flex gap-1">
+                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                        <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                    </div>
+                    <span class="font-semibold text-gray-900">10,000+ reviewers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - Replace with your actual offer URL
+        const OFFER_URL = 'https://your-netflix-offer-url.com';
+        
+        // Testimonial data for Netflix reviewers
+        const testimonials = [
+            { name: 'Sarah M.', amount: '$2,400/month', color: 'bg-red-500', action: 'earning' },
+            { name: 'Jake R.', amount: '$1,850/month', color: 'bg-blue-500', action: 'making' },
+            { name: 'Emma L.', amount: '$3,200/month', color: 'bg-purple-500', action: 'earned' },
+            { name: 'David K.', amount: '$2,750/month', color: 'bg-green-500', action: 'receiving' },
+            { name: 'Lisa T.', amount: '$1,950/month', color: 'bg-yellow-500', action: 'making' },
+            { name: 'Alex P.', amount: '$4,100/month', color: 'bg-indigo-500', action: 'earning' },
+            { name: 'Maya W.', amount: '$2,300/month', color: 'bg-pink-500', action: 'made' },
+            { name: 'Chris B.', amount: '$3,500/month', color: 'bg-teal-500', action: 'earning' },
+            { name: 'Taylor S.', amount: '$2,650/month', color: 'bg-orange-500', action: 'receiving' },
+            { name: 'Jordan H.', amount: '$3,800/month', color: 'bg-cyan-500', action: 'made' },
+            { name: 'Riley J.', amount: '$2,150/month', color: 'bg-lime-500', action: 'earning' }
+        ];
+
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
+
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white rounded-lg p-3 shadow-lg border border-gray-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 ${testimonial.color} rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h4a1 1 0 0 1 0 2h-1v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6H3a1 1 0 1 1 0-2h4zM6 6v14h12V6H6zm3-2V3h6v1H9z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-semibold" style="color: ${getColorFromBg(testimonial.color)}">${testimonial.name}</span>
+                        <span class="text-gray-600"> is ${testimonial.action} </span>
+                        <span class="font-semibold text-gray-900">${testimonial.amount}</span>
+                        <span class="text-gray-600"> reviewing!</span>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 4 seconds
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 500);
+            }, 4000);
+        }
+
+        function getColorFromBg(bgClass) {
+            const colorMap = {
+                'bg-red-500': '#ef4444',
+                'bg-blue-500': '#3b82f6',
+                'bg-purple-500': '#a855f7',
+                'bg-green-500': '#22c55e',
+                'bg-yellow-500': '#eab308',
+                'bg-indigo-500': '#6366f1',
+                'bg-pink-500': '#ec4899',
+                'bg-teal-500': '#14b8a6',
+                'bg-orange-500': '#f97316',
+                'bg-cyan-500': '#06b6d4',
+                'bg-lime-500': '#84cc16'
+            };
+            return colorMap[bgClass] || '#ef4444';
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (random interval between 3-7 seconds)
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Start showing testimonials after 2 seconds
+        setTimeout(showNextTestimonial, 2000);
+        
+        // Add click event listener to the button
+        document.getElementById('applyButton').addEventListener('click', function() {
+            trackButtonClick();
+            
+            // Redirect after a short delay
+            setTimeout(function() {
+                window.location.href = OFFER_URL;
+            }, 100);
+        });
+
+        // Optional: You can also add tracking or analytics here
+        function trackButtonClick() {
+            // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
+            console.log('Apply button clicked - redirecting to Netflix reviewer offer');
+        }
+    </script>
+</body>
+</html>
