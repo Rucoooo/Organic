@@ -19,7 +19,7 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes slideIn {
+        @keyframes slideInFromLeft {
             from {
                 transform: translateX(-100%);
                 opacity: 0;
@@ -30,8 +30,28 @@
             }
         }
 
-        .animate-slide-in {
-            animation: slideIn 0.8s ease-out;
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .testimonial-popup {
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.5s ease-out;
+        }
+
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.5s ease-in;
         }
 
         /* Smooth transitions for interactive elements */
@@ -62,204 +82,37 @@
             background: #16a34a;
         }
 
-        /* Testimonial carousel */
-        .testimonial-container {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .testimonial-slide {
-            display: none;
-            animation: slideIn 0.5s ease-in-out;
-        }
-
-        .testimonial-slide.active {
-            display: flex;
-        }
-
-        /* Cash App logo styling */
-        .cashapp-logo {
-            background: linear-gradient(135deg, #00d632 0%, #00b82c 100%);
+        /* Image placeholder styling */
+        .image-placeholder {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border: 2px dashed #d1d5db;
             border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
             position: relative;
         }
 
-        .cashapp-logo::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: linear-gradient(135deg, #00ff3c 0%, #00d632 100%);
-            border-radius: 10px;
-            z-index: 1;
-        }
-
-        .cashapp-logo svg {
-            position: relative;
-            z-index: 2;
+        .image-placeholder::after {
+            content: 'Your Image Here';
+            font-size: 10px;
+            color: #9ca3af;
+            text-align: center;
+            line-height: 1.2;
         }
     </style>
 </head>
 <body>
     <div class="min-h-screen bg-gradient-to-b from-green-50 to-green-100 flex items-center justify-center p-4">
         <div class="w-full max-w-sm">
-            <!-- Rotating testimonials -->
-            <div class="testimonial-container bg-white rounded-lg p-3 mb-6 shadow-sm">
-                <div class="testimonial-slide active flex items-center gap-3">
-                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-green-600">Sarah K.</span>
-                        <span class="text-gray-600"> claimed </span>
-                        <span class="font-semibold text-gray-900">$1000!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-blue-600">Mike R.</span>
-                        <span class="text-gray-600"> just earned </span>
-                        <span class="font-semibold text-gray-900">$850!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-purple-600">Jessica M.</span>
-                        <span class="text-gray-600"> received </span>
-                        <span class="font-semibold text-gray-900">$750!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-red-600">David L.</span>
-                        <span class="text-gray-600"> claimed </span>
-                        <span class="font-semibold text-gray-900">$920!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-yellow-600">Emma T.</span>
-                        <span class="text-gray-600"> just got </span>
-                        <span class="font-semibold text-gray-900">$680!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-indigo-600">Alex P.</span>
-                        <span class="text-gray-600"> earned </span>
-                        <span class="font-semibold text-gray-900">$1200!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-pink-600">Lisa W.</span>
-                        <span class="text-gray-600"> claimed </span>
-                        <span class="font-semibold text-gray-900">$775!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-teal-600">Ryan B.</span>
-                        <span class="text-gray-600"> received </span>
-                        <span class="font-semibold text-gray-900">$950!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-orange-600">Maya S.</span>
-                        <span class="text-gray-600"> just earned </span>
-                        <span class="font-semibold text-gray-900">$825!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-cyan-600">Chris H.</span>
-                        <span class="text-gray-600"> claimed </span>
-                        <span class="font-semibold text-gray-900">$1100!</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-slide flex items-center gap-3">
-                    <div class="w-8 h-8 bg-lime-500 rounded-full flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="text-sm">
-                        <span class="font-semibold text-lime-600">Taylor J.</span>
-                        <span class="text-gray-600"> received </span>
-                        <span class="font-semibold text-gray-900">$890!</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- Main floating card -->
             <div class="bg-white rounded-2xl shadow-lg p-6 animate-float">
-                <!-- Cash App Logo -->
-                <div class="flex justify-center mb-4">
-                    <div class="w-16 h-16 cashapp-logo flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.59 3.475c-.905.325-1.877.544-2.897.643 1.041-.624 1.842-1.613 2.218-2.791-.975.578-2.056.996-3.205 1.223-.92-.98-2.233-1.592-3.685-1.592-2.789 0-5.05 2.262-5.05 5.05 0 .396.045.781.131 1.15-4.197-.211-7.921-2.221-10.41-5.281-.435.747-.684 1.613-.684 2.54 0 1.751.892 3.297 2.246 4.202-.827-.026-1.605-.253-2.286-.631v.063c0 2.447 1.741 4.489 4.051 4.948-.424.115-.871.177-1.332.177-.326 0-.643-.032-.951-.091.643 2.007 2.508 3.469 4.717 3.508-1.728 1.354-3.906 2.162-6.27 2.162-.407 0-.809-.024-1.203-.07 2.233 1.433 4.886 2.268 7.737 2.268 9.281 0 14.356-7.688 14.356-14.356 0-.219-.005-.437-.014-.653.986-.711 1.843-1.598 2.518-2.609l.002-.003z"/>
-                        </svg>
-                    </div>
+                <!-- Image Placeholder -->
+                <div class="image-placeholder" id="imageContainer">
+                    <!-- Your image will go here -->
                 </div>
 
                 <!-- Title and verification -->
@@ -352,18 +205,86 @@
         // Configuration - Replace with your actual offer URL
         const OFFER_URL = 'https://your-offer-url.com';
         
-        // Testimonial rotation functionality
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-slide');
-        
-        function showNextTestimonial() {
-            testimonials[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            testimonials[currentTestimonial].classList.add('active');
+        // Testimonial data
+        const testimonials = [
+            { name: 'Sarah K.', amount: '$1000', color: 'bg-green-500', action: 'claimed' },
+            { name: 'Mike R.', amount: '$850', color: 'bg-blue-500', action: 'just earned' },
+            { name: 'Jessica M.', amount: '$750', color: 'bg-purple-500', action: 'received' },
+            { name: 'David L.', amount: '$920', color: 'bg-red-500', action: 'claimed' },
+            { name: 'Emma T.', amount: '$680', color: 'bg-yellow-500', action: 'just got' },
+            { name: 'Alex P.', amount: '$1200', color: 'bg-indigo-500', action: 'earned' },
+            { name: 'Lisa W.', amount: '$775', color: 'bg-pink-500', action: 'claimed' },
+            { name: 'Ryan B.', amount: '$950', color: 'bg-teal-500', action: 'received' },
+            { name: 'Maya S.', amount: '$825', color: 'bg-orange-500', action: 'just earned' },
+            { name: 'Chris H.', amount: '$1100', color: 'bg-cyan-500', action: 'claimed' },
+            { name: 'Taylor J.', amount: '$890', color: 'bg-lime-500', action: 'received' }
+        ];
+
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
+
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white rounded-lg p-3 shadow-lg border border-gray-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 ${testimonial.color} rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-semibold" style="color: ${getColorFromBg(testimonial.color)}">${testimonial.name}</span>
+                        <span class="text-gray-600"> ${testimonial.action} </span>
+                        <span class="font-semibold text-gray-900">${testimonial.amount}!</span>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 4 seconds
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 500);
+            }, 4000);
         }
-        
-        // Rotate testimonials every 3 seconds
-        setInterval(showNextTestimonial, 3000);
+
+        function getColorFromBg(bgClass) {
+            const colorMap = {
+                'bg-green-500': '#22c55e',
+                'bg-blue-500': '#3b82f6',
+                'bg-purple-500': '#a855f7',
+                'bg-red-500': '#ef4444',
+                'bg-yellow-500': '#eab308',
+                'bg-indigo-500': '#6366f1',
+                'bg-pink-500': '#ec4899',
+                'bg-teal-500': '#14b8a6',
+                'bg-orange-500': '#f97316',
+                'bg-cyan-500': '#06b6d4',
+                'bg-lime-500': '#84cc16'
+            };
+            return colorMap[bgClass] || '#22c55e';
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (random interval between 3-7 seconds)
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Start showing testimonials after 2 seconds
+        setTimeout(showNextTestimonial, 2000);
         
         // Add click event listener to the button
         document.getElementById('claimButton').addEventListener('click', function() {
@@ -380,6 +301,15 @@
             // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
             console.log('Button clicked - redirecting to offer');
         }
+
+        // Function to add your image - call this after adding your image
+        function addImage(imageSrc) {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = `<img src="${imageSrc}" alt="Logo" class="w-full h-full object-cover rounded-lg">`;
+        }
+
+        // Example usage (uncomment and modify when you add your image):
+        // addImage('path/to/your/image.jpg');
     </script>
 </body>
 </html>
