@@ -82,26 +82,14 @@
             background: #16a34a;
         }
 
-        /* Image placeholder styling */
-        .image-placeholder {
+        /* Image styling */
+        .logo-image {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            border: 2px dashed #d1d5db;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto 16px auto;
-            position: relative;
-        }
-
-        .image-placeholder::after {
-            content: 'Your Image Here';
-            font-size: 10px;
-            color: #9ca3af;
-            text-align: center;
-            line-height: 1.2;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -110,10 +98,8 @@
         <div class="w-full max-w-sm">
             <!-- Main floating card -->
             <div class="bg-white rounded-2xl shadow-lg p-6 animate-float">
-                <!-- Image Placeholder -->
-                <div class="image-placeholder" id="imageContainer">
-                    <!-- Your image will go here -->
-                </div>
+                <!-- Logo Image -->
+                <img src="/images/logo.png" alt="Logo" class="logo-image">
 
                 <!-- Title and verification -->
                 <div class="text-center mb-6">
@@ -301,15 +287,6 @@
             // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
             console.log('Button clicked - redirecting to offer');
         }
-
-        // Function to add your image - call this after adding your image
-        function addImage(imageSrc) {
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.innerHTML = `<img src="${imageSrc}" alt="Logo" class="w-full h-full object-cover rounded-lg">`;
-        }
-
-        // Example usage (uncomment and modify when you add your image):
-        // addImage('path/to/your/image.jpg');
     </script>
 </body>
 </html>
