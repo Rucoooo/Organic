@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playful 
-        
-        Rewards - Earn Money Playing Games!</title>
+    <title>Playful Rewards - Earn Money Playing Games!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Meta Pixel -->
@@ -33,31 +31,10 @@
     <style>
         @keyframes float {
             0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(2deg);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes wiggle {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            25% {
-                transform: rotate(-3deg);
-            }
-            75% {
-                transform: rotate(3deg);
+                transform: translateY(-12px);
             }
         }
 
@@ -83,37 +60,8 @@
             }
         }
 
-        @keyframes sparkle {
-            0%, 100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2) rotate(180deg);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes rainbow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .animate-bounce-slow {
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .animate-wiggle {
-            animation: wiggle 1s ease-in-out infinite;
-        }
-
-        .animate-sparkle {
-            animation: sparkle 2s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         .testimonial-popup {
@@ -122,91 +70,74 @@
             left: 16px;
             right: 16px;
             z-index: 1000;
-            animation: slideInFromLeft 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: slideInFromLeft 0.7s ease-out;
             max-width: 400px;
             margin: 0 auto;
         }
 
         .testimonial-popup.slide-out {
-            animation: slideOutToRight 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+            animation: slideOutToRight 0.7s ease-in;
         }
 
-        /* Playful button animations */
+        /* Smooth transitions for interactive elements */
         button {
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             transform-origin: center;
-            position: relative;
-            overflow: hidden;
         }
 
         button:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(147, 51, 234, 0.4),
-                0 10px 20px rgba(236, 72, 153, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(147, 51, 234, 0.3);
         }
 
         button:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-1px);
             transition: all 0.1s ease;
         }
 
-        /* Rainbow gradient button */
-        .rainbow-button {
-            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
-            background-size: 400% 400%;
-            animation: rainbow 3s ease infinite;
-        }
-
-        /* Playful card hover effects */
+        /* Smooth card hover effects */
         .main-card {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            position: relative;
+            transition: all 0.4s ease;
         }
 
         .main-card:hover {
-            transform: translateY(-10px) scale(1.02) rotate(1deg);
-            box-shadow: 
-                0 25px 50px rgba(147, 51, 234, 0.3),
-                0 15px 30px rgba(236, 72, 153, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
         }
 
-        /* Fun step hover effects */
+        /* Simple step hover effects */
         .step-item {
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            border-radius: 16px;
-            padding: 12px 8px;
-            margin: -12px -8px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 8px;
+            margin: -8px;
             cursor: pointer;
         }
 
         .step-item:hover {
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-            transform: translateX(12px) scale(1.02);
-            box-shadow: 0 8px 16px rgba(147, 51, 234, 0.2);
+            background: rgba(147, 51, 234, 0.05);
+            transform: translateX(8px);
         }
 
-        /* Bouncy stat cards */
+        /* Simple stat card hover */
         .stat-card {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .stat-card:hover {
-            transform: translateY(-8px) scale(1.1) rotate(-2deg);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 30px rgba(147, 51, 234, 0.3);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Playful logo hover */
+        /* Logo hover */
         .logo-container {
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .logo-container:hover {
-            transform: scale(1.2) rotate(10deg);
-            animation: wiggle 0.5s ease-in-out infinite;
+            transform: scale(1.05);
         }
 
         /* Custom scrollbar */
@@ -219,13 +150,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #9333ea, #ec4899);
+            background: #9333ea;
             border-radius: 4px;
-            transition: background 0.3s ease;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #7c3aed, #db2777);
+            background: #7c3aed;
         }
 
         /* Glass morphism effects */
@@ -236,64 +166,44 @@
         /* Enhanced focus states */
         button:focus {
             outline: none;
-            box-shadow: 
-                0 0 0 3px rgba(147, 51, 234, 0.3),
-                0 20px 40px rgba(147, 51, 234, 0.4);
-        }
-
-        /* Playful gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.3);
         }
 
         /* Logo image styling */
         .logo-image {
             width: 80px;
             height: 80px;
-            border-radius: 20px;
+            border-radius: 16px;
             object-fit: cover;
-            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.3);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.2);
+            transition: all 0.3s ease;
         }
 
         .logo-image:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 12px 32px rgba(147, 51, 234, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(147, 51, 234, 0.3);
         }
 
-        /* Step numbers with fun colors */
+        /* Step numbers styling */
         .step-number {
-            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+            transition: all 0.3s ease;
         }
 
         .step-item:hover .step-number {
-            transform: scale(1.3) rotate(15deg);
-            box-shadow: 0 8px 16px rgba(147, 51, 234, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
         }
 
-        /* Colorful background patterns */
-        .bg-pattern {
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 60% 30%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
-            animation: float 25s ease-in-out infinite;
-        }
-
-        /* Fun testimonial popup effects */
+        /* Simple testimonial popup effects */
         .testimonial-popup {
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .testimonial-popup:hover {
-            transform: translateY(-4px) scale(1.05) rotate(1deg);
-            box-shadow: 0 15px 30px rgba(147, 51, 234, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(147, 51, 234, 0.2);
         }
 
         /* Responsive adjustments */
@@ -303,11 +213,11 @@
             }
             
             button:hover {
-                transform: translateY(-3px) scale(1.02);
+                transform: translateY(-2px);
             }
             
             .main-card:hover {
-                transform: translateY(-5px) scale(1.01);
+                transform: translateY(-3px);
             }
 
             .testimonial-popup {
@@ -316,26 +226,22 @@
             }
         }
 
-        /* Fun star rating hover */
+        /* Simple star rating hover */
         .star-rating svg {
             transition: all 0.2s ease;
         }
 
         .star-rating:hover svg {
-            transform: scale(1.2) rotate(10deg);
+            transform: scale(1.1);
         }
 
-        .star-rating svg:hover {
-            transform: scale(1.4) rotate(20deg);
-        }
-
-        /* Trust indicator playful hover */
+        /* Trust indicator hover */
         .trust-indicator {
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s ease;
         }
 
         .trust-indicator:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-2px);
         }
 
         /* Loading animation for button */
@@ -360,39 +266,9 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Notification icon animation */
-        .notification-icon {
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        /* Floating coins animation */
-        .floating-coin {
-            position: absolute;
-            animation: float 3s ease-in-out infinite;
-            font-size: 24px;
-        }
-
-        .floating-coin:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating-coin:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
-        .floating-coin:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
-        .floating-coin:nth-child(4) { bottom: 15%; right: 10%; animation-delay: 0.5s; }
-        .floating-coin:nth-child(5) { top: 60%; left: 5%; animation-delay: 1.5s; }
-
         /* Enhanced card shadow on scroll */
         .main-card.scrolled {
-            box-shadow: 
-                0 40px 80px rgba(147, 51, 234, 0.2),
-                0 20px 40px rgba(236, 72, 153, 0.15);
-        }
-
-        /* Emoji animations */
-        .emoji {
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .emoji:hover {
-            transform: scale(1.3) rotate(10deg);
+            box-shadow: 0 30px 60px rgba(147, 51, 234, 0.15);
         }
     </style>
 </head>
@@ -400,41 +276,32 @@
     <!-- noscript fall-backs -->
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" /></noscript>
 
-    <div class="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 relative overflow-hidden bg-pattern">
-        <!-- Floating Coins Background -->
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
-            <div class="floating-coin">💰</div>
-            <div class="floating-coin">🎮</div>
-            <div class="floating-coin">🏆</div>
-            <div class="floating-coin">💎</div>
-            <div class="floating-coin">🎯</div>
-        </div>
-
-        <!-- Background Pattern -->
+    <div class="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 relative overflow-hidden">
+        <!-- Simple Background Pattern -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-10 w-32 h-32 bg-purple-400 rounded-full blur-3xl animate-bounce-slow"></div>
-            <div class="absolute top-40 right-20 w-24 h-24 bg-pink-400 rounded-full blur-2xl animate-bounce-slow" style="animation-delay: 1s;"></div>
-            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-yellow-400 rounded-full blur-3xl animate-bounce-slow" style="animation-delay: 2s;"></div>
+            <div class="absolute top-20 left-10 w-32 h-32 bg-purple-400 rounded-full blur-3xl"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-purple-300 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-purple-500 rounded-full blur-3xl"></div>
         </div>
 
         <div class="relative z-10 flex items-center justify-center min-h-screen p-4 pt-24">
             <div class="w-full max-w-md">
                 <!-- Main Card -->
-                <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border-4 border-purple-200">
-                    <!-- Playful Logo Image -->
+                <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-purple-100">
+                    <!-- Logo Image -->
                     <div class="flex justify-center mb-6">
-                        <img src="images/playful-logo.png" alt="Playful Rewards Logo" class="logo-image animate-wiggle">
+                        <img src="images/playful-logo.png" alt="Playful Rewards Logo" class="logo-image">
                     </div>
 
-                    <!-- Fun Title -->
+                    <!-- Title -->
                     <div class="text-center mb-8">
-                        <h1 class="text-2xl font-bold gradient-text mb-3 leading-tight">
-                            🎮 Want to Earn Money Playing Games? 🎮
+                        <h1 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                            Want to Earn Money Playing Games?
                         </h1>
                         <div class="trust-indicator flex items-center justify-center gap-2 text-sm text-gray-600">
                             <span>Verified by</span>
                             <span class="font-bold text-purple-600">Playful Rewards</span>
-                            <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center animate-sparkle">
+                            <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center">
                                 <svg class="w-3 h-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -443,66 +310,52 @@
                     </div>
 
                     <!-- Earnings Display -->
-                    <div class="text-center mb-6 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-4 border-2 border-purple-200">
-                        <div class="text-3xl font-bold gradient-text mb-1">💰 Up to $500/month 💰</div>
-                        <div class="text-purple-600 font-medium text-sm flex items-center justify-center gap-1">
-                            <span class="emoji">🎯</span>
-                            <span>Playing Fun Games & Surveys</span>
-                            <span class="emoji">🎯</span>
-                        </div>
+                    <div class="text-center mb-6 bg-purple-50 rounded-2xl p-4 border border-purple-200">
+                        <div class="text-3xl font-bold text-purple-600 mb-1">Up to $500/month</div>
+                        <div class="text-purple-600 font-medium text-sm">Playing Fun Games & Surveys</div>
                     </div>
 
-                    <!-- Fun Steps -->
+                    <!-- Steps -->
                     <div class="space-y-5 mb-8">
                         <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                                 <span class="text-white text-sm font-bold">1</span>
                             </div>
-                            <span class="text-gray-700 font-medium pt-1">
-                                <span class="emoji">📱</span> Download the fun app
-                            </span>
+                            <span class="text-gray-700 font-medium pt-0.5">Download the app</span>
                         </div>
                         
                         <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                                 <span class="text-white text-sm font-bold">2</span>
                             </div>
-                            <span class="text-gray-700 font-medium pt-1">
-                                <span class="emoji">🎮</span> Play games & take surveys
-                            </span>
+                            <span class="text-gray-700 font-medium pt-0.5">Play games & take surveys</span>
                         </div>
                         
                         <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                                 <span class="text-white text-sm font-bold">3</span>
                             </div>
-                            <span class="text-gray-700 font-medium pt-1">
-                                <span class="emoji">🏆</span> Complete daily challenges
-                            </span>
+                            <span class="text-gray-700 font-medium pt-0.5">Complete daily challenges</span>
                         </div>
                         
                         <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                                 <span class="text-white text-sm font-bold">4</span>
                             </div>
-                            <span class="text-gray-700 font-medium pt-1">
-                                <span class="emoji">💸</span> Cash out your rewards
-                            </span>
+                            <span class="text-gray-700 font-medium pt-0.5">Cash out your rewards</span>
                         </div>
 
                         <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                                 <span class="text-white text-sm font-bold">5</span>
                             </div>
-                            <span class="text-gray-700 font-medium pt-1">
-                                <span class="emoji">🚀</span> Click "Start Playing" now!
-                            </span>
+                            <span class="text-gray-700 font-medium pt-0.5">Click "Start Playing" now!</span>
                         </div>
                     </div>
 
-                    <!-- Fun CTA Button -->
-                    <button id="playButton" class="w-full rainbow-button text-white font-bold py-5 px-6 rounded-2xl flex items-center justify-center gap-3 mb-6 text-lg shadow-lg border-2 border-white">
-                        <span id="buttonText">🎮 START PLAYING NOW! 🎮</span>
+                    <!-- CTA Button -->
+                    <button id="playButton" class="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-5 px-6 rounded-2xl flex items-center justify-center gap-3 mb-6 text-lg shadow-lg">
+                        <span id="buttonText">START PLAYING NOW</span>
                         <svg id="buttonArrow" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -511,51 +364,45 @@
                     <!-- Trust Indicators -->
                     <div class="text-center">
                         <div class="trust-indicator flex items-center justify-center gap-2 text-sm mb-2">
-                            <span class="font-bold text-gray-900">Loved by</span>
+                            <span class="font-bold text-gray-900">Trusted by</span>
                             <div class="star-rating flex gap-1">
-                                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 fill-purple-500 text-purple-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
-                                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 fill-purple-500 text-purple-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
-                                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 fill-purple-500 text-purple-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
-                                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 fill-purple-500 text-purple-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
-                                <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 fill-purple-500 text-purple-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
                             </div>
                             <span class="font-bold text-gray-900">500K+ players</span>
                         </div>
                         <div class="text-xs text-gray-500">
-                            <span class="emoji">🔒</span> Safe & Secure • <span class="emoji">🎉</span> 100% Free to Play
+                            Safe & Secure • 100% Free to Play
                         </div>
                     </div>
                 </div>
 
-                <!-- Fun Bottom Stats -->
+                <!-- Bottom Stats -->
                 <div class="mt-6 grid grid-cols-3 gap-4 text-center">
-                    <div class="stat-card bg-white/20 backdrop-blur-sm rounded-2xl p-4 border-2 border-white/30">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                         <div class="text-white font-bold text-lg">500K+</div>
-                        <div class="text-purple-100 text-xs">
-                            <span class="emoji">👥</span> Happy Players
-                        </div>
+                        <div class="text-purple-200 text-xs">Happy Players</div>
                     </div>
-                    <div class="stat-card bg-white/20 backdrop-blur-sm rounded-2xl p-4 border-2 border-white/30">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                         <div class="text-white font-bold text-lg">$2M+</div>
-                        <div class="text-purple-100 text-xs">
-                            <span class="emoji">💰</span> Paid Out
-                        </div>
+                        <div class="text-purple-200 text-xs">Paid Out</div>
                     </div>
-                    <div class="stat-card bg-white/20 backdrop-blur-sm rounded-2xl p-4 border-2 border-white/30">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                         <div class="text-white font-bold text-lg">4.8★</div>
-                        <div class="text-purple-100 text-xs">
-                            <span class="emoji">⭐</span> App Rating
-                        </div>
+                        <div class="text-purple-200 text-xs">App Rating</div>
                     </div>
                 </div>
             </div>
@@ -566,19 +413,19 @@
         // 🎯 REDIRECT CONFIGURATION - CHANGE THIS URL TO YOUR OFFER LINK
         const OFFER_URL = 'https://your-playful-rewards-offer-url.com';
         
-        // Fun testimonial data for playful rewards
+        // Testimonial data for playful rewards
         const testimonials = [
-            { name: 'Emma G.', amount: '$450/month', color: 'bg-purple-500', action: 'earning', emoji: '🎮' },
-            { name: 'Jake M.', amount: '$320/month', color: 'bg-pink-500', action: 'making', emoji: '🏆' },
-            { name: 'Sarah L.', amount: '$580/month', color: 'bg-blue-500', action: 'earned', emoji: '💰' },
-            { name: 'Alex R.', amount: '$410/month', color: 'bg-green-500', action: 'receiving', emoji: '🎯' },
-            { name: 'Maya T.', amount: '$350/month', color: 'bg-yellow-500', action: 'making', emoji: '🎪' },
-            { name: 'Chris P.', amount: '$520/month', color: 'bg-indigo-500', action: 'earning', emoji: '🚀' },
-            { name: 'Zoe W.', amount: '$390/month', color: 'bg-red-500', action: 'made', emoji: '🎊' },
-            { name: 'Ryan B.', amount: '$470/month', color: 'bg-teal-500', action: 'earning', emoji: '🎈' },
-            { name: 'Luna S.', amount: '$360/month', color: 'bg-orange-500', action: 'receiving', emoji: '🌟' },
-            { name: 'Max H.', amount: '$440/month', color: 'bg-cyan-500', action: 'made', emoji: '🎭' },
-            { name: 'Aria J.', amount: '$380/month', color: 'bg-lime-500', action: 'earning', emoji: '🎨' }
+            { name: 'Emma G.', amount: '$450/month', color: 'bg-purple-500', action: 'earning' },
+            { name: 'Jake M.', amount: '$320/month', color: 'bg-blue-500', action: 'making' },
+            { name: 'Sarah L.', amount: '$580/month', color: 'bg-green-500', action: 'earned' },
+            { name: 'Alex R.', amount: '$410/month', color: 'bg-pink-500', action: 'receiving' },
+            { name: 'Maya T.', amount: '$350/month', color: 'bg-yellow-500', action: 'making' },
+            { name: 'Chris P.', amount: '$520/month', color: 'bg-indigo-500', action: 'earning' },
+            { name: 'Zoe W.', amount: '$390/month', color: 'bg-red-500', action: 'made' },
+            { name: 'Ryan B.', amount: '$470/month', color: 'bg-teal-500', action: 'earning' },
+            { name: 'Luna S.', amount: '$360/month', color: 'bg-orange-500', action: 'receiving' },
+            { name: 'Max H.', amount: '$440/month', color: 'bg-cyan-500', action: 'made' },
+            { name: 'Aria J.', amount: '$380/month', color: 'bg-lime-500', action: 'earning' }
         ];
 
         let currentTestimonialIndex = 0;
@@ -588,12 +435,14 @@
 
         function createTestimonialPopup(testimonial) {
             const popup = document.createElement('div');
-            popup.className = 'testimonial-popup bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border-2 border-purple-200';
+            popup.className = 'testimonial-popup bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-purple-100';
             
             popup.innerHTML = `
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center notification-icon text-xl">
-                        ${testimonial.emoji}
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
                     </div>
                     <div class="text-sm">
                         <span class="font-bold text-purple-600">${testimonial.name}</span>
@@ -658,7 +507,7 @@
             
             // Add loading state
             button.classList.add('loading');
-            buttonText.textContent = '🎮 LOADING GAME... 🎮';
+            buttonText.textContent = 'LOADING...';
             buttonArrow.style.display = 'none';
             
             // Track the conversion with Meta Pixel
@@ -759,17 +608,6 @@
                 // Page is visible, resume testimonials
                 setTimeout(showNextTestimonial, 1000);
             }
-        });
-
-        // Add fun hover effects to emojis
-        document.querySelectorAll('.emoji').forEach(emoji => {
-            emoji.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.3) rotate(10deg)';
-            });
-            
-            emoji.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
         });
     </script>
 </body>
