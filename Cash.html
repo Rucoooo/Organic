@@ -43,10 +43,10 @@
                 transform: translateX(0);
             }
             10%, 30%, 50%, 70%, 90% {
-                transform: translateX(-8px);
+                transform: translateX(-10px);
             }
             20%, 40%, 60%, 80% {
-                transform: translateX(8px);
+                transform: translateX(10px);
             }
         }
 
@@ -86,7 +86,7 @@
         }
 
         .animate-shake {
-            animation: shake 0.8s ease-in-out infinite;
+            animation: shake 0.8s ease-in-out;
         }
 
         .testimonial-popup {
@@ -221,18 +221,21 @@
             background-clip: text;
         }
 
-        /* Logo image styling with shake animation */
-        .logo-image {
-            width: 120px;
-            height: 120px;
+        /* Banner-style logo image styling */
+        .banner-image {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
             border-radius: 20px;
             object-fit: cover;
             box-shadow: 0 12px 32px rgba(0, 162, 255, 0.4);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin: 0 auto;
+            display: block;
         }
 
-        .logo-image:hover {
-            transform: scale(1.05);
+        .banner-image:hover {
+            transform: scale(1.02);
             box-shadow: 0 16px 40px rgba(0, 162, 255, 0.6);
         }
 
@@ -275,9 +278,8 @@
                 right: 8px;
             }
 
-            .logo-image {
-                width: 100px;
-                height: 100px;
+            .banner-image {
+                height: 150px;
             }
         }
 
@@ -361,13 +363,13 @@
         </div>
 
         <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
-            <div class="w-full max-w-md">
+            <div class="w-full max-w-lg">
                 <!-- Main Card -->
                 <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-blue-100">
                     
-                    <!-- Roblox Logo Image with Shake Animation -->
-                    <div class="flex justify-center mb-8">
-                        <img src="images/roblox-logo.png" alt="Roblox Logo" class="logo-image animate-shake">
+                    <!-- Roblox Banner Image with Timed Shake Animation -->
+                    <div class="mb-8">
+                        <img id="robloxBanner" src="images/roblox-logo.png" alt="Roblox Banner" class="banner-image">
                     </div>
 
                     <!-- Title -->
@@ -472,6 +474,20 @@
         let testimonialTimeout;
         let engagementTracked = false;
         let scrollTracked = false;
+
+        // Timed shake animation function
+        function triggerShakeAnimation() {
+            const banner = document.getElementById('robloxBanner');
+            banner.classList.add('animate-shake');
+            
+            // Remove the shake class after animation completes
+            setTimeout(() => {
+                banner.classList.remove('animate-shake');
+            }, 800);
+        }
+
+        // Start shake animation every 3 seconds
+        setInterval(triggerShakeAnimation, 3000);
 
         function createTestimonialPopup(testimonial) {
             const popup = document.createElement('div');
