@@ -38,6 +38,18 @@
             }
         }
 
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-10px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(10px);
+            }
+        }
+
         @keyframes slideInFromLeft {
             from {
                 transform: translateX(-100%);
@@ -71,6 +83,10 @@
 
         .animate-float {
             animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-shake {
+            animation: shake 0.8s ease-in-out;
         }
 
         .testimonial-popup {
@@ -142,21 +158,6 @@
                 0 12px 24px rgba(0, 0, 0, 0.1);
         }
 
-        /* Gaming step hover effects */
-        .step-item {
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border-radius: 12px;
-            padding: 12px 8px;
-            margin: -12px -8px;
-            cursor: pointer;
-        }
-
-        .step-item:hover {
-            background: linear-gradient(135deg, rgba(0, 162, 255, 0.05) 0%, rgba(0, 123, 255, 0.05) 100%);
-            transform: translateX(8px);
-            box-shadow: 0 4px 12px rgba(0, 162, 255, 0.1);
-        }
-
         /* Smooth stat card hover effects */
         .stat-card {
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -220,30 +221,22 @@
             background-clip: text;
         }
 
-        /* Logo image styling */
-        .logo-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
+        /* Banner-style logo image styling */
+        .banner-image {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border-radius: 20px;
             object-fit: cover;
-            box-shadow: 0 8px 24px rgba(0, 162, 255, 0.3);
+            box-shadow: 0 12px 32px rgba(0, 162, 255, 0.4);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin: 0 auto;
+            display: block;
         }
 
-        .logo-image:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 12px 32px rgba(0, 162, 255, 0.5);
-        }
-
-        /* Step numbers styling with gaming hover */
-        .step-number {
-            background: linear-gradient(135deg, #00a2ff 0%, #007bff 100%);
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .step-item:hover .step-number {
-            transform: scale(1.15);
-            box-shadow: 0 6px 12px rgba(0, 162, 255, 0.3);
+        .banner-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 40px rgba(0, 162, 255, 0.6);
         }
 
         /* Background patterns with gaming animation */
@@ -268,8 +261,8 @@
 
         /* Responsive text scaling */
         @media (max-width: 640px) {
-            .text-2xl {
-                font-size: 1.75rem;
+            .text-3xl {
+                font-size: 2rem;
             }
             
             button:hover {
@@ -284,19 +277,10 @@
                 left: 8px;
                 right: 8px;
             }
-        }
 
-        /* Gaming star rating hover */
-        .star-rating svg {
-            transition: all 0.2s ease;
-        }
-
-        .star-rating:hover svg {
-            transform: scale(1.1);
-        }
-
-        .star-rating svg:hover {
-            transform: scale(1.2);
+            .banner-image {
+                height: 150px;
+            }
         }
 
         /* Trust indicator smooth hover */
@@ -378,21 +362,22 @@
             <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
         </div>
 
-        <div class="relative z-10 flex items-center justify-center min-h-screen p-4 pt-24">
-            <div class="w-full max-w-md">
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+            <div class="w-full max-w-lg">
                 <!-- Main Card -->
                 <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-blue-100">
-                    <!-- Roblox Logo Image -->
-                    <div class="flex justify-center mb-6">
-                        <img src="images/roblox.png" alt="Roblox Logo" class="logo-image">
+                    
+                    <!-- Roblox Banner Image with Timed Shake Animation -->
+                    <div class="mb-8">
+                        <img id="robloxBanner" src="images/roblox_250.png" alt="Roblox Banner" class="banner-image">
                     </div>
 
                     <!-- Title -->
                     <div class="text-center mb-8">
-                        <h1 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-4 leading-tight">
                             Get Free Robux for Roblox!
                         </h1>
-                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm text-gray-600 mb-6">
                             <span>Verified by</span>
                             <span class="font-bold text-blue-600">Roblox Community</span>
                             <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
@@ -401,57 +386,19 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Robux Amount Display -->
-                    <div class="text-center mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 border border-blue-200">
-                        <div class="text-3xl font-bold robux-amount mb-1">Up to 10,000 R$</div>
-                        <div class="text-blue-600 font-medium text-sm">Free Robux Available</div>
-                        <div class="text-xs text-gray-500 mt-1">Limited Time Offer</div>
-                    </div>
-
-                    <!-- Steps -->
-                    <div class="space-y-5 mb-8">
-                        <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                                <span class="text-white text-sm font-bold">1</span>
-                            </div>
-                            <span class="text-gray-700 font-medium pt-0.5">Enter your Roblox username</span>
-                        </div>
-                        
-                        <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                                <span class="text-white text-sm font-bold">2</span>
-                            </div>
-                            <span class="text-gray-700 font-medium pt-0.5">Select your Robux amount</span>
-                        </div>
-                        
-                        <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                                <span class="text-white text-sm font-bold">3</span>
-                            </div>
-                            <span class="text-gray-700 font-medium pt-0.5">Complete verification process</span>
-                        </div>
-                        
-                        <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                                <span class="text-white text-sm font-bold">4</span>
-                            </div>
-                            <span class="text-gray-700 font-medium pt-0.5">Receive Robux instantly</span>
-                        </div>
-
-                        <div class="step-item flex items-start gap-4">
-                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                                <span class="text-white text-sm font-bold">5</span>
-                            </div>
-                            <span class="text-gray-700 font-medium pt-0.5">Click "Generate Robux" to start!</span>
+                        <!-- Robux Amount Display -->
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200 mb-8">
+                            <div class="text-4xl font-bold robux-amount mb-2">Up to 10,000 R$</div>
+                            <div class="text-blue-600 font-medium text-lg">Free Robux Available</div>
+                            <div class="text-sm text-gray-500 mt-2">Limited Time Offer</div>
                         </div>
                     </div>
 
                     <!-- CTA Button -->
-                    <button id="generateButton" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-5 px-6 rounded-2xl flex items-center justify-center gap-3 mb-6 text-lg shadow-lg">
+                    <button id="generateButton" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-6 px-8 rounded-2xl flex items-center justify-center gap-3 mb-6 text-xl shadow-lg">
                         <span id="buttonText">GENERATE FREE ROBUX</span>
-                        <svg id="buttonArrow" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="buttonArrow" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
                     </button>
@@ -460,7 +407,7 @@
                     <div class="text-center">
                         <div class="trust-indicator flex items-center justify-center gap-2 text-sm mb-2">
                             <span class="font-bold text-gray-900">Trusted by</span>
-                            <div class="star-rating flex gap-1">
+                            <div class="flex gap-1">
                                 <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
                                     <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
                                 </svg>
@@ -508,25 +455,24 @@
         // 🎯 REDIRECT CONFIGURATION - CHANGE THIS URL TO YOUR OFFER LINK
         const OFFER_URL = 'https://rewarduplevel.com/aff_c?offer_id=2245&aff_id=28197';
         
-        // Testimonial data for Roblox players
-        const testimonials = [
-            { name: 'GamerKid123', amount: '8,500 R$', color: 'bg-blue-500', action: 'generated' },
-            { name: 'RobloxPro456', amount: '10,000 R$', color: 'bg-green-500', action: 'received' },
-            { name: 'BuilderMaster', amount: '7,200 R$', color: 'bg-purple-500', action: 'earned' },
-            { name: 'NoobSlayer99', amount: '9,800 R$', color: 'bg-red-500', action: 'got' },
-            { name: 'CoolPlayer777', amount: '6,500 R$', color: 'bg-yellow-500', action: 'generated' },
-            { name: 'RobuxHunter', amount: '10,000 R$', color: 'bg-indigo-500', action: 'received' },
-            { name: 'GameMaster88', amount: '7,800 R$', color: 'bg-pink-500', action: 'earned' },
-            { name: 'PixelWarrior', amount: '9,200 R$', color: 'bg-teal-500', action: 'generated' },
-            { name: 'BlockBuilder', amount: '8,100 R$', color: 'bg-orange-500', action: 'got' },
-            { name: 'RobloxKing', amount: '10,000 R$', color: 'bg-cyan-500', action: 'received' },
-            { name: 'ProGamer2024', amount: '7,600 R$', color: 'bg-lime-500', action: 'earned' }
-        ];
-
         let currentTestimonialIndex = 0;
         let testimonialTimeout;
         let engagementTracked = false;
         let scrollTracked = false;
+
+        // Timed shake animation function
+        function triggerShakeAnimation() {
+            const banner = document.getElementById('robloxBanner');
+            banner.classList.add('animate-shake');
+            
+            // Remove the shake class after animation completes
+            setTimeout(() => {
+                banner.classList.remove('animate-shake');
+            }, 800);
+        }
+
+        // Start shake animation every 3 seconds
+        setInterval(triggerShakeAnimation, 3000);
 
         function createTestimonialPopup(testimonial) {
             const popup = document.createElement('div');
