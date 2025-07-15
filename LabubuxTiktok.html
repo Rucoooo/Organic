@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>TikTok x Labubu Sweepstakes - Win Money to Buy Labubu!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tiktok-gradient {
+            background: linear-gradient(135deg, #000000 0%, #ff0050 30%, #00f2ea 70%, #000000 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .tiktok-card-gradient {
+            background: linear-gradient(135deg, #ff0050 0%, #00f2ea 50%, #8b5cf6 100%);
+        }
+        
+        .tiktok-pink {
+            background: linear-gradient(135deg, #ff0050 0%, #ff4081 100%);
+        }
+        
+        .tiktok-cyan {
+            background: linear-gradient(135deg, #00f2ea 0%, #25f4ee 100%);
+        }
+        
+        /* Mobile-first touch interactions */
+        .mobile-touch {
+            transition: all 0.15s ease-out;
+            transform-origin: center;
+            cursor: pointer;
+        }
+        
+        .mobile-touch:active {
+            transform: scale(0.96);
+        }
+        
+        .mobile-button-touch:active {
+            transform: scale(0.94) translateY(2px);
+        }
+        
+        /* TikTok-style animations optimized for mobile */
+        .tiktok-float {
+            animation: tiktokFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes tiktokFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        
+        .notification-slide {
+            animation: slideInOut 6s infinite;
+        }
+        
+        @keyframes slideInOut {
+            0%, 100% { transform: translateX(-100%); opacity: 0; }
+            15%, 85% { transform: translateX(0); opacity: 1; }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2.5s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.4);
+            }
+            50% { 
+                transform: scale(1.02); 
+                box-shadow: 0 0 0 15px rgba(255, 0, 80, 0);
+            }
+        }
+        
+        .success-bounce {
+            animation: successBounce 0.6s ease-out;
+        }
+        
+        @keyframes successBounce {
+            0% { opacity: 0; transform: translateY(30px) scale(0.8); }
+            60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Mobile loading spinner */
+        .mobile-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .mobile-loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 28px;
+            height: 28px;
+            margin: -14px 0 0 -14px;
+            border: 4px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: mobileSpinFast 0.8s linear infinite;
+        }
+
+        @keyframes mobileSpinFast {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile-optimized button */
+        .mobile-cta-button {
+            min-height: 72px;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(255, 0, 80, 0.4);
+            transition: all 0.2s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .mobile-cta-button:active::before {
+            left: 100%;
+        }
+
+        /* Mobile step cards */
+        .mobile-step-card {
+            padding: 24px 20px;
+            border-radius: 24px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease-out;
+            border: 3px solid transparent;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-step-card:active {
+            transform: scale(0.97);
+            border-color: #ff0050;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Mobile stats cards */
+        .mobile-stat-card {
+            padding: 28px 20px;
+            border-radius: 24px;
+            transition: all 0.2s ease-out;
+            border: 3px solid transparent;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-stat-card:active {
+            transform: scale(0.95);
+            border-color: #00f2ea;
+        }
+
+        /* Mobile notification bar */
+        .mobile-notification-bar {
+            padding: 20px 16px;
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        /* Mobile main prize card */
+        .mobile-prize-card {
+            margin: 24px 16px;
+            padding: 40px 28px;
+            border-radius: 32px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ff0050 0%, #00f2ea 50%, #8b5cf6 100%);
+        }
+
+        /* Mobile typography */
+        .mobile-hero-title {
+            font-size: 36px;
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .mobile-section-title {
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .mobile-card-title {
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .mobile-body-text {
+            font-size: 17px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .mobile-small-text {
+            font-size: 15px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Mobile step numbers */
+        .mobile-step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 900;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* TikTok logo gradient */
+        .tiktok-logo-text {
+            background: linear-gradient(45deg, #ff0050, #00f2ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        /* Mobile sweepstakes badge */
+        .mobile-sweepstakes-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4a);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-weight: 900;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Money animation */
+        .money-bounce {
+            animation: moneyBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes moneyBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-8px) rotate(5deg) scale(1.1); }
+            50% { transform: translateY(0px) rotate(0deg) scale(1); }
+            75% { transform: translateY(-4px) rotate(-3deg) scale(1.05); }
+        }
+
+        /* Prize progress bar */
+        .mobile-prize-progress {
+            height: 12px;
+            background: linear-gradient(90deg, #ffd700, #ffed4a, #ffd700);
+            border-radius: 6px;
+            animation: prizeShimmer 2s infinite;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes prizeShimmer {
+            0%, 100% { opacity: 1; transform: scaleX(1); }
+            50% { opacity: 0.8; transform: scaleX(0.98); }
+        }
+
+        /* Mobile safe areas */
+        .mobile-safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+
+        .mobile-safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        /* Prevent overscroll bounce */
+        body {
+            overscroll-behavior: none;
+        }
+
+        /* Optimize for mobile performance */
+        .mobile-optimized {
+            will-change: transform;
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+    </style>
+</head>
+<body class="tiktok-gradient mobile-safe-top mobile-safe-bottom">
+    <!-- Mobile Winner Notification Bar -->
+    <div class="mobile-notification-bar text-center text-white border-b border-pink-500/30">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+            <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-cyan-400 rounded-full flex items-center justify-center">
+                <span class="text-white text-lg font-bold">🎁</span>
+            </div>
+            <span class="font-bold text-pink-400">Jessica R.</span>
+            <span>just won</span>
+            <span class="font-bold text-cyan-400">$75</span>
+            <span>for Labubu!</span>
+        </div>
+    </div>
+
+    <div class="px-4 py-6">
+        <!-- Mobile Header Section -->
+        <div class="text-center mb-8">
+            <div class="mobile-sweepstakes-badge mb-6 mx-auto mobile-touch">
+                <span class="text-xl">🏆</span>
+                <span>OFFICIAL SWEEPSTAKES</span>
+            </div>
+            <h1 class="mobile-hero-title text-white mb-3">
+                <span class="tiktok-logo-text">TikTok</span> 
+                <span class="text-white">×</span> 
+                <span class="text-pink-400">Labubu</span>
+            </h1>
+            <p class="mobile-body-text text-gray-200 font-bold">Official Collaboration Event</p>
+        </div>
+
+        <!-- Mobile Main Prize Card -->
+        <div class="mobile-prize-card text-white text-center shadow-2xl mobile-touch tiktok-float mobile-optimized">
+            <div class="flex justify-center mb-8">
+                <div class="bg-white/20 p-8 rounded-full">
+                    <div class="text-5xl money-bounce">💰</div>
+                </div>
+            </div>
+            <h2 class="mobile-card-title mb-4">WIN MONEY TO BUY</h2>
+            <h3 class="text-4xl font-black mb-4">LABUBU TOYS</h3>
+            <div class="text-2xl font-bold mb-6">
+                <span class="text-yellow-400">Up to $100</span>
+                <span class="text-gray-200"> Shopping Credit</span>
+            </div>
+            <div class="mobile-prize-progress w-full mb-6"></div>
+            <p class="mobile-body-text opacity-90">Complete deals • Win money • Buy Labubu!</p>
+        </div>
+
+        <!-- Mobile How It Works -->
+        <div class="text-center mb-10">
+            <h2 class="mobile-section-title text-white mb-8">
+                How to Win Money 💸
+            </h2>
+            <div class="flex items-center justify-center gap-3 mobile-body-text text-gray-200 flex-wrap mb-8">
+                <span>Verified by</span>
+                <span class="font-bold text-pink-400">TikTok Shop</span>
+                <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Mobile Steps -->
+        <div class="space-y-5 mb-10">
+            <div class="mobile-step-card mobile-touch flex items-center gap-5">
+                <div class="mobile-step-number tiktok-pink text-white">1</div>
+                <div class="flex-1">
+                    <span class="mobile-body-text text-gray-800 font-bold">Enter the Sweepstakes</span>
+                    <p class="mobile-small-text text-gray-600 mt-2">Click below to start your entry</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step-card mobile-touch flex items-center gap-5">
+                <div class="mobile-step-number tiktok-cyan text-white">2</div>
+                <div class="flex-1">
+                    <span class="mobile-body-text text-gray-800 font-bold">Complete Recommended Deals</span>
+                    <p class="mobile-small-text text-gray-600 mt-2">Browse and complete partner offers</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step-card mobile-touch flex items-center gap-5">
+                <div class="mobile-step-number bg-gradient-to-r from-purple-500 to-pink-500 text-white">3</div>
+                <div class="flex-1">
+                    <span class="mobile-body-text text-gray-800 font-bold">Earn Entries for Each Deal</span>
+                    <p class="mobile-small-text text-gray-600 mt-2">More deals = more chances to win</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step-card mobile-touch flex items-center gap-5">
+                <div class="mobile-step-number bg-gradient-to-r from-yellow-500 to-orange-500 text-white">4</div>
+                <div class="flex-1">
+                    <span class="mobile-body-text text-gray-800 font-bold">Win Money for Labubu!</span>
+                    <p class="mobile-small-text text-gray-600 mt-2">Get $25-$100 to spend on Labubu toys</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile CTA Button -->
+        <button
+            id="claimButton"
+            class="w-full mobile-cta-button tiktok-pink text-white mb-10 pulse-glow mobile-button-touch mobile-optimized"
+        >
+            <div class="flex items-center justify-center gap-4">
+                <span class="text-3xl">🎯</span>
+                <span id="buttonText">ENTER SWEEPSTAKES NOW</span>
+                <span class="text-3xl">💰</span>
+            </div>
+        </button>
+
+        <!-- Mobile Success Message -->
+        <div id="successMessage" class="hidden bg-green-900/90 border-2 border-green-400 text-green-200 px-8 py-6 rounded-3xl mb-10 success-bounce backdrop-blur-sm">
+            <div class="flex items-center gap-4">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="mobile-body-text font-bold">Entry Submitted! Redirecting to deals...</span>
+            </div>
+        </div>
+
+        <!-- Mobile Prize Tiers -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-8 mb-10 border-2 border-white/30">
+            <h3 class="mobile-card-title text-gray-800 mb-6 text-center">💎 Prize Tiers</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center py-2">
+                    <span class="mobile-body-text text-gray-700">🥇 Grand Prize</span>
+                    <span class="text-yellow-500 font-black text-lg">$100 Labubu Credit</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                    <span class="mobile-body-text text-gray-700">🥈 Second Prize</span>
+                    <span class="text-gray-600 font-black text-lg">$50 Labubu Credit</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                    <span class="mobile-body-text text-gray-700">🥉 Third Prize</span>
+                    <span class="text-orange-500 font-black text-lg">$25 Labubu Credit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Trust Stats -->
+        <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="mobile-stat-card mobile-touch text-center">
+                <div class="text-3xl font-black text-pink-500 mb-3">25k+</div>
+                <div class="mobile-small-text text-gray-700 font-bold">Active Players</div>
+            </div>
+            <div class="mobile-stat-card mobile-touch text-center">
+                <div class="text-3xl font-black text-cyan-500 mb-3">$50k+</div>
+                <div class="mobile-small-text text-gray-700 font-bold">Prizes Awarded</div>
+            </div>
+            <div class="mobile-stat-card mobile-touch text-center">
+                <div class="text-3xl font-black text-yellow-500 mb-3">4.8★</div>
+                <div class="mobile-small-text text-gray-700 font-bold">User Rating</div>
+            </div>
+        </div>
+
+        <!-- Mobile Footer -->
+        <div class="text-center mobile-small-text text-gray-300 space-y-3 pb-8">
+            <p class="font-bold text-lg">🎮 Official TikTok x Labubu Collaboration</p>
+            <p class="font-semibold">No purchase necessary • Must be 18+ to enter</p>
+            <p>Terms & Conditions • Privacy Policy</p>
+        </div>
+    </div>
+
+    <script>
+        // 🎯 REDIRECT CONFIGURATION
+        const REDIRECT_URL = 'https://rewarduplevel.com/aff_c?offer_id=303&aff_id=20395';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const claimButton = document.getElementById('claimButton');
+            const successMessage = document.getElementById('successMessage');
+            const buttonText = document.getElementById('buttonText');
+
+            function handleButtonClick() {
+                console.log('Mobile sweepstakes entry clicked!');
+                
+                if (claimButton.disabled) return;
+                
+                // Mobile loading state
+                claimButton.disabled = true;
+                claimButton.classList.add('mobile-loading');
+                buttonText.textContent = 'ENTERING...';
+                
+                // Show success with mobile animation
+                successMessage.classList.remove('hidden');
+                
+                // Mobile haptic feedback
+                if (navigator.vibrate) {
+                    navigator.vibrate([100, 50, 100]);
+                }
+                
+                console.log('Mobile redirect to:', REDIRECT_URL);
+                
+                // Immediate redirect optimized for mobile
+                window.location.href = REDIRECT_URL;
+            }
+
+            // Mobile-optimized event listeners
+            claimButton.addEventListener('click', handleButtonClick);
+            claimButton.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                handleButtonClick();
+            });
+
+            // Mobile winner notifications
+            const winners = [
+                { name: 'Jessica R.', amount: '$75' },
+                { name: 'Mike T.', amount: '$50' },
+                { name: 'Sarah L.', amount: '$100' },
+                { name: 'David K.', amount: '$25' },
+                { name: 'Emma W.', amount: '$75' },
+                { name: 'Alex M.', amount: '$50' },
+                { name: 'Lisa P.', amount: '$100' },
+                { name: 'Ryan J.', amount: '$25' }
+            ];
+            
+            const headerNotification = document.querySelector('.mobile-notification-bar');
+            
+            function updateMobileWinnerNotification() {
+                const randomWinner = winners[Math.floor(Math.random() * winners.length)];
+                const nameElement = headerNotification.querySelector('.font-bold.text-pink-400');
+                const amountElement = headerNotification.querySelector('.font-bold.text-cyan-400');
+                
+                if (nameElement && amountElement) {
+                    nameElement.textContent = randomWinner.name;
+                    amountElement.textContent = randomWinner.amount;
+                }
+            }
+
+            // Update every 5 seconds for mobile
+            setInterval(updateMobileWinnerNotification, 5000);
+
+            // Mobile-specific optimizations
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.addEventListener('selectstart', e => e.preventDefault());
+
+            // Mobile touch feedback
+            const touchElements = document.querySelectorAll('.mobile-touch');
+            touchElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.96)';
+                }, { passive: true });
+                
+                element.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                }, { passive: true });
+            });
+
+            console.log('Mobile TikTok x Labubu sweepstakes loaded!');
+        });
+
+        // Prevent mobile zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+
+        // Mobile performance optimization
+        window.addEventListener('load', function() {
+            // Preload redirect domain
+            const link = document.createElement('link');
+            link.rel = 'dns-prefetch';
+            link.href = '//rewarrdsgiant.com';
+            document.head.appendChild(link);
+            
+            console.log('Mobile resources optimized and loaded!');
+        });
+    </script>
+</body>
+</html>
