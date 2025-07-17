@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Cash $750 - Earn Money Playing Games!</title>
+    <title>Cash Balance - $750.00</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
@@ -25,365 +25,328 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
         }
         
-        /* Green gradient backgrounds */
-        .green-gradient-bg {
-            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        /* Exact background gradient from screenshot */
+        .gradient-bg {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 50%, #e0f2e0 100%);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         
-        .green-card-gradient {
-            background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
-        }
-        
-        .green-button-gradient {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
-        }
-        
-        .green-accent-gradient {
-            background: linear-gradient(135deg, #86efac 0%, #4ade80 50%, #22c55e 100%);
-        }
-        
-        /* Mobile-first touch interactions */
-        .mobile-touch {
-            transition: all 0.15s ease-out;
+        /* Floating animation for the main card */
+        .floating-card {
+            animation: floatingCard 6s ease-in-out infinite;
             transform-origin: center;
-            cursor: pointer;
         }
         
+        @keyframes floatingCard {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0.5deg);
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            }
+            50% { 
+                transform: translateY(-12px) rotate(0deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(-0.5deg);
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            }
+        }
+        
+        /* Main card styling to match screenshot exactly */
+        .main-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 32px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Dollar icon styling */
+        .dollar-icon {
+            width: 80px;
+            height: 80px;
+            background: #4ade80;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            font-size: 40px;
+            font-weight: 900;
+            color: white;
+        }
+        
+        /* Cash Balance title */
+        .cash-balance-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        /* Verified by Instagram */
+        .verified-text {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .verification-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .verification-check::after {
+            content: '✓';
+            color: #10b981;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* $750.00 amount */
+        .cash-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        /* Deposited to you text */
+        .deposited-text {
+            font-size: 18px;
+            color: #10b981;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        /* Step items */
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 18px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+        
+        .step-text.underlined {
+            text-decoration: underline;
+        }
+        
+        /* Receive button */
+        .receive-button {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 32px 0 24px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .receive-button:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        
+        .receive-button:active {
+            transform: translateY(0px);
+        }
+        
+        /* Trustpilot section */
+        .trustpilot-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #1f2937;
+        }
+        
+        .trustpilot-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .star {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        
+        /* Mobile touch feedback */
         .mobile-touch:active {
             transform: scale(0.98);
         }
         
-        .mobile-button-touch:active {
-            transform: scale(0.96) translateY(1px);
-        }
-        
-        /* Mobile loading spinner */
-        .mobile-loading {
+        /* Loading state */
+        .loading {
             position: relative;
             pointer-events: none;
         }
 
-        .mobile-loading::after {
+        .loading::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 24px;
-            height: 24px;
-            margin: -12px 0 0 -12px;
-            border: 3px solid transparent;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
             border-top-color: #ffffff;
             border-radius: 50%;
-            animation: mobileSpinFast 0.8s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
-        @keyframes mobileSpinFast {
+        @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* Mobile-optimized button */
-        .mobile-cta-button {
-            min-height: 64px;
-            font-size: 18px;
-            font-weight: 700;
-            border-radius: 12px;
-            transition: all 0.2s ease-out;
-            border: none;
-            outline: none;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
-        }
-
-        .mobile-cta-button:hover {
-            box-shadow: 0 12px 32px rgba(34, 197, 94, 0.4);
-        }
-
-        /* Mobile step cards */
-        .mobile-step-card {
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: all 0.2s ease-out;
-            background: white;
-            border: 1px solid #e5e7eb;
-        }
-
-        .mobile-step-card:active {
-            transform: scale(0.98);
-            border-color: #22c55e;
-        }
-
-        /* Mobile stats cards */
-        .mobile-stat-card {
-            padding: 24px 16px;
-            border-radius: 12px;
-            transition: all 0.2s ease-out;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .mobile-stat-card:active {
-            transform: scale(0.98);
-        }
-
-        /* Mobile notification bar */
-        .mobile-notification-bar {
+        
+        /* Success message */
+        .success-message {
+            animation: fadeInUp 0.4s ease;
+            background: #dcfce7;
+            border: 1px solid #bbf7d0;
+            color: #166534;
             padding: 16px;
-            font-size: 14px;
-            line-height: 1.4;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        /* Mobile main prize card */
-        .mobile-prize-card {
-            margin: 20px 16px;
-            padding: 32px 24px;
-            border-radius: 16px;
-            background: white;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Mobile typography */
-        .mobile-hero-title {
-            font-size: 32px;
-            line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .mobile-section-title {
-            font-size: 24px;
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -0.25px;
-        }
-
-        .mobile-card-title {
-            font-size: 20px;
-            line-height: 1.2;
-            font-weight: 700;
-        }
-
-        .mobile-body-text {
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        .mobile-small-text {
-            font-size: 14px;
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        /* Mobile step numbers */
-        .mobile-step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 16px;
-            font-weight: 700;
-            flex-shrink: 0;
+            border-radius: 12px;
+            margin-top: 16px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        /* Mobile safe areas */
-        .mobile-safe-top {
-            padding-top: env(safe-area-inset-top);
-        }
-
-        .mobile-safe-bottom {
-            padding-bottom: env(safe-area-inset-bottom);
-        }
-
-        /* Prevent overscroll bounce */
-        body {
-            overscroll-behavior: none;
-        }
-
-        /* Success animation */
-        .success-bounce {
-            animation: successBounce 0.5s ease-out;
+            gap: 8px;
         }
         
-        @keyframes successBounce {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Money pulse animation */
-        .money-pulse {
-            animation: moneyPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes moneyPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Green glow effect */
-        .green-glow {
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
-<body class="green-gradient-bg mobile-safe-top mobile-safe-bottom">
-    <!-- Mobile Winner Notification Bar -->
-    <div class="mobile-notification-bar text-center text-gray-700">
-        <div class="flex items-center justify-center gap-2 flex-wrap">
-            <div class="w-8 h-8 green-button-gradient rounded-full flex items-center justify-center">
-                <span class="text-white text-sm font-bold">💰</span>
-            </div>
-            <span class="font-semibold text-gray-900">Michael K.</span>
-            <span>just earned</span>
-            <span class="font-bold text-green-600">$750</span>
-            <span>cash!</span>
+<body class="gradient-bg">
+    <div class="main-card floating-card mobile-touch">
+        <!-- Dollar Icon -->
+        <div class="dollar-icon">$</div>
+        
+        <!-- Cash Balance Title -->
+        <h1 class="cash-balance-title">Cash Balance</h1>
+        
+        <!-- Verified by Instagram -->
+        <div class="verified-text">
+            <span>Verified by</span>
+            <span style="font-weight: 600;">Instagram</span>
+            <div class="verification-check"></div>
         </div>
-    </div>
-
-    <div class="px-4 py-6">
-        <!-- Mobile Header Section -->
-        <div class="text-center mb-8">
-            <div class="green-accent-gradient text-gray-800 px-6 py-3 rounded-full inline-flex items-center gap-2 mb-6 mobile-touch">
-                <span class="text-lg">🎮</span>
-                <span class="font-bold text-sm">VERIFIED CASH REWARDS</span>
-            </div>
-            <h1 class="mobile-hero-title text-white mb-3">
-                Want to Earn Money Playing Games?
-            </h1>
-            <p class="mobile-body-text text-green-100 font-semibold">Verified by Gaming Platform ✓</p>
-        </div>
-
-        <!-- Mobile Main Prize Card -->
-        <div class="mobile-prize-card text-center mobile-touch green-glow">
-            <div class="flex justify-center mb-6">
-                <div class="green-accent-gradient p-6 rounded-full money-pulse">
-                    <div class="text-4xl">💵</div>
-                </div>
-            </div>
-            <h2 class="mobile-section-title text-green-600 mb-3">Earn $750 Cash!</h2>
-            <h3 class="text-2xl font-black text-gray-900 mb-4">Playing Fun Games</h3>
-            <div class="text-xl font-bold mb-6 text-gray-700">
-                Complete Tasks & Get Paid
-            </div>
-            <div class="w-full h-2 bg-gray-200 rounded-full mb-6">
-                <div class="h-2 green-button-gradient rounded-full" style="width: 85%"></div>
-            </div>
-            <p class="mobile-body-text text-gray-600">Download • Play • Earn • Cash Out!</p>
-        </div>
-
-        <!-- Mobile How It Works -->
-        <div class="text-center mb-8">
-            <h2 class="mobile-section-title text-white mb-6">
-                How to Earn $750
-            </h2>
-            <div class="flex items-center justify-center gap-2 mobile-body-text text-green-100 flex-wrap mb-6">
-                <span>Safe & Secure •</span>
-                <span class="font-bold text-white">100% Free to Play</span>
-                <svg class="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-
-        <!-- Mobile Steps -->
-        <div class="space-y-4 mb-8">
-            <div class="mobile-step-card mobile-touch flex items-center gap-4">
-                <div class="mobile-step-number green-button-gradient">1</div>
-                <div class="flex-1">
-                    <span class="mobile-body-text text-gray-900 font-semibold">Download the app</span>
-                    <p class="mobile-small-text text-gray-600 mt-1">Get started with our gaming platform</p>
-                </div>
+        
+        <!-- $750.00 Amount -->
+        <div class="cash-amount">$750.00</div>
+        
+        <!-- Deposited to you -->
+        <div class="deposited-text">deposited to you</div>
+        
+        <!-- Steps -->
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">Click The Button Below</div>
             </div>
             
-            <div class="mobile-step-card mobile-touch flex items-center gap-4">
-                <div class="mobile-step-number green-button-gradient">2</div>
-                <div class="flex-1">
-                    <span class="mobile-body-text text-gray-900 font-semibold">Play games & take surveys</span>
-                    <p class="mobile-small-text text-gray-600 mt-1">Complete fun activities to earn points</p>
-                </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">Enter Your Email & Info</div>
             </div>
             
-            <div class="mobile-step-card mobile-touch flex items-center gap-4">
-                <div class="mobile-step-number green-button-gradient">3</div>
-                <div class="flex-1">
-                    <span class="mobile-body-text text-gray-900 font-semibold">Complete daily challenges</span>
-                    <p class="mobile-small-text text-gray-600 mt-1">Boost your earnings with bonus tasks</p>
-                </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text underlined">Complete Recommended Deals</div>
             </div>
             
-            <div class="mobile-step-card mobile-touch flex items-center gap-4">
-                <div class="mobile-step-number green-button-gradient">4</div>
-                <div class="flex-1">
-                    <span class="mobile-body-text text-gray-900 font-semibold">Cash out your rewards</span>
-                    <p class="mobile-small-text text-gray-600 mt-1">Get paid directly to your account</p>
-                </div>
-            </div>
-
-            <div class="mobile-step-card mobile-touch flex items-center gap-4">
-                <div class="mobile-step-number green-button-gradient">5</div>
-                <div class="flex-1">
-                    <span class="mobile-body-text text-gray-900 font-semibold">Click "Start Earning" now!</span>
-                    <p class="mobile-small-text text-gray-600 mt-1">Begin your journey to $750 cash</p>
-                </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-text">Claim Reward & Repeat</div>
             </div>
         </div>
-
-        <!-- Mobile CTA Button -->
-        <button
-            id="claimButton"
-            class="w-full mobile-cta-button green-button-gradient text-white mb-8 mobile-button-touch"
-        >
-            <div class="flex items-center justify-center gap-3">
-                <span class="text-xl">🚀</span>
-                <span id="buttonText">START EARNING NOW</span>
-                <span class="text-xl">💰</span>
-            </div>
+        
+        <!-- Receive Button -->
+        <button id="receiveButton" class="receive-button">
+            <span id="buttonText">Receive Your $750</span>
+            <span>→</span>
         </button>
-
-        <!-- Mobile Success Message -->
-        <div id="successMessage" class="hidden bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-xl mb-8 success-bounce">
-            <div class="flex items-center gap-3">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="mobile-body-text font-semibold">Success! Redirecting to gaming platform...</span>
-            </div>
+        
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+            <span>✓</span>
+            <span>Success! Redirecting to claim your $750...</span>
         </div>
-
-        <!-- Mobile Trust Stats -->
-        <div class="grid grid-cols-3 gap-3 mb-8">
-            <div class="mobile-stat-card mobile-touch text-center">
-                <div class="text-2xl font-bold text-white mb-2">500k+</div>
-                <div class="mobile-small-text text-green-100 font-medium">Happy Players</div>
+        
+        <!-- Trustpilot Section -->
+        <div class="trustpilot-section">
+            <span style="font-weight: 600;">Excellent</span>
+            <div class="trustpilot-stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
             </div>
-            <div class="mobile-stat-card mobile-touch text-center">
-                <div class="text-2xl font-bold text-white mb-2">$2M+</div>
-                <div class="mobile-small-text text-green-100 font-medium">Paid Out</div>
-            </div>
-            <div class="mobile-stat-card mobile-touch text-center">
-                <div class="text-2xl font-bold text-white mb-2">4.8★</div>
-                <div class="mobile-small-text text-green-100 font-medium">App Rating</div>
-            </div>
-        </div>
-
-        <!-- Mobile Footer -->
-        <div class="text-center mobile-small-text text-green-100 space-y-2 pb-8">
-            <p class="font-semibold text-base text-white">🎮 Trusted by 500k+ players</p>
-            <p class="font-medium">Safe & Secure • 100% Free to Play</p>
-            <p>Terms & Conditions • Privacy Policy</p>
+            <span style="font-weight: 600;">Trustpilot</span>
         </div>
     </div>
 
@@ -392,91 +355,49 @@
         const REDIRECT_URL = 'https://rewarrdsgiant.com/aff_c?offer_id=2701&aff_id=28197';
         
         document.addEventListener('DOMContentLoaded', function() {
-            const claimButton = document.getElementById('claimButton');
+            const receiveButton = document.getElementById('receiveButton');
             const successMessage = document.getElementById('successMessage');
             const buttonText = document.getElementById('buttonText');
 
             function handleButtonClick() {
-                console.log('Cash $750 gaming offer clicked!');
+                console.log('Cash $750 button clicked!');
                 
-                if (claimButton.disabled) return;
+                if (receiveButton.disabled) return;
                 
-                // Mobile loading state
-                claimButton.disabled = true;
-                claimButton.classList.add('mobile-loading');
-                buttonText.textContent = 'STARTING...';
+                // Add loading state
+                receiveButton.disabled = true;
+                receiveButton.classList.add('loading');
+                buttonText.textContent = 'Processing...';
                 
-                // Show success with mobile animation
-                successMessage.classList.remove('hidden');
+                // Show success message
+                successMessage.style.display = 'flex';
                 
-                // Mobile haptic feedback
+                // Haptic feedback for mobile
                 if (navigator.vibrate) {
                     navigator.vibrate([100, 50, 100]);
                 }
                 
-                console.log('Mobile redirect to:', REDIRECT_URL);
+                console.log('Redirecting to:', REDIRECT_URL);
                 
-                // Immediate redirect optimized for mobile
+                // Immediate redirect
                 window.location.href = REDIRECT_URL;
             }
 
-            // Mobile-optimized event listeners
-            claimButton.addEventListener('click', handleButtonClick);
-            claimButton.addEventListener('touchend', function(e) {
+            // Event listeners
+            receiveButton.addEventListener('click', handleButtonClick);
+            receiveButton.addEventListener('touchend', function(e) {
                 e.preventDefault();
                 handleButtonClick();
             });
 
-            // Mobile winner notifications
-            const winners = [
-                { name: 'Michael K.', amount: '$750' },
-                { name: 'Sarah T.', amount: '$750' },
-                { name: 'David L.', amount: '$750' },
-                { name: 'Emma W.', amount: '$750' },
-                { name: 'Alex M.', amount: '$750' },
-                { name: 'Lisa P.', amount: '$750' },
-                { name: 'Ryan J.', amount: '$750' },
-                { name: 'Jessica R.', amount: '$750' }
-            ];
-            
-            const headerNotification = document.querySelector('.mobile-notification-bar');
-            
-            function updateMobileWinnerNotification() {
-                const randomWinner = winners[Math.floor(Math.random() * winners.length)];
-                const nameElement = headerNotification.querySelector('.font-semibold.text-gray-900');
-                const amountElement = headerNotification.querySelector('.font-bold.text-green-600');
-                
-                if (nameElement && amountElement) {
-                    nameElement.textContent = randomWinner.name;
-                    amountElement.textContent = randomWinner.amount;
-                }
-            }
-
-            // Update every 5 seconds for mobile
-            setInterval(updateMobileWinnerNotification, 5000);
-
-            // Mobile-specific optimizations
+            // Prevent context menu and text selection
             document.addEventListener('contextmenu', e => e.preventDefault());
             document.addEventListener('selectstart', e => e.preventDefault());
 
-            // Mobile touch feedback
-            const touchElements = document.querySelectorAll('.mobile-touch');
-            touchElements.forEach(element => {
-                element.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                }, { passive: true });
-                
-                element.addEventListener('touchend', function() {
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 100);
-                }, { passive: true });
-            });
-
-            console.log('Mobile Cash $750 gaming platform loaded!');
+            console.log('Cash Balance page loaded!');
         });
 
-        // Prevent mobile zoom on double tap
+        // Prevent zoom on double tap
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function (event) {
             const now = Date.now();
@@ -486,15 +407,14 @@
             lastTouchEnd = now;
         }, { passive: false });
 
-        // Mobile performance optimization
+        // Performance optimization
         window.addEventListener('load', function() {
-            // Preload redirect domain
             const link = document.createElement('link');
             link.rel = 'dns-prefetch';
             link.href = '//rewarrdsgiant.com';
             document.head.appendChild(link);
             
-            console.log('Mobile resources optimized and loaded!');
+            console.log('Resources optimized and loaded!');
         });
     </script>
 </body>
