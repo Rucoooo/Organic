@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Cash Balance - $750.00</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Exact background gradient from screenshot */
+        .gradient-bg {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 50%, #e0f2e0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        /* Floating animation for the main card */
+        .floating-card {
+            animation: floatingCard 6s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes floatingCard {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0.5deg);
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            }
+            50% { 
+                transform: translateY(-12px) rotate(0deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(-0.5deg);
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            }
+        }
+        
+        /* Main card styling to match screenshot exactly */
+        .main-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 32px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Dollar icon styling */
+        .dollar-icon {
+            width: 80px;
+            height: 80px;
+            background: #4ade80;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            font-size: 40px;
+            font-weight: 900;
+            color: white;
+        }
+        
+        /* Cash Balance title */
+        .cash-balance-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        /* Verified by Instagram */
+        .verified-text {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .verification-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .verification-check::after {
+            content: '✓';
+            color: #10b981;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* $750.00 amount */
+        .cash-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        /* Deposited to you text */
+        .deposited-text {
+            font-size: 18px;
+            color: #10b981;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        /* Step items */
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 18px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+        
+        .step-text.underlined {
+            text-decoration: underline;
+        }
+        
+        /* Receive button */
+        .receive-button {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 32px 0 24px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .receive-button:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        
+        .receive-button:active {
+            transform: translateY(0px);
+        }
+        
+        /* Trustpilot section */
+        .trustpilot-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #1f2937;
+        }
+        
+        .trustpilot-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .star {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        
+        /* Mobile touch feedback */
+        .mobile-touch:active {
+            transform: scale(0.98);
+        }
+        
+        /* Loading state */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Success message */
+        .success-message {
+            animation: fadeInUp 0.4s ease;
+            background: #dcfce7;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <div class="main-card floating-card mobile-touch">
+        <!-- Dollar Icon -->
+        <div class="dollar-icon">$</div>
+        
+        <!-- Cash Balance Title -->
+        <h1 class="cash-balance-title">Cash Balance</h1>
+        
+        <!-- Verified by Instagram -->
+        <div class="verified-text">
+            <span>Verified by</span>
+            <span style="font-weight: 600;">TikTok</span>
+            <div class="verification-check"></div>
+        </div>
+        
+        <!-- $750.00 Amount -->
+        <div class="cash-amount">$750.00</div>
+        
+        <!-- Deposited to you -->
+        <div class="deposited-text">deposited to you</div>
+        
+        <!-- Steps -->
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">Click The Button Below</div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">Enter Your Email & Info</div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text underlined">Complete Recommended Deals</div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-text">Claim Reward & Repeat</div>
+            </div>
+        </div>
+        
+        <!-- Receive Button -->
+        <button id="receiveButton" class="receive-button">
+            <span id="buttonText">Receive Your $750</span>
+            <span>→</span>
+        </button>
+        
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+            <span>✓</span>
+            <span>Success! Redirecting to claim your $750...</span>
+        </div>
+        
+        <!-- Trustpilot Section -->
+        <div class="trustpilot-section">
+            <span style="font-weight: 600;">Excellent</span>
+            <div class="trustpilot-stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+            <span style="font-weight: 600;">Trustpilot</span>
+        </div>
+    </div>
+
+    <script>
+        // 🎯 REDIRECT CONFIGURATION
+        const REDIRECT_URL = 'https://rewarduplevel.com/aff_c?offer_id=1145&aff_id=20395';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const receiveButton = document.getElementById('receiveButton');
+            const successMessage = document.getElementById('successMessage');
+            const buttonText = document.getElementById('buttonText');
+
+            function handleButtonClick() {
+                console.log('Cash $750 button clicked!');
+                
+                if (receiveButton.disabled) return;
+                
+                // Add loading state
+                receiveButton.disabled = true;
+                receiveButton.classList.add('loading');
+                buttonText.textContent = 'Processing...';
+                
+                // Show success message
+                successMessage.style.display = 'flex';
+                
+                // Haptic feedback for mobile
+                if (navigator.vibrate) {
+                    navigator.vibrate([100, 50, 100]);
+                }
+                
+                console.log('Redirecting to:', REDIRECT_URL);
+                
+                // Immediate redirect
+                window.location.href = REDIRECT_URL;
+            }
+
+            // Event listeners
+            receiveButton.addEventListener('click', handleButtonClick);
+            receiveButton.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                handleButtonClick();
+            });
+
+            // Prevent context menu and text selection
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.addEventListener('selectstart', e => e.preventDefault());
+
+            console.log('Cash Balance page loaded!');
+        });
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+
+        // Performance optimization
+        window.addEventListener('load', function() {
+            const link = document.createElement('link');
+            link.rel = 'dns-prefetch';
+            link.href = '//rewarrdsgiant.com';
+            document.head.appendChild(link);
+            
+            console.log('Resources optimized and loaded!');
+        });
+    </script>
+</body>
+</html>
