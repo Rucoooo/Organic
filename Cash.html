@@ -2,419 +2,409 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Cash Balance - $750.00</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTERUP - How It Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
         * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            height: 100%;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        
-        /* Exact background gradient from screenshot */
-        .gradient-bg {
-            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 50%, #e0f2e0 100%);
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
+            background: radial-gradient(ellipse at center, #2a1f3d 0%, #1a1625 50%, #0f0b14 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 1rem;
         }
-        
-        /* Floating animation for the main card */
-        .floating-card {
-            animation: floatingCard 6s ease-in-out infinite;
-            transform-origin: center;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
         }
-        
-        @keyframes floatingCard {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            }
-            25% { 
-                transform: translateY(-8px) rotate(0.5deg);
-                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-            }
-            50% { 
-                transform: translateY(-12px) rotate(0deg);
-                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-            }
-            75% { 
-                transform: translateY(-8px) rotate(-0.5deg);
-                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-            }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
-        
-        /* Main card styling to match screenshot exactly */
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff4757 0%, #ff3742 50%, #e84393 100%);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.4);
+        }
+
+        .logo-icon svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: white;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
         .main-card {
-            background: white;
-            border-radius: 24px;
-            padding: 40px 32px;
             width: 100%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
+            max-width: 28rem;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(145deg, #1e2139 0%, #161829 50%, #0f1419 100%);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(107, 114, 128, 0.5);
         }
-        
-        /* Dollar icon styling */
-        .dollar-icon {
-            width: 80px;
-            height: 80px;
-            background: #4ade80;
-            border-radius: 20px;
+
+        .header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px auto;
-            font-size: 40px;
-            font-weight: 900;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h2 {
             color: white;
-        }
-        
-        /* Cash Balance title */
-        .cash-balance-title {
-            font-size: 28px;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 8px;
         }
-        
-        /* Verified by Instagram */
-        .verified-text {
-            font-size: 16px;
-            color: #6b7280;
-            margin-bottom: 32px;
+
+        .steps-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .verification-check {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #d1d5db;
-            border-radius: 50%;
+
+        .step-card {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            border: 1px solid rgba(107, 114, 128, 0.3);
+            background: linear-gradient(145deg, #252847 0%, #1a1f3a 100%);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.1);
+        }
+
+        .step-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.75rem;
         }
-        
-        .verification-check::after {
-            content: '✓';
-            color: #10b981;
-            font-size: 12px;
-            font-weight: bold;
+
+        .step-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-top: 0.125rem;
+            color: #ec4899;
         }
-        
-        /* $750.00 amount */
-        .cash-amount {
-            font-size: 56px;
-            font-weight: 700;
-            color: #10b981;
-            margin-bottom: 8px;
-            line-height: 1;
-        }
-        
-        /* Deposited to you text */
-        .deposited-text {
-            font-size: 18px;
-            color: #10b981;
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
-        
-        /* Step items */
-        .step-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background: #10b981;
+
+        .step-text h3 {
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-        
-        .step-text {
-            font-size: 18px;
-            color: #1f2937;
-            font-weight: 500;
-        }
-        
-        .step-text.underlined {
-            text-decoration: underline;
-        }
-        
-        /* Receive button */
-        .receive-button {
-            width: 100%;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 16px;
-            padding: 18px 24px;
-            font-size: 18px;
             font-weight: 600;
-            margin: 32px 0 24px 0;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-subtext {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            color: #d1d5db;
+        }
+
+        .quick-easy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #ff4757 0%, #e84393 100%);
+            box-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+        }
+
+        .cta-button {
+            width: 100%;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            background: linear-gradient(135deg, #ff4757 0%, #ff3742 50%, #e84393 100%);
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4), 0 0 20px rgba(255, 71, 87, 0.2);
+            border: none;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.5), 0 0 30px rgba(255, 71, 87, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .pro-tip {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            border: 1px solid rgba(107, 114, 128, 0.3);
+            margin-bottom: 1rem;
+            background: linear-gradient(145deg, #252847 0%, #1a1f3a 100%);
+            transition: all 0.3s ease;
+        }
+
+        .pro-tip:hover {
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+
+        .pro-tip-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .pro-tip-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.125rem;
+            color: #ec4899;
+        }
+
+        .pro-tip h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #ec4899;
+        }
+
+        .pro-tip p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+
+        .footer {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-        
-        .receive-button:hover {
-            background: #059669;
-            transform: translateY(-1px);
-        }
-        
-        .receive-button:active {
-            transform: translateY(0px);
-        }
-        
-        /* Trustpilot section */
-        .trustpilot-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 16px;
-            color: #1f2937;
-        }
-        
-        .trustpilot-stars {
-            display: flex;
-            gap: 2px;
-        }
-        
-        .star {
-            width: 20px;
-            height: 20px;
-            background: #10b981;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-        
-        /* Mobile touch feedback */
-        .mobile-touch:active {
-            transform: scale(0.98);
-        }
-        
-        /* Loading state */
-        .loading {
-            position: relative;
-            pointer-events: none;
+            gap: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
         }
 
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid transparent;
-            border-top-color: #ffffff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Success message */
-        .success-message {
-            animation: fadeInUp 0.4s ease;
-            background: #dcfce7;
-            border: 1px solid #bbf7d0;
-            color: #166534;
-            padding: 16px;
-            border-radius: 12px;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .main-card {
+                padding: 1.25rem;
+            }
+            
+            .logo-text {
+                font-size: 1.25rem;
             }
         }
     </style>
 </head>
-<body class="gradient-bg">
-    <div class="main-card floating-card mobile-touch">
-        <!-- Dollar Icon -->
-        <div class="dollar-icon">$</div>
-        
-        <!-- Cash Balance Title -->
-        <h1 class="cash-balance-title">Cash Balance</h1>
-        
-        <!-- Verified by Instagram -->
-        <div class="verified-text">
-            <span>Verified by</span>
-            <span style="font-weight: 600;">TikTok</span>
-            <div class="verification-check"></div>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="6" y1="11" x2="10" y2="7"></line>
+                    <line x1="20" y1="12" x2="21" y2="13"></line>
+                    <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                    <line x1="18" y1="9" x2="18" y2="9.01"></line>
+                    <rect width="20" height="12" x="2" y="6" rx="2"></rect>
+                </svg>
+            </div>
+            <h1 class="logo-text">TESTERUP</h1>
         </div>
-        
-        <!-- $750.00 Amount -->
-        <div class="cash-amount">$750.00</div>
-        
-        <!-- Deposited to you -->
-        <div class="deposited-text">deposited to you</div>
-        
-        <!-- Steps -->
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-number">1</div>
-                <div class="step-text">Click The Button Below</div>
+
+        <!-- Main Card Container -->
+        <div class="main-card">
+            <!-- How It Works Header -->
+            <div class="header">
+                <h2>How It Works</h2>
+                <span style="font-size: 1.5rem;">💡</span>
             </div>
-            
-            <div class="step-item">
-                <div class="step-number">2</div>
-                <div class="step-text">Enter Your Email & Info</div>
+
+            <!-- Steps Container -->
+            <div class="steps-container">
+                <!-- Step 1: Click the Button -->
+                <div class="step-card">
+                    <div class="step-content">
+                        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                            <path d="m13 13 6 6"></path>
+                        </svg>
+                        <div class="step-text">
+                            <h3>Click the Button</h3>
+                            <div class="step-subtext">
+                                <span>It's free. No login needed</span>
+                                <span style="color: #fbbf24;">⚡</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Download to Start -->
+                <div class="step-card">
+                    <div class="step-content">
+                        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <div class="step-text">
+                            <h3>Download to Start</h3>
+                            <div class="step-subtext">
+                                <span>No forms. No waiting. Instant access</span>
+                                <span style="color: #fbbf24;">🎉</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Try 2-3 app tasks -->
+                <div class="step-card">
+                    <div class="step-content">
+                        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="6" y1="11" x2="10" y2="7"></line>
+                            <line x1="20" y1="12" x2="21" y2="13"></line>
+                            <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                            <line x1="18" y1="9" x2="18" y2="9.01"></line>
+                            <rect width="20" height="12" x="2" y="6" rx="2"></rect>
+                        </svg>
+                        <div class="step-text">
+                            <div class="quick-easy-badge">
+                                <h3>Try 2-3 app tasks</h3>
+                                <span class="badge">QUICK + EASY</span>
+                            </div>
+                            <div class="step-subtext">
+                                <span>Just complete a few quick app tasks</span>
+                                <span style="color: #fbbf24;">🎮</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Secure the bag -->
+                <div class="step-card">
+                    <div class="step-content">
+                        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        <div class="step-text">
+                            <h3>Secure the bag</h3>
+                            <div class="step-subtext">
+                                <span>You'll see your balance go up. Keep going if you want more</span>
+                                <span style="color: #fbbf24;">💰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="step-item">
-                <div class="step-number">3</div>
-                <div class="step-text underlined">Complete Recommended Deals</div>
+
+            <!-- CTA Button -->
+            <button class="cta-button" onclick="handleGetStarted()">
+                GET STARTED NOW
+            </button>
+
+            <!-- Pro Tip Section -->
+            <div class="pro-tip">
+                <div class="pro-tip-content">
+                    <svg class="pro-tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                        <path d="M5 3v4"></path>
+                        <path d="M19 17v4"></path>
+                        <path d="M3 5h4"></path>
+                        <path d="M17 19h4"></path>
+                    </svg>
+                    <div>
+                        <h4>
+                            <span style="color: #fbbf24;">✨</span>
+                            Pro Tip
+                        </h4>
+                        <p>
+                            Each mini task = instant payout. No waiting. Just download, tap, and earn
+                            <span style="color: #fbbf24; margin-left: 0.25rem;">📸</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="step-item">
-                <div class="step-number">4</div>
-                <div class="step-text">Claim Reward & Repeat</div>
+
+            <!-- Secure & Confidential Footer -->
+            <div class="footer">
+                <span style="font-size: 1.125rem;">🔒</span>
+                <span>Secure & Confidential</span>
             </div>
-        </div>
-        
-        <!-- Receive Button -->
-        <button id="receiveButton" class="receive-button">
-            <span id="buttonText">Receive Your $750</span>
-            <span>→</span>
-        </button>
-        
-        <!-- Success Message (Hidden by default) -->
-        <div id="successMessage" class="success-message" style="display: none;">
-            <span>✓</span>
-            <span>Success! Redirecting to claim your $750...</span>
-        </div>
-        
-        <!-- Trustpilot Section -->
-        <div class="trustpilot-section">
-            <span style="font-weight: 600;">Excellent</span>
-            <div class="trustpilot-stars">
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-            </div>
-            <span style="font-weight: 600;">Trustpilot</span>
         </div>
     </div>
 
     <script>
-        // 🎯 REDIRECT CONFIGURATION
-        const REDIRECT_URL = 'https://rewarrdsgiant.com/aff_c?offer_id=1085&aff_id=1775';
-        
+        function handleGetStarted() {
+            // Add your functionality here
+            alert('Get Started button clicked! Add your registration/download logic here.');
+        }
+
+        // Add smooth hover effects
         document.addEventListener('DOMContentLoaded', function() {
-            const receiveButton = document.getElementById('receiveButton');
-            const successMessage = document.getElementById('successMessage');
-            const buttonText = document.getElementById('buttonText');
-
-            function handleButtonClick() {
-                console.log('Cash $750 button clicked!');
-                
-                if (receiveButton.disabled) return;
-                
-                // Add loading state
-                receiveButton.disabled = true;
-                receiveButton.classList.add('loading');
-                buttonText.textContent = 'Processing...';
-                
-                // Show success message
-                successMessage.style.display = 'flex';
-                
-                // Haptic feedback for mobile
-                if (navigator.vibrate) {
-                    navigator.vibrate([100, 50, 100]);
-                }
-                
-                console.log('Redirecting to:', REDIRECT_URL);
-                
-                // Immediate redirect
-                window.location.href = REDIRECT_URL;
-            }
-
-            // Event listeners
-            receiveButton.addEventListener('click', handleButtonClick);
-            receiveButton.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                handleButtonClick();
-            });
-
-            // Prevent context menu and text selection
-            document.addEventListener('contextmenu', e => e.preventDefault());
-            document.addEventListener('selectstart', e => e.preventDefault());
-
-            console.log('Cash Balance page loaded!');
-        });
-
-        // Prevent zoom on double tap
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: false });
-
-        // Performance optimization
-        window.addEventListener('load', function() {
-            const link = document.createElement('link');
-            link.rel = 'dns-prefetch';
-            link.href = '//rewarrdsgiant.com';
-            document.head.appendChild(link);
+            const stepCards = document.querySelectorAll('.step-card');
+            const proTip = document.querySelector('.pro-tip');
             
-            console.log('Resources optimized and loaded!');
+            stepCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            if (proTip) {
+                proTip.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                proTip.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            }
         });
     </script>
 </body>
