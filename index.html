@@ -17,7 +17,8 @@
         /* --- Global Styles & Variables --- */
         :root {
             --bg-dark: #121212;
-            --primary-red: #E53935;
+            /* UPDATED: Brighter, more vibrant red */
+            --primary-red: #FF4136; 
             --text-light: #FFFFFF;
             --text-muted: #BDBDBD;
             --card-bg: #1E1E1E;
@@ -132,9 +133,18 @@
         }
         
         /* --- Sections Styling --- */
-        .info-section, .features-section, .screenshots-section, .testimonials-section, .faq-section {
+        .info-section, .features-section, .faq-section {
             padding: 50px 0;
             border-bottom: 1px solid var(--border-color);
+        }
+
+        /* MODIFIED: Styling for the new "Testerup" main title */
+        .info-section .main-title {
+            font-size: 3.5rem; /* Larger font size */
+            font-weight: 700;
+            color: var(--primary-red); /* Apply the bright red color */
+            text-align: center;
+            margin-bottom: 10px;
         }
         
         .features-grid {
@@ -156,61 +166,7 @@
             margin-bottom: 10px;
             color: var(--text-light);
         }
-
-        .screenshots-grid {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .screenshot-item {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            flex: 1;
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .screenshot-item p {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .testimonials-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .testimonial-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--primary-red);
-            border-radius: 8px;
-            padding: 25px;
-            flex: 1;
-        }
-        .testimonial-card p {
-            text-align: left;
-            font-style: italic;
-        }
-        .testimonial-card span {
-            display: block;
-            text-align: right;
-            font-weight: 600;
-            color: var(--text-light);
-            margin-top: 15px;
-        }
-
+        
         .faq-item {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -264,18 +220,17 @@
         
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
+            h1, .info-section .main-title { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
 
             .main-nav ul, .main-nav .btn {
                 display: none; /* Simple hiding for mobile, could be replaced with hamburger menu JS */
             }
 
-            .features-grid, .screenshots-grid, .testimonials-grid {
+            .features-grid {
                 flex-direction: column;
             }
         }
-
     </style>
 </head>
 <body>
@@ -300,7 +255,8 @@
         </section>
 
         <section class="info-section container">
-            <h2><span>Testerup</span></h2>
+            <!-- MODIFIED: "Testerup" is now a more prominent H1 title -->
+            <h1 class="main-title">Testerup</h1>
             <p>We offer all the tools and many more to help you grow.</p>
         </section>
 
@@ -324,36 +280,7 @@
             </div>
         </section>
 
-        <section class="screenshots-section container">
-             <div class="screenshots-grid">
-                <div class="screenshot-item">
-                    <img src="https://via.placeholder.com/250x500.png?text=App+Screenshot+1" alt="App Screenshot 1">
-                    <p>Fast + secure Payout.</p>
-                </div>
-                <div class="screenshot-item">
-                     <img src="https://via.placeholder.com/250x500.png?text=App+Screenshot+2" alt="App Screenshot 2">
-                     <p>Earn money as an Online Tester.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials-section container">
-            <h2>People who made <span>Money</span></h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"This app has brought peace to our household. No more arguing about responsibilities!"</p>
-                    <span>- Michael S.</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The gamification aspect is brilliant. This game has completely changed my life!"</p>
-                    <span>- Lena R.</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Testerup has transformed how I make money! I was able to quit my other job!"</p>
-                    <span>- Mark T.</span>
-                </div>
-            </div>
-        </section>
+        <!-- REMOVED Screenshot and Testimonial sections -->
 
         <section class="faq-section container">
             <h2>Frequently Asked <span>Questions!</span></h2>
