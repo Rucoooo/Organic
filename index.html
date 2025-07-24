@@ -17,8 +17,7 @@
         /* --- Global Styles & Variables --- */
         :root {
             --bg-dark: #121212;
-            /* UPDATED: Brighter, more vibrant red */
-            --primary-red: #FF4136; 
+            --primary-red: #FF4136; /* Brighter Red */
             --text-light: #FFFFFF;
             --text-muted: #BDBDBD;
             --card-bg: #1E1E1E;
@@ -79,10 +78,11 @@
         .main-header {
             border-bottom: 1px solid var(--border-color);
         }
-
+        
+        /* MODIFIED: Nav style to center the logo */
         .main-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the content */
             align-items: center;
             width: 90%;
             max-width: 1200px;
@@ -97,23 +97,6 @@
         .main-nav .logo i {
             color: var(--primary-red);
             margin-right: 8px;
-        }
-        
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .main-nav ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .main-nav ul li a:hover {
-            color: var(--text-light);
         }
         
         /* --- Hero Section --- */
@@ -133,16 +116,15 @@
         }
         
         /* --- Sections Styling --- */
-        .info-section, .features-section, .faq-section {
+        .info-section, .features-section {
             padding: 50px 0;
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* MODIFIED: Styling for the new "Testerup" main title */
         .info-section .main-title {
-            font-size: 3.5rem; /* Larger font size */
+            font-size: 3.5rem;
             font-weight: 700;
-            color: var(--primary-red); /* Apply the bright red color */
+            color: var(--primary-red);
             text-align: center;
             margin-bottom: 10px;
         }
@@ -167,32 +149,11 @@
             color: var(--text-light);
         }
         
-        .faq-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .faq-item:hover {
-            background-color: #2a2a2a;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
         /* --- Footer --- */
         .main-footer {
             text-align: center;
             padding: 40px 20px;
+            margin-top: 50px; /* Added margin for spacing now that FAQ is gone */
         }
         .main-footer .logo {
             font-weight: 700;
@@ -223,10 +184,6 @@
             h1, .info-section .main-title { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
 
-            .main-nav ul, .main-nav .btn {
-                display: none; /* Simple hiding for mobile, could be replaced with hamburger menu JS */
-            }
-
             .features-grid {
                 flex-direction: column;
             }
@@ -236,14 +193,9 @@
 <body>
 
     <header class="main-header">
+        <!-- MODIFIED: Nav now only contains the centered logo -->
         <nav class="main-nav">
             <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
-            <ul>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="#">Tester Results</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-            <a href="#" class="btn">Sign Up Now</a>
         </nav>
     </header>
 
@@ -251,10 +203,14 @@
         <section class="hero">
             <h1>Play Games, <span>Earn Rewards</span> Effortlessly!</h1>
             <p>The Best Opportunity For You. Turn your passion for gaming into real cash and rewards.</p>
-            <a href="#" class="btn">Create an Account</a>
+            <!-- MODIFIED: Button text changed -->
+            <a href="#" class="btn">Download Now</a>
         </section>
 
         <section class="info-section container">
+            <h1 class="main-title">Testerup</h1>
+            <p>We offer all the tools and many more to help you grow.</p>
+        </section>
 
         <section class="features-section container">
             <div class="features-grid">
@@ -275,6 +231,10 @@
                 </div>
             </div>
         </section>
+
+        <!-- REMOVED FAQ Section -->
+        
+    </main>
 
     <footer class="main-footer">
         <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
