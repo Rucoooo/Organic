@@ -17,10 +17,9 @@
         /* --- Global Styles & Variables --- */
         :root {
             --bg-dark: #121212;
-            --primary-red: #FF4136; /* Brighter Red */
+            --primary-red: #FF4136; /* Bright Red */
             --text-light: #FFFFFF;
             --text-muted: #BDBDBD;
-            --card-bg: #1E1E1E;
             --border-color: #333333;
         }
 
@@ -44,14 +43,13 @@
             padding: 40px 0;
         }
 
-        h1, h2, h3 {
+        h1, h3 {
             font-weight: 700;
             text-align: center;
         }
         
         h1 { font-size: 3rem; }
-        h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        h1 span, h2 span { color: var(--primary-red); }
+        h1 span { color: var(--primary-red); }
 
         p {
             text-align: center;
@@ -61,17 +59,19 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 14px 32px; /* Slightly larger button */
             background-color: var(--primary-red);
             color: var(--text-light);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
-            transition: opacity 0.3s ease;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, opacity 0.3s ease;
         }
 
         .btn:hover {
             opacity: 0.85;
+            transform: scale(1.05); /* Added slight zoom on hover */
         }
 
         /* --- Header & Navigation --- */
@@ -79,10 +79,9 @@
             border-bottom: 1px solid var(--border-color);
         }
         
-        /* MODIFIED: Nav style to center the logo */
         .main-nav {
             display: flex;
-            justify-content: center; /* Center the content */
+            justify-content: center; 
             align-items: center;
             width: 90%;
             max-width: 1200px;
@@ -102,7 +101,7 @@
         /* --- Hero Section --- */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 50px 20px; /* Adjusted padding */
         }
         .hero h1 {
             margin-bottom: 15px;
@@ -114,19 +113,21 @@
             margin-right: auto;
             margin-bottom: 40px;
         }
-        
-        /* --- Sections Styling --- */
-        .info-section, .features-section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
 
-        .info-section .main-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            text-align: center;
-            margin-bottom: 10px;
+        /* NEW: Separator Line */
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* --- Features Section --- */
+        .features-section {
+            padding: 60px 0 50px 0;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .features-grid {
@@ -134,7 +135,6 @@
             justify-content: space-around;
             gap: 30px;
             text-align: center;
-            margin-top: 40px;
         }
         
         .feature-item i {
@@ -153,7 +153,7 @@
         .main-footer {
             text-align: center;
             padding: 40px 20px;
-            margin-top: 50px; /* Added margin for spacing now that FAQ is gone */
+            margin-top: 50px; 
         }
         .main-footer .logo {
             font-weight: 700;
@@ -181,8 +181,7 @@
         
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            h1, .info-section .main-title { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
+            h1 { font-size: 2.5rem; }
 
             .features-grid {
                 flex-direction: column;
@@ -193,7 +192,6 @@
 <body>
 
     <header class="main-header">
-        <!-- MODIFIED: Nav now only contains the centered logo -->
         <nav class="main-nav">
             <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
         </nav>
@@ -203,14 +201,16 @@
         <section class="hero">
             <h1>Play Games, <span>Earn Rewards</span> Effortlessly!</h1>
             <p>The Best Opportunity For You. Turn your passion for gaming into real cash and rewards.</p>
-            <!-- MODIFIED: Button text changed -->
-            <a href="#" class="btn">Download Now</a>
+            
+            <!-- MODIFIED: ADD YOUR OFFER LINK HERE! -->
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2414&aff_id=1775&source=lander" class="btn">Download Now</a>
+
         </section>
 
-        <section class="info-section container">
-            <h1 class="main-title">Testerup</h1>
-            <p>We offer all the tools and many more to help you grow.</p>
-        </section>
+        <!-- NEW: Added a subtle line to separate the sections -->
+        <hr class="separator">
+
+        <!-- REMOVED the central "Testerup" section -->
 
         <section class="features-section container">
             <div class="features-grid">
@@ -231,8 +231,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- REMOVED FAQ Section -->
         
     </main>
 
