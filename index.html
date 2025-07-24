@@ -3,212 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Introducing the Fun Way to Earn Gift Cards! With Testerup, you can download and play a variety of fun games and earn gift cards.">
-    <meta name="keywords" content="Testerup, Way, to, Earn, Gift Cards, With Testerup, you can download and play, a variety of fun, games, and earn, gift, cards,">
-    <meta name="author" content="Testerup">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <title>Testerup</title>
+    <title>Testerup - Play Games, Earn Rewards</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --bg-dark: #121212;
+            --primary-red: #E53935;
+            --text-light: #FFFFFF;
+            --text-muted: #BDBDBD;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        h1 span, h2 span { color: var(--primary-red); }
+
+        p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-red);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .main-nav .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .main-nav .logo i {
+            color: var(--primary-red);
+            margin-right: 8px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--text-light);
+        }
+        
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero h1 {
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+        
+        /* --- Sections Styling --- */
+        .info-section, .features-section, .screenshots-section, .testimonials-section, .faq-section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .screenshots-grid {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .screenshot-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .screenshot-item p {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-red);
+            border-radius: 8px;
+            padding: 25px;
+            flex: 1;
+        }
+        .testimonial-card p {
+            text-align: left;
+            font-style: italic;
+        }
+        .testimonial-card span {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-top: 15px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-item:hover {
+            background-color: #2a2a2a;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .main-footer .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+         .main-footer .logo i {
+            color: var(--primary-red);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+        .main-footer .copyright {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+
+            .main-nav ul, .main-nav .btn {
+                display: none; /* Simple hiding for mobile, could be replaced with hamburger menu JS */
+            }
+
+            .features-grid, .screenshots-grid, .testimonials-grid {
+                flex-direction: column;
+            }
+        }
+
+    </style>
 </head>
 <body>
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1707677846797486');
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1707677846797486&ev=InitiateCheckout&noscript=1"/>
-    </noscript>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const downloadSelectors = [
-            '.buttonn',
-            '.waitlistbutton',
-            '.getstarted',
-          ];
-          downloadSelectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(button => {
-              button.addEventListener('click', function() {
-                fbq('track', 'InitiateCheckout');
-              });
-            });
-          });
-        });
-      </script>
-    <div class="night" id="meteor-container"></div>
-    <script src="index.js"></script>
-    <main>
-        <nav>
-            <div class="logo semibold">
-                <a href="#home" class="alogo">
-                    <img src="images/logo.png" alt="#">
-                </a>
-            </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#features" class="regular">Features</a></li>
-                <li><a href="#testimonials" class="regular">Testimonials</a></li>
-                <li><a href="#faq" class="regular">FAQ</a></li>
-                <li class="mobile-getstarted">
-                    <div class="border">
-                        <div class="getstarted regular">Download</div>
-                    </div>
-                </li>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
+            <ul>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Tester Results</a></li>
+                <li><a href="#">FAQ</a></li>
             </ul>
-            <div class="desktop-getstarted border">
-                <a href="https://glstrck.com/aff_c?offer_id=1845&aff_id=32105&source={clickid}" class="getstarted regular buttonn">Download</a>
-            </div>
+            <a href="#" class="btn">Sign Up Now</a>
         </nav>
-        <section class="hero" id="home">
-            <div class="container scroll-animate animate-fade-up">
-                <p class="title bold">Play Games, <span class="grad">Earn <br>Rewards</span> Effortlessly!</p>
-                <p class="under semibold">The Best Opportunity For You!</p>
-                <div class="contacts">
-                    <a href="https://glstrck.com/aff_c?offer_id=1845&aff_id=32105&source={clickid}"><input type="button" value="Download Here" class="waitlistbutton semibold buttonn"></a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Play Games, <span>Earn Rewards</span> Effortlessly!</h1>
+            <p>The Best Opportunity For You. Turn your passion for gaming into real cash and rewards.</p>
+            <a href="#" class="btn">Create an Account</a>
+        </section>
+
+        <section class="info-section container">
+            <h2><span>Testerup</span></h2>
+            <p>We offer all the tools and many more to help you grow.</p>
+        </section>
+
+        <section class="features-section container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>Reward System</h3>
+                    <p>Customize rewards that motivate your players.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>Tracking</h3>
+                    <p>Watch how rapidly you will become successful.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Earn Cash</h3>
+                    <p>Designed for earning money by playing games.</p>
                 </div>
             </div>
         </section>
-        <section class="benefits" id="features">
-            <div class="container">
-                <p class="title bold scroll-animate animate-fade-up"><span class="grad bold">Testerup</span></p>
-                <p class="under semibold scroll-animate animate-fade-up delay-100">We offer all the tools and many more to help you grow.</p>
-                <div class="boxes">
-                    <div class="box scroll-animate animate-fade-up delay-500">
-                        <p class="name semibold">Reward System</p>
-                        <p class="desc regular">Customize rewards that motivate you to make Money!</p>
-                        <img src="images/gift.png" alt="Feature 1">
-                    </div>
-                    <div class="box scroll-animate animate-fade-up delay-500">
-                        <p class="name semibold">Tracking</p>
-                        <p class="desc regular">Watch How quickly you will become Successful!</p>
-                        <img src="images/navigation.png" alt="Feature 2">
-                    </div>
-                    <div class="box scroll-animate animate-fade-up delay-500">
-                        <p class="name semibold">Earn Cash</p>
-                        <p class="desc regular">Designed for earning money by playing games!</p>
-                        <img src="images/smartphone.png" alt="Feature 3">
-                    </div>
-                    <div class="float scroll-animate animate-fade-up delay-100">
-                        <img src="images/reward3.png" alt="Feature 4">
-                    </div>
-                    <div class="float2 scroll-animate animate-fade-up delay-100">
-                        <img src="images/reward.png" alt="Feature 5">
-                    </div>
-                    <div class="float3 scroll-animate animate-fade-up delay-100">
-                        <img src="images/reward2.png" alt="Feature 6">
-                    </div>
+
+        <section class="screenshots-section container">
+             <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="https://via.placeholder.com/250x500.png?text=App+Screenshot+1" alt="App Screenshot 1">
+                    <p>Fast + secure Payout.</p>
+                </div>
+                <div class="screenshot-item">
+                     <img src="https://via.placeholder.com/250x500.png?text=App+Screenshot+2" alt="App Screenshot 2">
+                     <p>Earn money as an Online Tester.</p>
                 </div>
             </div>
         </section>
-        <section class="reviews" id="testimonials">
-            <div class="container">
-                <div class="stars scroll-animate animate-fade-up">
-                    <img src="images/star.png" alt="Star rating">
-                    <img src="images/star.png" alt="Star rating">
-                    <img src="images/star.png" alt="Star rating">
-                    <img src="images/star.png" alt="Star rating">
-                    <img src="images/star.png" alt="Star rating">
+
+        <section class="testimonials-section container">
+            <h2>People who made <span>Money</span></h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"This app has brought peace to our household. No more arguing about responsibilities!"</p>
+                    <span>- Michael S.</span>
                 </div>
-                <p class="title bold scroll-animate animate-fade-up delay-100">People who made <span class="grad">Money</span></p>
-                <div class="boxes">
-                    <div class="box scroll-animate animate-fade-up delay-200">
-                        <div class="profile">
-                            <img src="images/profile.png" alt="Customer profile">
-                            <div class="cred">
-                                <span class="grad semibold name">Michael C.</span><br>
-                                <span class="work regular">Played for 1.2 Years</span>
-                            </div>
-                        </div>
-                        <p class="desc regular">This app has brought peace to our household. No more arguing about responsibilities!</p>
-                    </div>
-                    <div class="box scroll-animate animate-fade-up delay-300">
-                        <div class="profile">
-                            <img src="images/profile.png" alt="Customer profile">
-                            <div class="cred">
-                                <span class="grad semibold name">Luna B.</span><br>
-                                <span class="work regular">Played for 3 Years</span>
-                            </div>
-                        </div>
-                        <p class="desc regular">The gamification aspect is brilliant. This game has completely changed my life!</p>
-                    </div>
-                    <div class="box scroll-animate animate-fade-up delay-400">
-                        <div class="profile">
-                            <img src="images/profile.png" alt="Customer profile">
-                            <div class="cred">
-                                <span class="grad semibold name">Max T.</span><br>
-                                <span class="work regular">Played for 1 Year</span>
-                            </div>
-                        </div>
-                        <p class="desc regular">Testerup has transformed how I make money! Now I never have to work another job ever!</p>
-                    </div>
+                <div class="testimonial-card">
+                    <p>"The gamification aspect is brilliant. This game has completely changed my life!"</p>
+                    <span>- Lena R.</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Testerup has transformed how I make money! I was able to quit my other job!"</p>
+                    <span>- Mark T.</span>
                 </div>
             </div>
         </section>
-        <section class="faq" id="faq">
-            <div class="container">
-                <p class="title bold scroll-animate animate-fade-up">Frequently Asked <span class="grad bold">Questions!</span></p>
-                <p class="under regular scroll-animate animate-fade-up delay-100">Everything you need to know before Joining <span class="grad semibold">Testerup</span></p>
-                <div class="questions">
-                    <div class="question scroll-animate animate-fade-up delay-200">
-                        <div class="question-header">
-                            <p class="question-title regular">What is Testerup?</p>
-                            <span class="question-toggle">+</span>
-                        </div>
-                        <div class="question-answer">
-                            <p class="desc regular">Testerup is an mobile application that lets users earn real money by playing fun games, completing challenges, and participating in engaging quizzes. Whether you're a casual gamer or a competitive player, you can turn your skills into instant cash rewards, all while enjoying a seamless, real-time payout experience.</p>
-                        </div>
+
+        <section class="faq-section container">
+            <h2>Frequently Asked <span>Questions!</span></h2>
+            <p>Everything you need to know before joining Testerup.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is Testerup?</span>
+                        <i class="fa-solid fa-plus"></i>
                     </div>
-                    <div class="question scroll-animate animate-fade-up delay-300">
-                        <div class="question-header">
-                            <p class="question-title regular">How does it work?</p>
-                            <span class="question-toggle">+</span>
-                        </div>
-                        <div class="question-answer">
-                            <p class="desc regular">Testerup lets you gain Money as easily as possible, Play and Test Games, Earn Rewards And Lastly, Cash out. Download Now to Earn money by having fun!</p>
-                        </div>
+                </div>
+                <div class="faq-item">
+                     <div class="faq-question">
+                        <span>How does it work?</span>
+                        <i class="fa-solid fa-plus"></i>
                     </div>
-                    <div class="question scroll-animate animate-fade-up delay-400">
-                        <div class="question-header">
-                            <p class="question-title regular">How do I get started?</p>
-                            <span class="question-toggle">+</span>
-                        </div>
-                        <div class="question-answer">
-                            <p class="desc regular">Ready to turn your gaming skills into real cash? Just download the app (available on iOS and Android), pick a game or challenge, start playing, and cash out your earnings instantly. Download now and get paid to play!</p>
-                        </div>
+                </div>
+                <div class="faq-item">
+                     <div class="faq-question">
+                        <span>How do I get started?</span>
+                        <i class="fa-solid fa-plus"></i>
                     </div>
                 </div>
             </div>
         </section>
-        <footer id="contacts">
-            <div class="box scroll-animate animate-fade-up">
-                <img src="images/profile.png" alt="Company logo" class="logo">
-                <p class="name bold">Testerup</p>
-                <p class="under regular">The best way of<br>Earning and Success.</p>
-            </div>
-            <div class="box regular scroll-animate animate-fade-up delay-100">
-                <p class="title bold grad">Quick Links</p>
-                <a href="#home"><li>Home</li></a>
-                <a href="#features"><li>Features</li></a>
-                <a href="#testimonials"><li>Testimonials</li></a>
-                <a href="#faq"><li>FAQ</li></a>
-            </div>
-            <div class="line scroll-animate animate-fade-up delay-400"></div>
-            <div class="cp">
-                <p class="copy regular">&copy 2025 Testerup. All rights reserved</p>
-            </div>
-        </footer>
     </main>
+
+    <footer class="main-footer">
+        <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
+        <div class="footer-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">FAQ</a>
+        </div>
+        <p class="copyright">© 2024 Testerup. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
