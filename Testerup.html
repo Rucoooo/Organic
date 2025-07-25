@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testerup - Play Games, Earn Rewards</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --bg-dark: #121212;
+            --primary-red: #FF4136; /* Bright Red */
+            --text-light: #FFFFFF;
+            --text-muted: #BDBDBD;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        h1, h3 {
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        h1 { font-size: 3rem; }
+        h1 span { color: var(--primary-red); }
+
+        p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px; /* Slightly larger button */
+            background-color: var(--primary-red);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+            transform: scale(1.05); /* Added slight zoom on hover */
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .main-nav {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .main-nav .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .main-nav .logo i {
+            color: var(--primary-red);
+            margin-right: 8px;
+        }
+        
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px 20px; /* Adjusted padding */
+        }
+        .hero h1 {
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+
+        /* NEW: Separator Line */
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* --- Features Section --- */
+        .features-section {
+            padding: 60px 0 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        /* --- Footer --- */
+        .main-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px; 
+        }
+        .main-footer .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+         .main-footer .logo i {
+            color: var(--primary-red);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+        .main-footer .copyright {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+
+            .features-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Play Games, <span>Earn Rewards</span> Effortlessly!</h1>
+            <p>The Best Opportunity For You. Turn your passion for gaming into real cash and rewards.</p>
+            
+            <!-- MODIFIED: ADD YOUR OFFER LINK HERE! -->
+            <a href="https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197" class="btn">Download Now</a>
+
+        </section>
+
+        <!-- NEW: Added a subtle line to separate the sections -->
+        <hr class="separator">
+
+        <!-- REMOVED the central "Testerup" section -->
+
+        <section class="features-section container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>Reward System</h3>
+                    <p>Customize rewards that motivate your players.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>Tracking</h3>
+                    <p>Watch how rapidly you will become successful.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Earn Cash</h3>
+                    <p>Designed for earning money by playing games.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
+        <div class="footer-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">FAQ</a>
+        </div>
+        <p class="copyright">© 2024 Testerup. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
