@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Robux Giveaway - Win Free Robux!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;
+            n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+            if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+            n.queue=[]; t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+        }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1664457917492479');
+        fbq('track', 'PageView');
+
+        const pageProps = {
+            content_name: 'Roblox Robux Giveaway',
+            content_category: 'Gaming Sweepstakes',
+            content_ids: ['roblox_robux_giveaway'],
+            content_type: 'product_group'
+        };
+        fbq('track', 'ViewContent', pageProps);
+    </script>
+    
+    <style>
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .animate-sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .testimonial-popup {
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.7s ease-out;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.7s ease-in;
+        }
+
+        /* Smooth transitions for interactive elements */
+        button {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 162, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+            transition: all 0.1s ease;
+        }
+
+        /* Smooth card hover effects */
+        .main-card {
+            transition: all 0.4s ease;
+        }
+
+        .main-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 162, 255, 0.3);
+        }
+
+        /* Simple step hover effects */
+        .step-item {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 8px;
+            margin: -8px;
+            cursor: pointer;
+        }
+
+        .step-item:hover {
+            background: rgba(0, 162, 255, 0.1);
+            transform: translateX(8px);
+        }
+
+        /* Simple stat card hover */
+        .stat-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Logo hover */
+        .logo-container {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00a2ff;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0088cc;
+        }
+
+        /* Glass morphism effects */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(12px);
+        }
+
+        /* Enhanced focus states */
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 162, 255, 0.3);
+        }
+
+        /* Roblox logo styling */
+        .roblox-logo {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #00a2ff, #0088cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Step numbers styling */
+        .step-number {
+            background: linear-gradient(135deg, #00a2ff 0%, #0088cc 100%);
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 162, 255, 0.4);
+        }
+
+        /* Simple testimonial popup effects */
+        .testimonial-popup {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-popup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 162, 255, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .text-2xl {
+                font-size: 1.75rem;
+            }
+            
+            button:hover {
+                transform: translateY(-2px);
+            }
+            
+            .main-card:hover {
+                transform: translateY(-3px);
+            }
+
+            .testimonial-popup {
+                left: 8px;
+                right: 8px;
+            }
+
+            .roblox-logo {
+                font-size: 2rem;
+            }
+        }
+
+        /* Simple star rating hover */
+        .star-rating svg {
+            transition: all 0.2s ease;
+        }
+
+        .star-rating:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Trust indicator hover */
+        .trust-indicator {
+            transition: all 0.3s ease;
+        }
+
+        .trust-indicator:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Loading animation for button */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced card shadow on scroll */
+        .main-card.scrolled {
+            box-shadow: 0 30px 60px rgba(0, 162, 255, 0.2);
+        }
+
+        /* Robux icon styling */
+        .robux-icon {
+            color: #00a2ff;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Sparkle effects */
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 1s; }
+        .sparkle:nth-child(4) { bottom: 20%; right: 25%; animation-delay: 1.5s; }
+
+        /* Roblox character styling */
+        .roblox-character {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00a2ff, #0088cc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 162, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .roblox-character:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 162, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- noscript fall-backs -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" /></noscript>
+
+    <div class="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 relative overflow-hidden">
+        <!-- Sparkle Effects -->
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+
+        <!-- Simple Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-blue-300 rounded-full blur-3xl"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-cyan-300 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-4 pt-24">
+            <div class="w-full max-w-md">
+                <!-- Main Card -->
+                <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-blue-100">
+                    <!-- Roblox Logo -->
+                    <div class="flex justify-center mb-6">
+                        <div class="flex items-center gap-3">
+                            <!-- Roblox Character Icon -->
+                            <div class="roblox-character">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                </svg>
+                            </div>
+                            <!-- Roblox Text -->
+                            <div class="roblox-logo text-3xl">
+                                ROBLOX
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="text-center mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                            🎮 FREE ROBUX GIVEAWAY! 🎮
+                        </h1>
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm text-gray-600">
+                            <span class="font-bold text-blue-600">Official Sweepstakes</span>
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prize Display -->
+                    <div class="text-center mb-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-4 border border-blue-200 animate-pulse-slow">
+                        <div class="text-3xl font-bold text-blue-600 mb-1">WIN 10,000 ROBUX!</div>
+                        <div class="text-blue-600 font-medium text-sm">+ Exclusive Items & More!</div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="space-y-5 mb-8">
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">1</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Enter your Roblox username</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">2</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Complete simple verification</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">3</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Share with 3 friends</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">4</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Wait for winner announcement</span>
+                        </div>
+
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">5</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Click "ENTER GIVEAWAY" now!</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button id="enterButton" class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-5 px-6 rounded-2xl flex items-center justify-center gap-3 mb-6 text-lg shadow-lg">
+                        <span id="buttonText">🎁 ENTER GIVEAWAY NOW</span>
+                        <svg id="buttonArrow" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Trust Indicators -->
+                    <div class="text-center">
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm mb-2">
+                            <span class="font-bold text-gray-900">Trusted by</span>
+                            <div class="star-rating flex gap-1">
+                                <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                            </div>
+                            <span class="font-bold text-gray-900">1M+ players</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            🔒 Safe & Secure • 100% Free Entry • No Scam
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats -->
+                <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">1M+</div>
+                        <div class="text-blue-200 text-xs">Participants</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">50K</div>
+                        <div class="text-blue-200 text-xs">Winners</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">24H</div>
+                        <div class="text-blue-200 text-xs">Time Left</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🎯 REDIRECT CONFIGURATION - CHANGE THIS URL TO YOUR OFFER LINK
+        const OFFER_URL = 'https://affrkr.com/?ge4=EuWQbmkFbUAlyu9WmLjmno%2b9aPDoc2e%2fvQJDRoz7h5U%3d&s1=';
+        
+        // Testimonials data for Roblox Giveaway
+        const testimonials = [
+            { name: 'GamerKid123', action: 'just won', amount: '5,000 Robux' },
+            { name: 'RobloxPro456', action: 'received', amount: '10,000 Robux' },
+            { name: 'BuilderMaster', action: 'won', amount: '7,500 Robux' },
+            { name: 'NoobSlayer99', action: 'just got', amount: '15,000 Robux' },
+            { name: 'CoolGamer2024', action: 'received', amount: '8,000 Robux' },
+            { name: 'RobuxHunter', action: 'won', amount: '12,000 Robux' }
+        ];
+        
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
+        let engagementTracked = false;
+        let scrollTracked = false;
+
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-blue-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-bold text-blue-600">${testimonial.name}</span>
+                        <span class="text-gray-700"> ${testimonial.action} </span>
+                        <span class="font-bold text-gray-900">${testimonial.amount}</span>
+                        <span class="text-gray-700"> from our giveaway! 🎉</span>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 4 seconds
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 700);
+            }, 4000);
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (random interval between 3-7 seconds)
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Meta Pixel conversion tracking function
+        function trackConversion() {
+            const conversionProps = {
+                content_name: 'Roblox Robux Giveaway Entry',
+                content_category: 'Gaming Sweepstakes',
+                content_ids: ['roblox_giveaway_entry'],
+                content_type: 'product_group',
+                value: 100,
+                currency: 'USD'
+            };
+            
+            try {
+                // Track multiple conversion events for better optimization
+                fbq('track', 'InitiateCheckout', conversionProps);
+                fbq('track', 'SubmitApplication', conversionProps);
+                fbq('track', 'CompleteRegistration', conversionProps);
+                console.log('Meta Pixel conversion events tracked successfully');
+            } catch(e) {
+                console.error('Meta Pixel tracking error:', e);
+            }
+        }
+
+        // Enhanced button click handler with loading state and redirect
+        function handleButtonClick() {
+            const button = document.getElementById('enterButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonArrow = document.getElementById('buttonArrow');
+            
+            // Add loading state
+            button.classList.add('loading');
+            buttonText.textContent = '🎮 ENTERING...';
+            buttonArrow.style.display = 'none';
+            
+            // Track the conversion with Meta Pixel
+            trackConversion();
+            
+            // Redirect to the offer URL after tracking completes
+            setTimeout(function() {
+                window.location.href = OFFER_URL;
+            }, 1000);
+        }
+
+        // Start showing testimonials after 2 seconds
+        setTimeout(showNextTestimonial, 2000);
+        
+        // Add click event listener to the button
+        document.getElementById('enterButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            handleButtonClick();
+        });
+
+        // Additional page engagement tracking
+        setTimeout(() => {
+            if (!engagementTracked) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Roblox Giveaway - Engaged User',
+                        content_category: 'Gaming Sweepstakes',
+                        content_ids: ['roblox_engaged'],
+                        content_type: 'product_group'
+                    });
+                    engagementTracked = true;
+                    console.log('Engagement tracking completed');
+                } catch(e) {
+                    console.error('Engagement tracking error:', e);
+                }
+            }
+        }, 10000);
+
+        // Track scroll engagement
+        window.addEventListener('scroll', () => {
+            const mainCard = document.getElementById('mainCard');
+            
+            if (window.scrollY > 50) {
+                mainCard.classList.add('scrolled');
+            } else {
+                mainCard.classList.remove('scrolled');
+            }
+
+            if (!scrollTracked && window.scrollY > 100) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Roblox Giveaway - Scroll Engagement',
+                        content_category: 'Gaming Sweepstakes',
+                        content_ids: ['roblox_scroll'],
+                        content_type: 'product_group'
+                    });
+                    scrollTracked = true;
+                    console.log('Scroll engagement tracked');
+                } catch(e) {
+                    console.error('Scroll tracking error:', e);
+                }
+            }
+        });
+
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animation to main card
+            setTimeout(() => {
+                document.getElementById('mainCard').style.opacity = '1';
+            }, 100);
+        });
+
+        // Handle page visibility changes for better tracking
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Page is hidden, pause testimonials
+                if (testimonialTimeout) {
+                    clearTimeout(testimonialTimeout);
+                }
+            } else {
+                // Page is visible, resume testimonials
+                setTimeout(showNextTestimonial, 1000);
+            }
+        });
+
+        // Add countdown timer effect
+        function updateCountdown() {
+            const hours = Math.floor(Math.random() * 24) + 1;
+            const minutes = Math.floor(Math.random() * 60);
+            const seconds = Math.floor(Math.random() * 60);
+            
+            const timeLeft = `${hours}H ${minutes}M ${seconds}S`;
+            const timeElement = document.querySelector('.stat-card:last-child .text-white');
+            if (timeElement) {
+                timeElement.textContent = timeLeft;
+            }
+        }
+
+        // Update countdown every 30 seconds for dynamic feel
+        setInterval(updateCountdown, 30000);
+    </script>
+</body>
+</html>
