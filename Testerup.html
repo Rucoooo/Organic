@@ -3,246 +3,607 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testerup - Play Games, Earn Rewards</title>
+    <title>Testerup - Earn Money Testing Products!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;
+            n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+            if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+            n.queue=[]; t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+        }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
+        fbq('init', '1664457917492479');
+        fbq('track', 'PageView');
+
+        const pageProps = {
+            content_name: 'Testerup Landing Page',
+            content_category: 'Product Testing',
+            content_ids: ['testerup_landing'],
+            content_type: 'product_group'
+        };
+        fbq('track', 'ViewContent', pageProps);
+    </script>
+    
     <style>
-        /* --- Global Styles & Variables --- */
-        :root {
-            --bg-dark: #121212;
-            --primary-red: #FF4136; /* Bright Red */
-            --text-light: #FFFFFF;
-            --text-muted: #BDBDBD;
-            --border-color: #333333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        h1, h3 {
-            font-weight: 700;
-            text-align: center;
-        }
-        
-        h1 { font-size: 3rem; }
-        h1 span { color: var(--primary-red); }
-
-        p {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px; /* Slightly larger button */
-            background-color: var(--primary-red);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s ease, opacity 0.3s ease;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-            transform: scale(1.05); /* Added slight zoom on hover */
-        }
-
-        /* --- Header & Navigation --- */
-        .main-header {
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .main-nav {
-            display: flex;
-            justify-content: center; 
-            align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px 0;
-        }
-
-        .main-nav .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        .main-nav .logo i {
-            color: var(--primary-red);
-            margin-right: 8px;
-        }
-        
-        /* --- Hero Section --- */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 50px 20px; /* Adjusted padding */
-        }
-        .hero h1 {
-            margin-bottom: 15px;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 40px;
-        }
-
-        /* NEW: Separator Line */
-        .separator {
-            border: none;
-            height: 1px;
-            background-color: var(--border-color);
-            width: 80%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* --- Features Section --- */
-        .features-section {
-            padding: 60px 0 50px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .features-grid {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            text-align: center;
-        }
-        
-        .feature-item i {
-            font-size: 3rem;
-            color: var(--primary-red);
-            margin-bottom: 15px;
-        }
-
-        .feature-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--text-light);
-        }
-        
-        /* --- Footer --- */
-        .main-footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px; 
-        }
-        .main-footer .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-         .main-footer .logo i {
-            color: var(--primary-red);
-        }
-        .footer-links {
-            margin-bottom: 20px;
-        }
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        .footer-links a:hover {
-            color: var(--text-light);
-        }
-        .main-footer .copyright {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-
-            .features-grid {
-                flex-direction: column;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
             }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .testimonial-popup {
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.7s ease-out;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.7s ease-in;
+        }
+
+        /* Smooth transitions for interactive elements */
+        button {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(239, 68, 68, 0.3);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+            transition: all 0.1s ease;
+        }
+
+        /* Smooth card hover effects */
+        .main-card {
+            transition: all 0.4s ease;
+        }
+
+        .main-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Simple step hover effects */
+        .step-item {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 8px;
+            margin: -8px;
+            cursor: pointer;
+        }
+
+        .step-item:hover {
+            background: rgba(239, 68, 68, 0.05);
+            transform: translateX(8px);
+        }
+
+        /* Simple stat card hover */
+        .stat-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Logo hover */
+        .logo-container {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ef4444;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        /* Glass morphism effects */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(12px);
+        }
+
+        /* Enhanced focus states */
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Logo image styling */
+        .logo-image {
+            width: 200px;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Step numbers styling */
+        .step-number {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Simple testimonial popup effects */
+        .testimonial-popup {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-popup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .text-2xl {
+                font-size: 1.75rem;
+            }
+            
+            button:hover {
+                transform: translateY(-2px);
+            }
+            
+            .main-card:hover {
+                transform: translateY(-3px);
+            }
+
+            .testimonial-popup {
+                left: 8px;
+                right: 8px;
+            }
+
+            .logo-image {
+                width: 160px;
+            }
+        }
+
+        /* Simple star rating hover */
+        .star-rating svg {
+            transition: all 0.2s ease;
+        }
+
+        .star-rating:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Trust indicator hover */
+        .trust-indicator {
+            transition: all 0.3s ease;
+        }
+
+        .trust-indicator:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Loading animation for button */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced card shadow on scroll */
+        .main-card.scrolled {
+            box-shadow: 0 30px 60px rgba(239, 68, 68, 0.15);
+        }
+
+        /* Heart icon styling */
+        .heart-icon {
+            color: #ef4444;
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
 <body>
+    <!-- noscript fall-backs -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" /></noscript>
 
-    <header class="main-header">
-        <nav class="main-nav">
-            <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
-        </nav>
-    </header>
+    <div class="min-h-screen bg-gradient-to-br from-red-500 via-red-600 to-red-700 relative overflow-hidden">
+        <!-- Simple Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-red-400 rounded-full blur-3xl"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-red-300 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-red-500 rounded-full blur-3xl"></div>
+        </div>
 
-    <main>
-        <section class="hero">
-            <h1>Play Games, <span>Earn Rewards</span> Effortlessly!</h1>
-            <p>The Best Opportunity For You. Turn your passion for gaming into real cash and rewards.</p>
-            
-            <!-- MODIFIED: ADD YOUR OFFER LINK HERE! -->
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2414&aff_id=28197&source=Test%231" class="btn">Download Now</a>
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-4 pt-24">
+            <div class="w-full max-w-md">
+                <!-- Main Card -->
+                <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-red-100">
+                    <!-- Testerup Logo -->
+                    <div class="flex justify-center mb-6">
+                        <div class="flex items-center gap-2">
+                            <!-- Heart Icon -->
+                            <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                            <!-- Testerup Text -->
+                            <div class="text-3xl font-bold">
+                                <span class="text-gray-800">tester</span><span class="text-red-500">up</span>
+                            </div>
+                        </div>
+                    </div>
 
-        </section>
+                    <!-- Title -->
+                    <div class="text-center mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                            Want to Earn Money Testing Products?
+                        </h1>
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm text-gray-600">
+                            <span class="font-bold text-red-600">Verified Platform</span>
+                            <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- NEW: Added a subtle line to separate the sections -->
-        <hr class="separator">
+                    <!-- Earnings Display -->
+                    <div class="text-center mb-6 bg-red-50 rounded-2xl p-4 border border-red-200">
+                        <div class="text-3xl font-bold text-red-600 mb-1">Earn $25-$75 Daily!</div>
+                        <div class="text-red-600 font-medium text-sm">Testing Products & Apps</div>
+                    </div>
 
-        <!-- REMOVED the central "Testerup" section -->
+                    <!-- Steps -->
+                    <div class="space-y-5 mb-8">
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">1</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Sign up for free</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">2</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Test products & websites</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">3</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Share your feedback</span>
+                        </div>
+                        
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">4</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Get paid instantly</span>
+                        </div>
 
-        <section class="features-section container">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fa-solid fa-gift"></i>
-                    <h3>Reward System</h3>
-                    <p>Customize rewards that motivate your players.</p>
+                        <div class="step-item flex items-start gap-4">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                                <span class="text-white text-sm font-bold">5</span>
+                            </div>
+                            <span class="text-gray-700 font-medium pt-0.5">Click "Start Testing" now!</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button id="testButton" class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-5 px-6 rounded-2xl flex items-center justify-center gap-3 mb-6 text-lg shadow-lg">
+                        <span id="buttonText">START TESTING NOW</span>
+                        <svg id="buttonArrow" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Trust Indicators -->
+                    <div class="text-center">
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm mb-2">
+                            <span class="font-bold text-gray-900">Trusted by</span>
+                            <div class="star-rating flex gap-1">
+                                <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <svg class="w-4 h-4 fill-red-500 text-red-500" viewBox="0 0 24 24">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                            </div>
+                            <span class="font-bold text-gray-900">750K+ testers</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            Safe & Secure • 100% Free to Join
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <h3>Tracking</h3>
-                    <p>Watch how rapidly you will become successful.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <h3>Earn Cash</h3>
-                    <p>Designed for earning money by playing games.</p>
+
+                <!-- Bottom Stats -->
+                <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">750K+</div>
+                        <div class="text-red-200 text-xs">Active Testers</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">$5M+</div>
+                        <div class="text-red-200 text-xs">Paid Out</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-white font-bold text-lg">4.9★</div>
+                        <div class="text-red-200 text-xs">Trustpilot</div>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-    </main>
-
-    <footer class="main-footer">
-        <div class="logo"><i class="fa-solid fa-rocket"></i> Testerup</div>
-        <div class="footer-links">
-            <a href="#">Terms of Use</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">FAQ</a>
         </div>
-        <p class="copyright">© 2024 Testerup. All rights reserved.</p>
-    </footer>
+    </div>
 
+    <script>
+        // 🎯 REDIRECT CONFIGURATION - CHANGE THIS URL TO YOUR OFFER LINK
+        const OFFER_URL = 'https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197';
+        
+        // Testimonials data for Testerup
+        const testimonials = [
+            { name: 'Sarah M.', action: 'earning', amount: '$45' },
+            { name: 'Mike D.', action: 'testing for', amount: '$67' },
+            { name: 'Jessica L.', action: 'making', amount: '$89' },
+            { name: 'Alex R.', action: 'earning', amount: '$52' },
+            { name: 'Emma W.', action: 'testing and earning', amount: '$73' },
+            { name: 'David K.', action: 'making', amount: '$61' }
+        ];
+        
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
+        let engagementTracked = false;
+        let scrollTracked = false;
+
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-red-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-bold text-red-600">${testimonial.name}</span>
+                        <span class="text-gray-700"> is ${testimonial.action} </span>
+                        <span class="font-bold text-gray-900">${testimonial.amount}</span>
+                        <span class="text-gray-700"> testing products!</span>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 4 seconds
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 700);
+            }, 4000);
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (random interval between 3-7 seconds)
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Meta Pixel conversion tracking function
+        function trackConversion() {
+            const conversionProps = {
+                content_name: 'Testerup Application',
+                content_category: 'Product Testing',
+                content_ids: ['testerup_application'],
+                content_type: 'product_group',
+                value: 750,
+                currency: 'USD'
+            };
+            
+            try {
+                // Track multiple conversion events for better optimization
+                fbq('track', 'InitiateCheckout', conversionProps);
+                fbq('track', 'SubmitApplication', conversionProps);
+                console.log('Meta Pixel conversion events tracked successfully');
+            } catch(e) {
+                console.error('Meta Pixel tracking error:', e);
+            }
+        }
+
+        // Enhanced button click handler with loading state and redirect
+        function handleButtonClick() {
+            const button = document.getElementById('testButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonArrow = document.getElementById('buttonArrow');
+            
+            // Add loading state
+            button.classList.add('loading');
+            buttonText.textContent = 'LOADING...';
+            buttonArrow.style.display = 'none';
+            
+            // Track the conversion with Meta Pixel
+            trackConversion();
+            
+            // Redirect to the offer URL after tracking completes
+            setTimeout(function() {
+                window.location.href = OFFER_URL;
+            }, 1000);
+        }
+
+        // Start showing testimonials after 2 seconds
+        setTimeout(showNextTestimonial, 2000);
+        
+        // Add click event listener to the button
+        document.getElementById('testButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            handleButtonClick();
+        });
+
+        // Additional page engagement tracking
+        setTimeout(() => {
+            if (!engagementTracked) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Testerup - Engaged User',
+                        content_category: 'Product Testing',
+                        content_ids: ['testerup_engaged'],
+                        content_type: 'product_group'
+                    });
+                    engagementTracked = true;
+                    console.log('Engagement tracking completed');
+                } catch(e) {
+                    console.error('Engagement tracking error:', e);
+                }
+            }
+        }, 10000);
+
+        // Track scroll engagement
+        window.addEventListener('scroll', () => {
+            const mainCard = document.getElementById('mainCard');
+            
+            if (window.scrollY > 50) {
+                mainCard.classList.add('scrolled');
+            } else {
+                mainCard.classList.remove('scrolled');
+            }
+
+            if (!scrollTracked && window.scrollY > 100) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Testerup - Scroll Engagement',
+                        content_category: 'Product Testing',
+                        content_ids: ['testerup_scroll'],
+                        content_type: 'product_group'
+                    });
+                    scrollTracked = true;
+                    console.log('Scroll engagement tracked');
+                } catch(e) {
+                    console.error('Scroll tracking error:', e);
+                }
+            }
+        });
+
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animation to main card
+            setTimeout(() => {
+                document.getElementById('mainCard').style.opacity = '1';
+            }, 100);
+        });
+
+        // Handle page visibility changes for better tracking
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Page is hidden, pause testimonials
+                if (testimonialTimeout) {
+                    clearTimeout(testimonialTimeout);
+                }
+            } else {
+                // Page is visible, resume testimonials
+                setTimeout(showNextTestimonial, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
