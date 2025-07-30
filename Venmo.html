@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Venmo Cash Giveaway - Win Free Money!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;
+            n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+            if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+            n.queue=[]; t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+        }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1664457917492479');
+        fbq('track', 'PageView');
+
+        const pageProps = {
+            content_name: 'Venmo Cash Giveaway',
+            content_category: 'Financial Sweepstakes',
+            content_ids: ['venmo_cash_giveaway'],
+            content_type: 'product_group'
+        };
+        fbq('track', 'ViewContent', pageProps);
+    </script>
+    
+    <style>
+        /* Mobile-first optimizations */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .animate-sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .testimonial-popup {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.5s ease-out;
+            max-width: 100%;
+        }
+
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.5s ease-in;
+        }
+
+        /* Mobile-optimized button interactions */
+        button {
+            transition: all 0.2s ease;
+            transform-origin: center;
+            min-height: 48px;
+        }
+
+        button:active {
+            transform: scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        /* Mobile card optimizations */
+        .main-card {
+            transition: all 0.3s ease;
+            margin: 12px;
+        }
+
+        /* Mobile step hover effects */
+        .step-item {
+            transition: all 0.2s ease;
+            border-radius: 8px;
+            padding: 12px 8px;
+            margin: -8px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-item:active {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(4px);
+        }
+
+        /* Mobile stat card optimizations */
+        .stat-card {
+            transition: all 0.2s ease;
+            min-height: 60px;
+        }
+
+        .stat-card:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Mobile logo optimizations */
+        .logo-container {
+            transition: all 0.2s ease;
+        }
+
+        .logo-container:active {
+            transform: scale(1.02);
+        }
+
+        /* Mobile scrollbar (hidden on most mobile browsers) */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Enhanced focus states for mobile */
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Mobile-optimized Venmo logo */
+        .venmo-logo {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+        }
+
+        /* Mobile step numbers */
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.2s ease;
+            min-width: 28px;
+            min-height: 28px;
+        }
+
+        .step-item:active .step-number {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Mobile testimonial popup optimizations */
+        .testimonial-popup {
+            transition: all 0.2s ease;
+        }
+
+        .testimonial-popup:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Mobile trust indicator */
+        .trust-indicator {
+            transition: all 0.2s ease;
+        }
+
+        .trust-indicator:active {
+            transform: translateY(-1px);
+        }
+
+        /* Loading animation for button */
+        .loading {
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile sparkle effects */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.3s; }
+        .sparkle:nth-child(3) { bottom: 35%; left: 20%; animation-delay: 0.6s; }
+        .sparkle:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 0.9s; }
+
+        /* Mobile character styling */
+        .venmo-character {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .venmo-character:active {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Mobile-specific text sizes */
+        .mobile-title {
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+
+        .mobile-subtitle {
+            font-size: 0.875rem;
+        }
+
+        .mobile-prize {
+            font-size: 2rem;
+        }
+
+        .mobile-step-text {
+            font-size: 0.9rem;
+        }
+
+        .mobile-button-text {
+            font-size: 1.1rem;
+        }
+
+        /* Prevent zoom on input focus */
+        input, select, textarea {
+            font-size: 16px;
+        }
+
+        /* Safe area adjustments for notched phones */
+        .safe-area-top {
+            padding-top: env(safe-area-inset-top);
+        }
+
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        /* Optimize for mobile performance */
+        .main-card {
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        /* Mobile-optimized background */
+        .mobile-bg {
+            background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body>
+    <!-- noscript fall-backs -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" /></noscript>
+
+    <div class="mobile-bg relative overflow-hidden safe-area-top safe-area-bottom">
+        <!-- Mobile Sparkle Effects -->
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+
+        <!-- Mobile Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-16 left-6 w-24 h-24 bg-blue-300 rounded-full blur-2xl"></div>
+            <div class="absolute top-32 right-8 w-20 h-20 bg-green-300 rounded-full blur-xl"></div>
+            <div class="absolute bottom-24 left-1/4 w-28 h-28 bg-blue-400 rounded-full blur-2xl"></div>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-3 py-6">
+            <div class="w-full max-w-sm">
+                <!-- Main Card -->
+                <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 animate-float border border-blue-100">
+                    <!-- Logo Section -->
+                    <div class="text-center mb-6">
+                        <div class="logo-container mb-3">
+                            <div class="venmo-logo">
+                                Venmo
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <div class="text-center mb-6">
+                        <h1 class="mobile-title font-bold text-gray-900 mb-2 leading-tight">
+                            💰 FREE CASH GIVEAWAY! 💰
+                        </h1>
+                        <div class="trust-indicator flex items-center justify-center gap-2 mobile-subtitle text-gray-600">
+                            <span class="font-bold text-blue-600">Official Sweepstakes</span>
+                            <div class="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center">
+                                <span class="text-blue-600 font-bold text-xs">✓</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prize Display -->
+                    <div class="text-center mb-5 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-4 border border-green-200 animate-pulse-slow">
+                        <div class="mobile-prize font-bold text-green-600 mb-1">WIN $1,000 CASH!</div>
+                        <div class="text-green-600 font-medium text-sm">Sent directly to your Venmo!</div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="space-y-3 mb-6">
+                        <div class="step-item">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md mr-3">
+                                <span class="text-white text-sm font-bold">1</span>
+                            </div>
+                            <span class="text-gray-700 font-medium mobile-step-text">Enter your Venmo username</span>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md mr-3">
+                                <span class="text-white text-sm font-bold">2</span>
+                            </div>
+                            <span class="text-gray-700 font-medium mobile-step-text">Complete simple verification</span>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md mr-3">
+                                <span class="text-white text-sm font-bold">3</span>
+                            </div>
+                            <span class="text-gray-700 font-medium mobile-step-text">Share with 3 friends</span>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md mr-3">
+                                <span class="text-white text-sm font-bold">4</span>
+                            </div>
+                            <span class="text-gray-700 font-medium mobile-step-text">Wait for winner announcement</span>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 shadow-md mr-3">
+                                <span class="text-white text-sm font-bold">5</span>
+                            </div>
+                            <span class="text-gray-700 font-medium mobile-step-text">Click "ENTER GIVEAWAY" now!</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button id="enterButton" class="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center mb-5 mobile-button-text shadow-lg">
+                        <span id="buttonText">💸 ENTER GIVEAWAY NOW</span>
+                    </button>
+
+                    <!-- Trust Indicators -->
+                    <div class="text-center">
+                        <div class="trust-indicator flex items-center justify-center gap-2 text-sm mb-2">
+                            <span class="font-bold text-gray-900">Trusted by</span>
+                            <div class="star-rating">
+                                <span class="text-green-500 font-bold">★★★★★</span>
+                            </div>
+                            <span class="font-bold text-gray-900">500K+ users</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            🔒 Safe & Secure • 100% Free Entry • No Scam
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats -->
+                <div class="mt-4 grid grid-cols-3 gap-3 text-center px-3">
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <div class="text-white font-bold text-base">500K+</div>
+                        <div class="text-blue-200 text-xs">Participants</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <div class="text-white font-bold text-base">25K</div>
+                        <div class="text-blue-200 text-xs">Winners</div>
+                    </div>
+                    <div class="stat-card bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <div class="text-white font-bold text-base">24H</div>
+                        <div class="text-blue-200 text-xs">Time Left</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🎯 REDIRECT CONFIGURATION - CHANGE THIS URL TO YOUR OFFER LINK
+        const OFFER_URL = 'https://affrkr.com/?ge4=EuWQbmkFbUAlyu9WmLjmno%2b9aPDoc2e%2fvQJDRoz7h5U%3d&s1=';
+        
+        // Testimonials data for Venmo Giveaway
+        const testimonials = [
+            { name: 'Sarah_M', action: 'just received', amount: '$500' },
+            { name: 'Mike_Johnson', action: 'won', amount: '$1,000' },
+            { name: 'Jessica_K', action: 'just got', amount: '$750' },
+            { name: 'Alex_2024', action: 'received', amount: '$1,000' },
+            { name: 'CashHunter', action: 'won', amount: '$800' },
+            { name: 'MoneyMaker99', action: 'just received', amount: '$1,200' }
+        ];
+        
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
+        let engagementTracked = false;
+        let scrollTracked = false;
+
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white bg-opacity-95 backdrop-blur-sm rounded-lg p-3 shadow-xl border border-green-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">V</span>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-bold text-green-600">${testimonial.name}</span>
+                        <span class="text-gray-700"> ${testimonial.action} </span>
+                        <span class="font-bold text-gray-900">${testimonial.amount}</span>
+                        <span class="text-gray-700"> via Venmo! 💰</span>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Remove popup after 3 seconds (shorter for mobile)
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 500);
+            }, 3000);
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (shorter intervals for mobile)
+            const nextInterval = Math.random() * 3000 + 2000; // 2-5 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Meta Pixel conversion tracking function
+        function trackConversion() {
+            const conversionProps = {
+                content_name: 'Venmo Cash Giveaway Entry',
+                content_category: 'Financial Sweepstakes',
+                content_ids: ['venmo_giveaway_entry'],
+                content_type: 'product_group',
+                value: 1000,
+                currency: 'USD'
+            };
+            
+            try {
+                // Track multiple conversion events for better optimization
+                fbq('track', 'InitiateCheckout', conversionProps);
+                fbq('track', 'SubmitApplication', conversionProps);
+                fbq('track', 'CompleteRegistration', conversionProps);
+                console.log('Meta Pixel conversion events tracked successfully');
+            } catch(e) {
+                console.error('Meta Pixel tracking error:', e);
+            }
+        }
+
+        // Enhanced button click handler with loading state and redirect
+        function handleButtonClick() {
+            const button = document.getElementById('enterButton');
+            const buttonText = document.getElementById('buttonText');
+            
+            // Add loading state
+            button.classList.add('loading');
+            buttonText.textContent = '💰 ENTERING...';
+            
+            // Track the conversion with Meta Pixel
+            trackConversion();
+            
+            // Redirect to the offer URL after tracking completes
+            setTimeout(function() {
+                window.location.href = OFFER_URL;
+            }, 800);
+        }
+
+        // Start showing testimonials after 1.5 seconds (faster for mobile)
+        setTimeout(showNextTestimonial, 1500);
+        
+        // Add click event listener to the button
+        document.getElementById('enterButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            handleButtonClick();
+        });
+
+        // Mobile-optimized engagement tracking
+        setTimeout(() => {
+            if (!engagementTracked) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Venmo Giveaway - Mobile Engaged User',
+                        content_category: 'Financial Sweepstakes',
+                        content_ids: ['venmo_mobile_engaged'],
+                        content_type: 'product_group'
+                    });
+                    engagementTracked = true;
+                    console.log('Mobile engagement tracking completed');
+                } catch(e) {
+                    console.error('Mobile engagement tracking error:', e);
+                }
+            }
+        }, 8000);
+
+        // Mobile scroll tracking
+        window.addEventListener('scroll', () => {
+            if (!scrollTracked && window.scrollY > 50) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Venmo Giveaway - Mobile Scroll',
+                        content_category: 'Financial Sweepstakes',
+                        content_ids: ['venmo_mobile_scroll'],
+                        content_type: 'product_group'
+                    });
+                    scrollTracked = true;
+                    console.log('Mobile scroll engagement tracked');
+                } catch(e) {
+                    console.error('Mobile scroll tracking error:', e);
+                }
+            }
+        });
+
+        // Mobile-optimized page visibility handling
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                if (testimonialTimeout) {
+                    clearTimeout(testimonialTimeout);
+                }
+            } else {
+                setTimeout(showNextTestimonial, 800);
+            }
+        });
+
+        // Mobile countdown timer
+        function updateCountdown() {
+            const hours = Math.floor(Math.random() * 24) + 1;
+            const minutes = Math.floor(Math.random() * 60);
+            const seconds = Math.floor(Math.random() * 60);
+            
+            const timeLeft = `${hours}H ${minutes}M`;
+            const timeElement = document.querySelector('.stat-card:last-child .text-white');
+            if (timeElement) {
+                timeElement.textContent = timeLeft;
+            }
+        }
+
+        // Update countdown every 20 seconds for mobile
+        setInterval(updateCountdown, 20000);
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Mobile performance optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preload critical elements
+            const mainCard = document.getElementById('mainCard');
+            mainCard.style.opacity = '1';
+            
+            // Optimize for mobile performance
+            if ('serviceWorker' in navigator) {
+                // Service worker registration could go here for offline support
+            }
+        });
+    </script>
+</body>
+</html>
