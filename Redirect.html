@@ -85,7 +85,7 @@
 
     <script>
         // 🎯 REDIRECT URL - Change this to your main landing page
-        const REDIRECT_URL = 'https://www.viralrewardz.com/'; // Points to your main Roblox landing page
+        const REDIRECT_URL = './index.html'; // Points to your main Roblox landing page
         
         document.getElementById('continueBtn').addEventListener('click', function() {
             const btn = this;
@@ -100,12 +100,6 @@
             }, 500);
         });
 
-        // Auto-redirect after 3 seconds if user doesn't click
-        setTimeout(function() {
-            if (!document.getElementById('continueBtn').classList.contains('loading')) {
-                window.location.href = REDIRECT_URL;
-            }
-        }, 3000);
     </script>
 </body>
 </html>
