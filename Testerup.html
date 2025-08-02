@@ -39,27 +39,7 @@
         
         /* Floating animation for the main card */
         .floating-card {
-            animation: floatingCard 6s ease-in-out infinite;
-            transform-origin: center;
-        }
-        
-        @keyframes floatingCard {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg);
-                box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
-            }
-            25% { 
-                transform: translateY(-8px) rotate(0.5deg);
-                box-shadow: 0 25px 50px rgba(239, 68, 68, 0.18);
-            }
-            50% { 
-                transform: translateY(-12px) rotate(0deg);
-                box-shadow: 0 30px 60px rgba(239, 68, 68, 0.2);
-            }
-            75% { 
-                transform: translateY(-8px) rotate(-0.5deg);
-                box-shadow: 0 25px 50px rgba(239, 68, 68, 0.18);
-            }
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
         }
         
         /* Main card styling */
@@ -349,12 +329,7 @@
         
         /* Pulse animation for attention */
         .pulse-attention {
-            animation: pulseAttention 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulseAttention {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            /* Animation removed - button is now static */
         }
     </style>
 </head>
@@ -407,7 +382,7 @@
         <!-- Download Button -->
         <button id="downloadButton" class="download-button pulse-attention">
             <span id="buttonText">Download TesterUp Now</span>
-            <span></span>
+            <span>📱</span>
         </button>
         
         <!-- App Store Badges -->
