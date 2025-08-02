@@ -657,7 +657,7 @@
                 <!-- Download Button -->
                 <div class="download-section">
                     <button class="download-button" onclick="handleDownload()" aria-label="Download TesterUp app now">
-                        DOWNLOAD NOW
+                        DOWNLOAD NOW - REDIRECT TO TESTERUP
                     </button>
                 </div>
 
@@ -682,7 +682,7 @@
             errorCount: 0
         };
         
-        // Enhanced download handler with analytics
+        // Enhanced download handler with redirect functionality
         function handleDownload() {
             performanceMetrics.interactionCount++;
             
@@ -719,14 +719,14 @@
                 }
             }));
             
-            console.log('Download initiated:', {
+            console.log('Download initiated - Redirecting to TesterUp:', {
                 timestamp: new Date().toISOString(),
-                interactions: performanceMetrics.interactionCount
+                interactions: performanceMetrics.interactionCount,
+                redirectUrl: 'https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197'
             });
             
-            // Redirect to app store or download link
-            // window.location.href = 'https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197';
-            // window.open('https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197');
+            // Redirect to TesterUp affiliate link
+            window.location.href = 'https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197';
         }
         
         // Enhanced touch feedback for step items
@@ -1003,6 +1003,7 @@
         console.log('User Agent:', navigator.userAgent);
         console.log('Viewport:', window.innerWidth + 'x' + window.innerHeight);
         console.log('Device Pixel Ratio:', window.devicePixelRatio);
+        console.log('Redirect URL configured:', 'https://rewarduplevel.com/aff_c?offer_id=2414&aff_id=28197');
     </script>
 </body>
 </html>
