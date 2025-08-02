@@ -2,490 +2,500 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>TesterUp - Get Paid to Test Apps</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TesterUp - Reward Progress</title>
+    <meta name="description" content="Follow the instructions to start earning today with TesterUp">
+    <meta name="author" content="TesterUp">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="TesterUp - Reward Progress">
+    <meta property="og:description" content="Follow the instructions to start earning today with TesterUp">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TesterUp - Reward Progress">
+    <meta name="twitter:description" content="Follow the instructions to start earning today with TesterUp">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
         * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
         
-        html, body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            height: 100%;
-            margin: 0;
-            padding: 0;
+            touch-action: manipulation;
         }
         
-        /* Reddish gradient background */
-        .gradient-bg {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 25%, #fecaca 50%, #fca5a5 75%, #f87171 100%);
+        .container {
             min-height: 100vh;
+            padding: 1.5rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px;
         }
         
-        /* Floating animation for the main card */
-        .floating-card {
-            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
-        }
-        
-        /* Main card styling */
-        .main-card {
-            background: white;
-            border-radius: 24px;
-            padding: 20px 16px;
+        .card {
             width: 100%;
-            max-width: 340px;
-            text-align: center;
-            position: relative;
-            border: 1px solid rgba(239, 68, 68, 0.1);
-        }
-        
-        /* App icon styling */
-        .app-logo {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px auto;
-            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+            max-width: 384px;
+            background-color: #111827;
+            border-top: 4px solid #ef4444;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden;
         }
         
-        .app-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-        
-        /* TesterUp title */
-        .app-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #1f2937;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-        }
-        
-        /* Verified section */
-        .verified-text {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 20px;
+        .logo-section {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            padding: 1.5rem 0 1rem 0;
         }
         
-        .verification-check {
-            width: 16px;
-            height: 16px;
-            background: #ef4444;
+        .logo-container {
+            background-color: #1f2937;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            background-color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
-        .verification-check::after {
-            content: '✓';
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-        }
-        
-        /* Earnings amount */
-        .earnings-amount {
-            font-size: 36px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-        
-        /* Subtitle text */
-        .subtitle-text {
-            font-size: 16px;
-            color: #ef4444;
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-        
-        /* Step items */
-        .step-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            text-align: left;
-        }
-        
-        .step-number {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
+        .logo-dot {
+            width: 1rem;
+            height: 1rem;
+            background-color: #ef4444;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+        
+        .logo-text {
+            color: #ffffff;
             font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
         }
         
-        .step-text {
-            font-size: 15px;
-            color: #1f2937;
+        .logo-text .red {
+            color: #ef4444;
+        }
+        
+        /* To use your own logo image, replace the logo section with:
+        .logo-image {
+            height: 2.5rem;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        */
+        
+        .content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .main-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #ef4444;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            color: #ffffff;
+            font-size: 1.125rem;
             font-weight: 500;
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+        
+        .divider {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .divider-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .divider-line {
+            flex: 1;
+            height: 2px;
+            background-color: #ef4444;
+        }
+        
+        .divider-text {
+            padding: 0 1rem;
+            color: #ef4444;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .steps {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #1f2937;
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step:active {
+            background-color: #374151;
+            transform: scale(0.98);
+        }
+        
+        .step-icon {
+            flex-shrink: 0;
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.125rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .checkmark {
+            width: 1rem;
+            height: 1rem;
+            color: #ffffff;
+            stroke-width: 2.5;
+        }
+        
+        .step-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .step-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             line-height: 1.3;
         }
         
-        .step-text.highlight {
-            color: #ef4444;
-            font-weight: 600;
+        .step-description {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            line-height: 1.4;
         }
         
-        /* Download button */
+        .download-section {
+            margin-bottom: 1.5rem;
+        }
+        
         .download-button {
             width: 100%;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            padding: 16px 20px;
-            font-size: 16px;
+            background-color: #ef4444;
+            color: #ffffff;
             font-weight: 700;
-            margin: 24px 0 20px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            min-height: 48px;
+            letter-spacing: 0.05em;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            touch-action: manipulation;
+            min-height: 44px;
         }
         
         .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(239, 68, 68, 0.4);
+            background-color: #dc2626;
         }
         
         .download-button:active {
-            transform: translateY(0px);
-        }
-        
-        /* App store badges */
-        .app-stores {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin: 16px 0;
-        }
-        
-        .store-badge {
-            height: 36px;
-            border-radius: 8px;
-            transition: transform 0.2s ease;
-        }
-        
-        .store-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Trust indicators */
-        .trust-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #1f2937;
-            margin-top: 16px;
-        }
-        
-        .trust-stars {
-            display: flex;
-            gap: 2px;
-        }
-        
-        .star {
-            width: 14px;
-            height: 14px;
-            background: #ef4444;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-        
-        /* Security badges */
-        .security-badges {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #f3f4f6;
+            background-color: #b91c1c;
+            transform: scale(0.98);
         }
         
         .security-badge {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            color: #6b7280;
-            font-weight: 500;
-        }
-        
-        .security-icon {
-            width: 14px;
-            height: 14px;
-            background: #ef4444;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 8px;
+            gap: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
         }
         
-        /* Mobile touch feedback */
-        .mobile-touch:active {
-            transform: scale(0.98);
+        .lock-icon {
+            width: 1rem;
+            height: 1rem;
         }
         
-        /* Loading state */
-        .loading {
-            position: relative;
-            pointer-events: none;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid transparent;
-            border-top-color: #ffffff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Success message */
-        .success-message {
-            animation: fadeInUp 0.4s ease;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
+        .security-text {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             font-weight: 500;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
+        /* Mobile-specific optimizations */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem 0.75rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .content {
+                padding: 0 1.25rem 1.25rem 1.25rem;
+            }
+            
+            .main-title {
+                font-size: 1.75rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .step {
+                padding: 0.875rem;
+            }
+            
+            .step-title {
+                font-size: 0.9375rem;
             }
         }
         
-        /* Pulse animation for attention */
-        .pulse-attention {
-            /* Animation removed - button is now static */
+        /* Extra small screens */
+        @media (max-width: 375px) {
+            .main-title {
+                font-size: 1.625rem;
+            }
+            
+            .logo-text {
+                font-size: 1.125rem;
+            }
+            
+            .step {
+                gap: 0.75rem;
+                padding: 0.75rem;
+            }
+        }
+        
+        /* Prevent text selection on interactive elements */
+        .step, .download-button {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Improve tap targets */
+        .step, .download-button {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="gradient-bg">
-    <div class="main-card floating-card mobile-touch">
-        <!-- App Logo -->
-        <div class="app-logo">
-            <img src="images/Testerup2.png" alt="TesterUp Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg, #ef4444 0%, #dc2626 100%);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;color:white;\'>T</div>'">
-        </div>
-        
-        <!-- App Title -->
-        <h1 class="app-title">TesterUp</h1>
-        
-        <!-- Verified Section -->
-        <div class="verified-text">
-            <span>Verified by</span>
-            <span style="font-weight: 600;">TikTok</span>
-            <div class="verification-check"></div>
-        </div>
-        
-        <!-- Earnings Amount -->
-        <div class="earnings-amount">$200-$425</div>
-        
-        <!-- Subtitle -->
-        <div class="subtitle-text">per app tested</div>
-        
-        <!-- Steps -->
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-number">1</div>
-                <div class="step-text">Download TesterUp App</div>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <div class="logo-dot"></div>
+                        </div>
+                        <span class="logo-text">
+                            tester<span class="red">up</span>
+                        </span>
+                    </div>
+                    <!-- 
+                    To use your own logo image, replace the above div with:
+                    <img 
+                        src="/path-to-your-testerup-logo.png" 
+                        alt="TesterUp Logo" 
+                        class="logo-image"
+                    />
+                    -->
+                </div>
             </div>
-            
-            <div class="step-item">
-                <div class="step-number">2</div>
-                <div class="step-text">Sign Up & Verify Account</div>
-            </div>
-            
-            <div class="step-item">
-                <div class="step-number">3</div>
-                <div class="step-text highlight">Test Apps & Give Feedback</div>
-            </div>
-            
-            <div class="step-item">
-                <div class="step-number">4</div>
-                <div class="step-text">Get Paid Instantly via PayPal</div>
+
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Header -->
+                <div class="header">
+                    <h1 class="main-title">Reward Progress</h1>
+                    <p class="subtitle">Follow the instructions</p>
+                    <p class="subtitle">to start earning today!</p>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <div class="divider-content">
+                        <div class="divider-line"></div>
+                        <span class="divider-text">QUICK START GUIDE</span>
+                        <div class="divider-line"></div>
+                    </div>
+                </div>
+
+                <!-- Steps -->
+                <div class="steps">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Download the TesterUp app</h3>
+                            <p class="step-description">Click the button below</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Earn More by Testing Multiple Games</h3>
+                            <p class="step-description">Make over $100/day</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Pro tip: Make in-app purchases on the games to earn faster</h3>
+                            <p class="step-description">They reimburse you for anything you spend!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Button -->
+                <div class="download-section">
+                    <button class="download-button" onclick="handleDownload()">
+                        DOWNLOAD NOW
+                    </button>
+                </div>
+
+                <!-- Security Badge -->
+                <div class="security-badge">
+                    <svg class="lock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <span class="security-text">SECURE & CONFIDENTIAL</span>
+                </div>
             </div>
         </div>
-        
-        <!-- Download Button -->
-        <button id="downloadButton" class="download-button pulse-attention">
-            <span id="buttonText">Download Now!</span>
-            <span></span>
-        </button>
-        
-        <!-- App Store Badges -->
-        <div class="app-stores">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" class="store-badge" style="height: 40px;">
-            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-badge" style="height: 56px; margin-top: margin-top: -4px;">
-        </div>
-        
-        <!-- Success Message (Hidden by default) -->
-        <div id="successMessage" class="success-message" style="display: none;">
-            <span>✓</span>
-            <span>Redirecting to app download...</span>
-        </div>
-        
-        <!-- Trust Section -->
-        <div class="trust-section">
-            <span style="font-weight: 600;">4.8</span>
-            <div class="trust-stars">
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-            </div>
-            <span style="font-weight: 600;">50K+ Reviews</span>
-        </div>
-        
+    </div>
+
     <script>
-        // 🎯 REDIRECT CONFIGURATION - Update this URL with your actual download link
-        const REDIRECT_URL = 'https://apps.apple.com/app/testerup/id123456789'; // Replace with your actual app store link
-        
+        // Handle download button click
+        function handleDownload() {
+            // Add your download logic here
+            console.log('Download button clicked');
+            
+            // Example: Redirect to app store or download link
+            // window.location.href = 'https://your-app-download-link.com';
+            
+            // Example: Track analytics
+            // gtag('event', 'download_click', {
+            //     'event_category': 'engagement',
+            //     'event_label': 'testerup_app'
+            // });
+        }
+
+        // Add touch feedback for better mobile experience
         document.addEventListener('DOMContentLoaded', function() {
-            const downloadButton = document.getElementById('downloadButton');
-            const successMessage = document.getElementById('successMessage');
-            const buttonText = document.getElementById('buttonText');
-
-            function handleButtonClick() {
-                console.log('TesterUp download button clicked!');
-                
-                if (downloadButton.disabled) return;
-                
-                // Add loading state
-                downloadButton.disabled = true;
-                downloadButton.classList.add('loading');
-                downloadButton.classList.remove('pulse-attention');
-                buttonText.textContent = 'Starting Download...';
-                
-                // Show success message
-                successMessage.style.display = 'flex';
-                
-                // Haptic feedback for mobile
-                if (navigator.vibrate) {
-                    navigator.vibrate([100, 50, 100]);
-                }
-                
-                console.log('Redirecting to:', REDIRECT_URL);
-                
-                // Redirect after short delay for better UX
-                setTimeout(() => {
-                    window.location.href = REDIRECT_URL;
-                }, 1500);
-            }
-
-            // Event listeners
-            downloadButton.addEventListener('click', handleButtonClick);
-            downloadButton.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                handleButtonClick();
+            // Add haptic feedback for supported devices
+            const interactiveElements = document.querySelectorAll('.step, .download-button');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    // Add haptic feedback if available
+                    if (navigator.vibrate) {
+                        navigator.vibrate(10);
+                    }
+                });
             });
 
-            // Prevent context menu and text selection
-            document.addEventListener('contextmenu', e => e.preventDefault());
-            document.addEventListener('selectstart', e => e.preventDefault());
-
-            console.log('TesterUp landing page loaded!');
+            // Prevent zoom on double tap
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function (event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
         });
 
-        // Prevent zoom on double tap
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: false });
-
-        // Performance optimization
-        window.addEventListener('load', function() {
-            console.log('TesterUp page fully loaded and optimized!');
-        });
-
-        // Add some user engagement tracking
-        let engagementStartTime = Date.now();
-        
-        window.addEventListener('beforeunload', function() {
-            const timeSpent = Date.now() - engagementStartTime;
-            console.log('User spent', Math.round(timeSpent / 1000), 'seconds on page');
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            // Force a repaint to handle any layout issues
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
         });
     </script>
 </body>
