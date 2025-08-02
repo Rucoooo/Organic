@@ -75,6 +75,21 @@
         .logo-content {
             display: flex;
             align-items: center;
+            justify-content: center;
+        }
+        
+        /* Logo Image */
+        .logo-image {
+            height: 2.5rem;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        /* Fallback Logo (hidden when image loads) */
+        .logo-fallback {
+            display: flex;
+            align-items: center;
             gap: 0.75rem;
         }
         
@@ -105,15 +120,6 @@
         
         .logo-accent {
             color: #ef4444;
-        }
-        
-        /* Replace with your logo image */
-        .logo-image {
-            height: 2.5rem;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            display: none; /* Show this when you add your logo */
         }
         
         /* Main Content */
@@ -410,22 +416,23 @@
             <div class="logo-section">
                 <div class="logo-container">
                     <div class="logo-content">
-                        <!-- Current Logo (replace with your image) -->
-                        <div class="logo-icon">
-                            <div class="logo-dot"></div>
-                        </div>
-                        <span class="logo-text">
-                            tester<span class="logo-accent">up</span>
-                        </span>
-                        
-                        <!-- Uncomment and use this for your logo image -->
-                        <!--
+                        <!-- Your TesterUp Logo -->
                         <img 
-                            src="/path-to-your-testerup-logo.png" 
+                            src="src-images/Testeruplogolong.png" 
                             alt="TesterUp Logo" 
                             class="logo-image"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                         />
-                        -->
+                        
+                        <!-- Fallback Logo (shows if image fails to load) -->
+                        <div class="logo-fallback" style="display: none;">
+                            <div class="logo-icon">
+                                <div class="logo-dot"></div>
+                            </div>
+                            <span class="logo-text">
+                                tester<span class="logo-accent">up</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
