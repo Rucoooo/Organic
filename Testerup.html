@@ -18,40 +18,45 @@
     <meta name="twitter:description" content="Follow the instructions to start earning today with TesterUp">
     
     <style>
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        body {
+        html, body {
+            height: 100%;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            touch-action: manipulation;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
         }
         
-        .container {
+        /* Mobile-First Container */
+        .mobile-container {
             min-height: 100vh;
+            background-color: #000000;
             padding: 1.5rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .card {
+        /* Main Card */
+        .main-card {
             width: 100%;
             max-width: 384px;
-            background-color: #111827;
+            background-color: #1f2937;
             border-top: 4px solid #ef4444;
             border-radius: 0.75rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden;
         }
         
+        /* Logo Section */
         .logo-section {
             display: flex;
             align-items: center;
@@ -60,14 +65,14 @@
         }
         
         .logo-container {
-            background-color: #1f2937;
+            background-color: #374151;
             padding: 0.75rem 1.5rem;
             border-radius: 0.75rem;
-            border: 1px solid #374151;
+            border: 1px solid #4b5563;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         
-        .logo {
+        .logo-content {
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -98,24 +103,26 @@
             letter-spacing: 0.05em;
         }
         
-        .logo-text .red {
+        .logo-accent {
             color: #ef4444;
         }
         
-        /* To use your own logo image, replace the logo section with:
+        /* Replace with your logo image */
         .logo-image {
             height: 2.5rem;
             width: auto;
             max-width: 100%;
             object-fit: contain;
+            display: none; /* Show this when you add your logo */
         }
-        */
         
-        .content {
+        /* Main Content */
+        .main-content {
             padding: 0 1.5rem 1.5rem 1.5rem;
         }
         
-        .header {
+        /* Header Section */
+        .header-section {
             text-align: center;
             margin-bottom: 1.5rem;
         }
@@ -136,12 +143,13 @@
             line-height: 1.4;
         }
         
-        .divider {
+        /* Divider */
+        .divider-section {
             text-align: center;
             margin-bottom: 1.5rem;
         }
         
-        .divider-content {
+        .divider-container {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -162,31 +170,33 @@
             text-transform: uppercase;
         }
         
-        .steps {
+        /* Steps Section */
+        .steps-container {
             margin-bottom: 1.5rem;
         }
         
-        .step {
+        .step-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             padding: 1rem;
-            background-color: #1f2937;
+            background-color: #374151;
             border-radius: 0.75rem;
-            border: 1px solid #374151;
+            border: 1px solid #4b5563;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             margin-bottom: 1rem;
             transition: all 0.2s ease;
             cursor: pointer;
             touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
         
-        .step:last-child {
+        .step-item:last-child {
             margin-bottom: 0;
         }
         
-        .step:active {
-            background-color: #374151;
+        .step-item:active {
+            background-color: #4b5563;
             transform: scale(0.98);
         }
         
@@ -229,6 +239,7 @@
             line-height: 1.4;
         }
         
+        /* Download Button */
         .download-section {
             margin-bottom: 1.5rem;
         }
@@ -241,13 +252,14 @@
             padding: 1rem 1.5rem;
             border-radius: 0.75rem;
             font-size: 1rem;
-            transition: all 0.2s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border: none;
             cursor: pointer;
+            transition: all 0.2s ease;
             touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
             min-height: 44px;
         }
         
@@ -260,7 +272,8 @@
             transform: scale(0.98);
         }
         
-        .security-badge {
+        /* Security Badge */
+        .security-section {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -280,17 +293,13 @@
             font-weight: 500;
         }
         
-        /* Mobile-specific optimizations */
-        @media (max-width: 480px) {
-            .container {
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 375px) {
+            .mobile-container {
                 padding: 1rem 0.75rem;
             }
             
-            .card {
-                max-width: 100%;
-            }
-            
-            .content {
+            .main-content {
                 padding: 0 1.25rem 1.25rem 1.25rem;
             }
             
@@ -301,88 +310,138 @@
             .subtitle {
                 font-size: 1rem;
             }
-            
-            .step {
-                padding: 0.875rem;
-            }
-            
-            .step-title {
-                font-size: 0.9375rem;
+        }
+        
+        @media (min-width: 376px) and (max-width: 414px) {
+            .main-card {
+                max-width: 350px;
             }
         }
         
-        /* Extra small screens */
-        @media (max-width: 375px) {
-            .main-title {
-                font-size: 1.625rem;
+        @media (min-width: 415px) {
+            .main-card {
+                max-width: 384px;
+            }
+        }
+        
+        /* Landscape Orientation */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .mobile-container {
+                padding: 1rem;
+                align-items: flex-start;
             }
             
-            .logo-text {
-                font-size: 1.125rem;
+            .logo-section {
+                padding: 1rem 0 0.75rem 0;
             }
             
-            .step {
-                gap: 0.75rem;
+            .header-section {
+                margin-bottom: 1rem;
+            }
+            
+            .divider-section {
+                margin-bottom: 1rem;
+            }
+            
+            .steps-container {
+                margin-bottom: 1rem;
+            }
+            
+            .step-item {
                 padding: 0.75rem;
+                margin-bottom: 0.75rem;
             }
         }
         
-        /* Prevent text selection on interactive elements */
-        .step, .download-button {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .main-card {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            }
+            
+            .step-item {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            }
         }
         
-        /* Improve tap targets */
-        .step, .download-button {
-            -webkit-tap-highlight-color: transparent;
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            /* Already optimized for dark theme */
         }
         
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .step-item,
+            .download-button {
+                transition: none;
+            }
+            
+            .step-item:active,
+            .download-button:active {
+                transform: none;
+            }
+        }
+        
+        /* Focus Styles for Accessibility */
+        .step-item:focus,
+        .download-button:focus {
+            outline: 2px solid #ef4444;
+            outline-offset: 2px;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .mobile-container {
+                background-color: white;
+                color: black;
+            }
+            
+            .main-card {
+                box-shadow: none;
+                border: 1px solid #000;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
+    <div class="mobile-container">
+        <div class="main-card">
             <!-- Logo Section -->
             <div class="logo-section">
                 <div class="logo-container">
-                    <div class="logo">
+                    <div class="logo-content">
+                        <!-- Current Logo (replace with your image) -->
                         <div class="logo-icon">
                             <div class="logo-dot"></div>
                         </div>
                         <span class="logo-text">
-                            tester<span class="red">up</span>
+                            tester<span class="logo-accent">up</span>
                         </span>
+                        
+                        <!-- Uncomment and use this for your logo image -->
+                        <!--
+                        <img 
+                            src="/path-to-your-testerup-logo.png" 
+                            alt="TesterUp Logo" 
+                            class="logo-image"
+                        />
+                        -->
                     </div>
-                    <!-- 
-                    To use your own logo image, replace the above div with:
-                    <img 
-                        src="/path-to-your-testerup-logo.png" 
-                        alt="TesterUp Logo" 
-                        class="logo-image"
-                    />
-                    -->
                 </div>
             </div>
 
             <!-- Main Content -->
-            <div class="content">
-                <!-- Header -->
-                <div class="header">
+            <div class="main-content">
+                <!-- Header Section -->
+                <div class="header-section">
                     <h1 class="main-title">Reward Progress</h1>
                     <p class="subtitle">Follow the instructions</p>
                     <p class="subtitle">to start earning today!</p>
                 </div>
 
                 <!-- Divider -->
-                <div class="divider">
-                    <div class="divider-content">
+                <div class="divider-section">
+                    <div class="divider-container">
                         <div class="divider-line"></div>
                         <span class="divider-text">QUICK START GUIDE</span>
                         <div class="divider-line"></div>
@@ -390,9 +449,9 @@
                 </div>
 
                 <!-- Steps -->
-                <div class="steps">
+                <div class="steps-container">
                     <!-- Step 1 -->
-                    <div class="step">
+                    <div class="step-item">
                         <div class="step-icon">
                             <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
@@ -405,7 +464,7 @@
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="step">
+                    <div class="step-item">
                         <div class="step-icon">
                             <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
@@ -418,7 +477,7 @@
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="step">
+                    <div class="step-item">
                         <div class="step-icon">
                             <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
@@ -439,7 +498,7 @@
                 </div>
 
                 <!-- Security Badge -->
-                <div class="security-badge">
+                <div class="security-section">
                     <svg class="lock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
@@ -450,13 +509,18 @@
     </div>
 
     <script>
-        // Handle download button click
+        // Mobile-optimized JavaScript
         function handleDownload() {
+            // Add haptic feedback on supported devices
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            
             // Add your download logic here
             console.log('Download button clicked');
             
             // Example: Redirect to app store or download link
-            // window.location.href = 'https://your-app-download-link.com';
+            // window.location.href = 'https://your-app-store-link';
             
             // Example: Track analytics
             // gtag('event', 'download_click', {
@@ -464,39 +528,84 @@
             //     'event_label': 'testerup_app'
             // });
         }
-
-        // Add touch feedback for better mobile experience
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add haptic feedback for supported devices
-            const interactiveElements = document.querySelectorAll('.step, .download-button');
-            
-            interactiveElements.forEach(element => {
-                element.addEventListener('touchstart', function() {
-                    // Add haptic feedback if available
-                    if (navigator.vibrate) {
-                        navigator.vibrate(10);
-                    }
-                });
-            });
-
-            // Prevent zoom on double tap
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function (event) {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
+        
+        // Add touch feedback to step items
+        document.querySelectorAll('.step-item').forEach(item => {
+            item.addEventListener('touchstart', function() {
+                if (navigator.vibrate) {
+                    navigator.vibrate(25);
                 }
-                lastTouchEnd = now;
-            }, false);
+            });
         });
-
+        
+        // Prevent double-tap zoom on buttons
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
         // Handle orientation changes
         window.addEventListener('orientationchange', function() {
-            // Force a repaint to handle any layout issues
             setTimeout(function() {
                 window.scrollTo(0, 0);
             }, 100);
         });
+        
+        // Optimize for mobile performance
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preload critical resources
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'font';
+            link.type = 'font/woff2';
+            link.crossOrigin = 'anonymous';
+            document.head.appendChild(link);
+            
+            // Add loading state management
+            document.body.classList.add('loaded');
+        });
+        
+        // Handle back button for mobile browsers
+        window.addEventListener('popstate', function(event) {
+            // Handle navigation if needed
+        });
+        
+        // Mobile-specific error handling
+        window.addEventListener('error', function(event) {
+            console.error('Mobile error:', event.error);
+        });
+        
+        // Touch gesture handling
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', function(event) {
+            touchStartY = event.changedTouches[0].screenY;
+        });
+        
+        document.addEventListener('touchend', function(event) {
+            touchEndY = event.changedTouches[0].screenY;
+            handleGesture();
+        });
+        
+        function handleGesture() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe up
+                    console.log('Swipe up detected');
+                } else {
+                    // Swipe down
+                    console.log('Swipe down detected');
+                }
+            }
+        }
     </script>
 </body>
 </html>
