@@ -17,6 +17,10 @@
     <meta name="twitter:title" content="TesterUp - Reward Progress">
     <meta name="twitter:description" content="Follow the instructions to start earning today with TesterUp">
     
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <style>
         /* Reset and Base Styles */
         * {
@@ -33,6 +37,12 @@
             background-color: #000000;
             color: #ffffff;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         /* Mobile-First Container */
@@ -43,6 +53,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         
         /* Main Card */
@@ -52,8 +63,11 @@
             background-color: #1f2937;
             border-top: 4px solid #ef4444;
             border-radius: 0.75rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             overflow: hidden;
+            position: relative;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
         
         /* Logo Section */
@@ -62,6 +76,7 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem 0 1rem 0;
+            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
         }
         
         .logo-container {
@@ -69,13 +84,28 @@
             padding: 0.75rem 1.5rem;
             border-radius: 0.75rem;
             border: 1px solid #4b5563;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
         }
         
         .logo-content {
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
         
         /* Logo Image */
@@ -84,9 +114,10 @@
             width: auto;
             max-width: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
         
-        /* Fallback Logo (hidden when image loads) */
+        /* Fallback Logo */
         .logo-fallback {
             display: flex;
             align-items: center;
@@ -101,7 +132,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
         
         .logo-dot {
@@ -116,6 +147,7 @@
             font-weight: 700;
             font-size: 1.25rem;
             letter-spacing: 0.05em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .logo-accent {
@@ -125,12 +157,14 @@
         /* Main Content */
         .main-content {
             padding: 0 1.5rem 1.5rem 1.5rem;
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
         }
         
         /* Header Section */
         .header-section {
             text-align: center;
             margin-bottom: 1.5rem;
+            padding-top: 0.5rem;
         }
         
         .main-title {
@@ -139,6 +173,11 @@
             color: #ef4444;
             margin-bottom: 0.75rem;
             line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .subtitle {
@@ -147,24 +186,41 @@
             font-weight: 500;
             margin-bottom: 0.25rem;
             line-height: 1.4;
+            opacity: 0.95;
         }
         
         /* Divider */
         .divider-section {
             text-align: center;
             margin-bottom: 1.5rem;
+            position: relative;
         }
         
         .divider-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         
         .divider-line {
             flex: 1;
             height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #ef4444 50%, transparent 100%);
+            position: relative;
+        }
+        
+        .divider-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
             background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
         }
         
         .divider-text {
@@ -174,6 +230,9 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+            background-color: #1f2937;
+            position: relative;
+            z-index: 1;
         }
         
         /* Steps Section */
@@ -186,15 +245,32 @@
             align-items: flex-start;
             gap: 1rem;
             padding: 1rem;
-            background-color: #374151;
+            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
             border-radius: 0.75rem;
             border: 1px solid #4b5563;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
             margin-bottom: 1rem;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .step-item:hover::before {
+            opacity: 1;
         }
         
         .step-item:last-child {
@@ -202,21 +278,33 @@
         }
         
         .step-item:active {
-            background-color: #4b5563;
             transform: scale(0.98);
+            box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.4);
         }
         
         .step-icon {
             flex-shrink: 0;
             width: 1.75rem;
             height: 1.75rem;
-            background-color: #ef4444;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 0.125rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+            position: relative;
+        }
+        
+        .step-icon::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            border-radius: 50%;
         }
         
         .checkmark {
@@ -224,11 +312,16 @@
             height: 1rem;
             color: #ffffff;
             stroke-width: 2.5;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            position: relative;
+            z-index: 1;
         }
         
         .step-content {
             flex: 1;
             min-width: 0;
+            position: relative;
+            z-index: 1;
         }
         
         .step-title {
@@ -237,12 +330,14 @@
             font-size: 1rem;
             margin-bottom: 0.5rem;
             line-height: 1.3;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         
         .step-description {
             color: #9ca3af;
             font-size: 0.875rem;
             line-height: 1.4;
+            opacity: 0.9;
         }
         
         /* Download Button */
@@ -252,7 +347,7 @@
         
         .download-button {
             width: 100%;
-            background-color: #ef4444;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: #ffffff;
             font-weight: 700;
             padding: 1rem 1.5rem;
@@ -260,22 +355,39 @@
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
             border: none;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            min-height: 44px;
+            min-height: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .download-button:hover::before {
+            left: 100%;
         }
         
         .download-button:hover {
-            background-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(239, 68, 68, 0.5);
         }
         
         .download-button:active {
-            background-color: #b91c1c;
-            transform: scale(0.98);
+            transform: scale(0.98) translateY(0);
+            box-shadow: 0 5px 10px -3px rgba(239, 68, 68, 0.4);
         }
         
         /* Security Badge */
@@ -286,17 +398,40 @@
             gap: 0.5rem;
             color: #9ca3af;
             font-size: 0.875rem;
+            opacity: 0.8;
         }
         
         .lock-icon {
             width: 1rem;
             height: 1rem;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
         }
         
         .security-text {
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-weight: 500;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Pulse Animation for Interactive Elements */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
         }
         
         /* Mobile Responsive Adjustments */
@@ -315,6 +450,10 @@
             
             .subtitle {
                 font-size: 1rem;
+            }
+            
+            .step-item {
+                padding: 0.875rem;
             }
         }
         
@@ -362,17 +501,12 @@
         /* High DPI Displays */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             .main-card {
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
             }
             
             .step-item {
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
             }
-        }
-        
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            /* Already optimized for dark theme */
         }
         
         /* Reduced Motion */
@@ -386,6 +520,11 @@
             .download-button:active {
                 transform: none;
             }
+            
+            .loading {
+                animation: none;
+                opacity: 1;
+            }
         }
         
         /* Focus Styles for Accessibility */
@@ -393,6 +532,11 @@
         .download-button:focus {
             outline: 2px solid #ef4444;
             outline-offset: 2px;
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            /* Already optimized for dark theme */
         }
         
         /* Print Styles */
@@ -407,24 +551,37 @@
                 border: 1px solid #000;
             }
         }
+        
+        /* Performance Optimizations */
+        .main-card,
+        .step-item,
+        .download-button {
+            will-change: transform;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
     <div class="mobile-container">
-        <div class="main-card">
+        <div class="main-card loading">
             <!-- Logo Section -->
             <div class="logo-section">
                 <div class="logo-container">
                     <div class="logo-content">
                         <!-- Your TesterUp Logo -->
                         <img 
-                            src="images/Testeruplong.png" 
+                            src="src-images/Testeruplogolong.png" 
                             alt="TesterUp Logo" 
                             class="logo-image"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            onload="this.nextElementSibling.style.display='none';"
                         />
                         
-                        <!-- Fallback Logo (shows if image fails to load) -->
+                        <!-- Fallback Logo -->
                         <div class="logo-fallback" style="display: none;">
                             <div class="logo-icon">
                                 <div class="logo-dot"></div>
@@ -458,9 +615,9 @@
                 <!-- Steps -->
                 <div class="steps-container">
                     <!-- Step 1 -->
-                    <div class="step-item">
+                    <div class="step-item" tabindex="0" role="button" aria-label="Step 1: Download the TesterUp app">
                         <div class="step-icon">
-                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
@@ -471,9 +628,9 @@
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="step-item">
+                    <div class="step-item" tabindex="0" role="button" aria-label="Step 2: Earn More by Testing Multiple Games">
                         <div class="step-icon">
-                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
@@ -484,9 +641,9 @@
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="step-item">
+                    <div class="step-item" tabindex="0" role="button" aria-label="Step 3: Pro tip for faster earnings">
                         <div class="step-icon">
-                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
@@ -499,14 +656,14 @@
 
                 <!-- Download Button -->
                 <div class="download-section">
-                    <button class="download-button" onclick="handleDownload()">
+                    <button class="download-button" onclick="handleDownload()" aria-label="Download TesterUp app now">
                         DOWNLOAD NOW
                     </button>
                 </div>
 
                 <!-- Security Badge -->
                 <div class="security-section">
-                    <svg class="lock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="lock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                     <span class="security-text">SECURE & CONFIDENTIAL</span>
@@ -516,36 +673,103 @@
     </div>
 
     <script>
-        // Mobile-optimized JavaScript
+        // Mobile-optimized JavaScript with full functionality
+        
+        // Performance monitoring
+        let performanceMetrics = {
+            loadStart: performance.now(),
+            interactionCount: 0,
+            errorCount: 0
+        };
+        
+        // Enhanced download handler with analytics
         function handleDownload() {
+            performanceMetrics.interactionCount++;
+            
             // Add haptic feedback on supported devices
             if (navigator.vibrate) {
-                navigator.vibrate(50);
+                navigator.vibrate([50, 30, 50]);
             }
             
-            // Add your download logic here
-            console.log('Download button clicked');
+            // Visual feedback
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
             
-            // Example: Redirect to app store or download link
+            // Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'testerup_app',
+                    'value': 1
+                });
+            }
+            
+            // Custom event for tracking
+            window.dispatchEvent(new CustomEvent('testerup_download', {
+                detail: {
+                    timestamp: Date.now(),
+                    userAgent: navigator.userAgent,
+                    viewport: {
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    }
+                }
+            }));
+            
+            console.log('Download initiated:', {
+                timestamp: new Date().toISOString(),
+                interactions: performanceMetrics.interactionCount
+            });
+            
+            // Redirect to app store or download link
             // window.location.href = 'https://your-app-store-link';
-            
-            // Example: Track analytics
-            // gtag('event', 'download_click', {
-            //     'event_category': 'engagement',
-            //     'event_label': 'testerup_app'
-            // });
+            // window.open('https://your-download-link', '_blank');
         }
         
-        // Add touch feedback to step items
-        document.querySelectorAll('.step-item').forEach(item => {
-            item.addEventListener('touchstart', function() {
+        // Enhanced touch feedback for step items
+        document.querySelectorAll('.step-item').forEach((item, index) => {
+            // Touch start handler
+            item.addEventListener('touchstart', function(e) {
                 if (navigator.vibrate) {
                     navigator.vibrate(25);
+                }
+                this.style.transform = 'scale(0.98)';
+            }, { passive: true });
+            
+            // Touch end handler
+            item.addEventListener('touchend', function(e) {
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            }, { passive: true });
+            
+            // Click handler for step items
+            item.addEventListener('click', function() {
+                console.log(`Step ${index + 1} clicked`);
+                
+                // Analytics for step interactions
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'step_click', {
+                        'event_category': 'engagement',
+                        'event_label': `step_${index + 1}`,
+                        'value': index + 1
+                    });
+                }
+            });
+            
+            // Keyboard accessibility
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
                 }
             });
         });
         
-        // Prevent double-tap zoom on buttons
+        // Prevent double-tap zoom on buttons and interactive elements
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function (event) {
             const now = (new Date()).getTime();
@@ -553,66 +777,232 @@
                 event.preventDefault();
             }
             lastTouchEnd = now;
-        }, false);
+        }, { passive: false });
         
-        // Handle orientation changes
+        // Enhanced orientation change handling
+        let orientationTimeout;
         window.addEventListener('orientationchange', function() {
-            setTimeout(function() {
+            clearTimeout(orientationTimeout);
+            orientationTimeout = setTimeout(function() {
                 window.scrollTo(0, 0);
+                
+                // Recalculate layout if needed
+                const mainCard = document.querySelector('.main-card');
+                if (mainCard) {
+                    mainCard.style.transform = 'translateZ(0)';
+                    setTimeout(() => {
+                        mainCard.style.transform = '';
+                    }, 100);
+                }
             }, 100);
         });
         
-        // Optimize for mobile performance
+        // Advanced performance optimization
         document.addEventListener('DOMContentLoaded', function() {
+            performanceMetrics.domReady = performance.now();
+            
             // Preload critical resources
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'font';
-            link.type = 'font/woff2';
-            link.crossOrigin = 'anonymous';
-            document.head.appendChild(link);
+            const preloadLink = document.createElement('link');
+            preloadLink.rel = 'preload';
+            preloadLink.as = 'font';
+            preloadLink.type = 'font/woff2';
+            preloadLink.crossOrigin = 'anonymous';
+            document.head.appendChild(preloadLink);
             
             // Add loading state management
             document.body.classList.add('loaded');
+            
+            // Initialize intersection observer for animations
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                document.querySelectorAll('.step-item').forEach(item => {
+                    observer.observe(item);
+                });
+            }
+            
+            // Performance logging
+            setTimeout(() => {
+                performanceMetrics.loadComplete = performance.now();
+                console.log('Performance Metrics:', {
+                    totalLoadTime: performanceMetrics.loadComplete - performanceMetrics.loadStart,
+                    domReadyTime: performanceMetrics.domReady - performanceMetrics.loadStart,
+                    viewport: {
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                        ratio: window.devicePixelRatio
+                    }
+                });
+            }, 1000);
         });
         
-        // Handle back button for mobile browsers
+        // Enhanced back button handling for mobile browsers
         window.addEventListener('popstate', function(event) {
-            // Handle navigation if needed
+            console.log('Navigation detected');
+            
+            // Handle navigation state if needed
+            if (event.state) {
+                console.log('State:', event.state);
+            }
         });
         
-        // Mobile-specific error handling
+        // Advanced error handling with reporting
         window.addEventListener('error', function(event) {
-            console.error('Mobile error:', event.error);
+            performanceMetrics.errorCount++;
+            console.error('Mobile error:', {
+                message: event.message,
+                filename: event.filename,
+                lineno: event.lineno,
+                colno: event.colno,
+                error: event.error,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Report to analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    'description': event.message,
+                    'fatal': false
+                });
+            }
         });
         
-        // Touch gesture handling
+        // Unhandled promise rejection handling
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            performanceMetrics.errorCount++;
+        });
+        
+        // Advanced touch gesture handling
         let touchStartY = 0;
         let touchEndY = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartTime = 0;
         
         document.addEventListener('touchstart', function(event) {
             touchStartY = event.changedTouches[0].screenY;
-        });
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartTime = Date.now();
+        }, { passive: true });
         
         document.addEventListener('touchend', function(event) {
             touchEndY = event.changedTouches[0].screenY;
-            handleGesture();
-        });
+            touchEndX = event.changedTouches[0].screenX;
+            const touchDuration = Date.now() - touchStartTime;
+            handleGesture(touchDuration);
+        }, { passive: true });
         
-        function handleGesture() {
+        function handleGesture(duration) {
             const swipeThreshold = 50;
-            const diff = touchStartY - touchEndY;
+            const tapThreshold = 300; // ms
+            const verticalDiff = touchStartY - touchEndY;
+            const horizontalDiff = touchStartX - touchEndX;
             
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swipe up
-                    console.log('Swipe up detected');
+            // Detect swipe gestures
+            if (Math.abs(verticalDiff) > swipeThreshold || Math.abs(horizontalDiff) > swipeThreshold) {
+                if (Math.abs(verticalDiff) > Math.abs(horizontalDiff)) {
+                    // Vertical swipe
+                    if (verticalDiff > 0) {
+                        console.log('Swipe up detected');
+                        handleSwipeUp();
+                    } else {
+                        console.log('Swipe down detected');
+                        handleSwipeDown();
+                    }
                 } else {
-                    // Swipe down
-                    console.log('Swipe down detected');
+                    // Horizontal swipe
+                    if (horizontalDiff > 0) {
+                        console.log('Swipe left detected');
+                    } else {
+                        console.log('Swipe right detected');
+                    }
                 }
+            } else if (duration < tapThreshold) {
+                // Quick tap detected
+                console.log('Quick tap detected');
             }
         }
+        
+        function handleSwipeUp() {
+            // Scroll to download button
+            const downloadButton = document.querySelector('.download-button');
+            if (downloadButton) {
+                downloadButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                downloadButton.classList.add('pulse-animation');
+                setTimeout(() => {
+                    downloadButton.classList.remove('pulse-animation');
+                }, 2000);
+            }
+        }
+        
+        function handleSwipeDown() {
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Network status monitoring
+        window.addEventListener('online', function() {
+            console.log('Network: Online');
+        });
+        
+        window.addEventListener('offline', function() {
+            console.log('Network: Offline');
+        });
+        
+        // Battery API monitoring (if available)
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+                console.log('Battery level:', Math.round(battery.level * 100) + '%');
+                
+                // Optimize animations based on battery level
+                if (battery.level < 0.2) {
+                    document.body.classList.add('low-battery');
+                    console.log('Low battery mode activated');
+                }
+            });
+        }
+        
+        // Memory usage monitoring (if available)
+        if ('memory' in performance) {
+            setInterval(() => {
+                const memory = performance.memory;
+                if (memory.usedJSHeapSize > memory.jsHeapSizeLimit * 0.9) {
+                    console.warn('High memory usage detected');
+                }
+            }, 30000);
+        }
+        
+        // Visibility API for performance optimization
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                console.log('Page hidden - pausing non-critical operations');
+                // Pause animations, reduce polling, etc.
+            } else {
+                console.log('Page visible - resuming operations');
+                // Resume normal operations
+            }
+        });
+        
+        // Service Worker registration (if available)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Register service worker for offline functionality
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
+        
+        // Final initialization
+        console.log('TesterUp Mobile App initialized successfully');
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Viewport:', window.innerWidth + 'x' + window.innerHeight);
+        console.log('Device Pixel Ratio:', window.devicePixelRatio);
     </script>
 </body>
 </html>
