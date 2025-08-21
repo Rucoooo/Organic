@@ -11,10 +11,10 @@
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Reset and Base Styles */
+        /* CSS Reset and Base Styles - Mobile First */
         * {
             margin: 0;
             padding: 0;
@@ -22,33 +22,38 @@
         }
         
         html {
-            font-size: 14px;
+            font-size: 16px;
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
         
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 40%, #06b6d4 100%);
             min-height: 100vh;
             color: #1f2937;
             line-height: 1.5;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            position: relative;
         }
         
-        /* Container */
+        /* Mobile Container - Optimized for touch */
         .container {
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
         }
         
-        /* Header Section */
+        /* Header Section - Mobile Optimized */
         .header {
-            padding: 24px 0 12px;
+            padding: 20px 0 16px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
         
         .logo-pill {
@@ -56,17 +61,24 @@
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
-            padding: 12px 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            padding: 14px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .logo-pill:active {
+            transform: translateY(2px);
         }
         
         .dollar-icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
             fill: #059669;
         }
         
@@ -80,94 +92,129 @@
             letter-spacing: 1px;
         }
         
-        /* Hero Section */
+        /* Hero Section - Mobile First */
         .hero {
-            padding: 12px 0 18px;
+            padding: 20px 0 24px;
             text-align: center;
+            position: relative;
+            z-index: 9;
         }
         
         .hero-title {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             line-height: 1.1;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .hero-subtitle {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
         }
         
         .money-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
         }
         
         .reward-text {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             background: linear-gradient(135deg, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero-description {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 18px;
-            font-weight: 400;
-            line-height: 1.6;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* How It Works Section */
-        .how-it-works {
-            padding: 16px 0 20px;
-        }
-        
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-weight: 400;
+            line-height: 1.6;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+        }
+        
+        /* How It Works Section - Mobile Optimized */
+        .how-it-works {
+            padding: 24px 0 28px;
+            position: relative;
+            z-index: 8;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+        }
+        
         .steps-container {
-            max-width: 420px;
+            max-width: 100%;
             margin: 0 auto;
         }
         
         .step {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 12px;
-            padding: 12px;
+            margin-bottom: 16px;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            position: relative;
+            overflow: hidden;
         }
         
-        .step:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.6s ease;
         }
+        
+        .step:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step:active::before {
+            left: 100%;
+        }
+        
+        .step:nth-child(1) { animation-delay: 0.8s; }
+        .step:nth-child(2) { animation-delay: 1.0s; }
+        .step:nth-child(3) { animation-delay: 1.2s; }
+        .step:nth-child(4) { animation-delay: 1.4s; }
         
         .step-number {
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #1e40af, #3b82f6);
             border-radius: 50%;
             display: flex;
@@ -175,61 +222,66 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 1rem;
-            margin-right: 16px;
-            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+            font-size: 1.1rem;
+            margin-right: 18px;
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.4);
+            position: relative;
+            z-index: 2;
         }
         
         .step-content {
             flex: 1;
-            padding-top: 6px;
+            padding-top: 8px;
+            position: relative;
+            z-index: 2;
         }
         
         .step-text {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #1f2937;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             line-height: 1.4;
         }
         
         .step-subtext {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #6b7280;
             font-weight: 400;
             line-height: 1.5;
         }
         
-        /* CTA Section */
+        /* CTA Section - Mobile Optimized */
         .cta-section {
-            padding: 18px 0 24px;
+            padding: 28px 0 32px;
             text-align: center;
+            position: relative;
+            z-index: 7;
         }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #eab308);
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            padding: 18px 32px;
+            padding: 20px 40px;
             border: none;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             width: 100%;
-            max-width: 320px;
+            max-width: 340px;
             position: relative;
             overflow: hidden;
-        }
-        
-        .cta-button:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 12px rgba(245, 158, 11, 0.6);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .cta-button::before {
@@ -240,7 +292,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s ease;
+        }
+        
+        .cta-button:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.6);
         }
         
         .cta-button:active::before {
@@ -248,54 +305,62 @@
         }
         
         .cta-microcopy {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
-            margin-top: 10px;
+            margin-top: 12px;
             font-weight: 500;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.8s both;
         }
         
-        /* Footer Section */
+        /* Footer Section - Mobile Optimized */
         .footer {
-            padding: 18px 0 16px;
+            padding: 24px 0 20px;
             text-align: center;
-            margin-top: 12px;
+            margin-top: 16px;
+            position: relative;
+            z-index: 6;
         }
         
         .footer-logo {
             opacity: 0.7;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.0s both;
         }
         
         .footer-logo-text {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 600;
         }
         
         .geo-restriction {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.7);
             font-weight: 500;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            max-width: 280px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            max-width: 300px;
             margin-left: auto;
             margin-right: auto;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.2s both;
         }
         
         .legal-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.4s both;
         }
         
         .legal-link {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
+            padding: 8px;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .legal-link:active {
@@ -304,173 +369,19 @@
         
         .legal-separator {
             color: rgba(255, 255, 255, 0.4);
-            font-size: 0.7rem;
+            font-size: 0.8rem;
         }
         
-        /* Responsive Design */
-        @media (min-width: 375px) {
-            .container {
-                padding: 0 20px;
+        /* Smooth Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            
-            .hero-title {
-                font-size: 2.6rem;
-            }
-            
-            .reward-text {
-                font-size: 1.5rem;
-            }
-            
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .step {
-                padding: 14px;
-                margin-bottom: 14px;
-            }
-        }
-        
-        @media (min-width: 414px) {
-            .container {
-                padding: 0 24px;
-            }
-            
-            .header {
-                padding: 20px 0 16px;
-            }
-            
-            .hero {
-                padding: 16px 0 20px;
-            }
-            
-            .how-it-works {
-                padding: 18px 0 24px;
-            }
-            
-            .cta-section {
-                padding: 20px 0 28px;
-            }
-            
-            .step {
-                padding: 16px;
-                margin-bottom: 16px;
-                border-radius: 16px;
-            }
-            
-            .step-number {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-                margin-right: 18px;
-            }
-            
-            .step-text {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 540px;
-                padding: 0 28px;
-            }
-            
-            .header {
-                padding: 24px 0 18px;
-            }
-            
-            .hero {
-                padding: 18px 0 24px;
-            }
-            
-            .how-it-works {
-                padding: 20px 0 28px;
-            }
-            
-            .cta-section {
-                padding: 24px 0 32px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .reward-text {
-                font-size: 1.7rem;
-            }
-            
-            .cta-button {
-                font-size: 1.1rem;
-                padding: 20px 40px;
-                max-width: 380px;
-            }
-            
-            .cta-button:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 24px rgba(245, 158, 11, 0.5);
-            }
-            
-            .cta-button:hover::before {
-                left: 100%;
-            }
-            
-            .step {
-                padding: 18px;
-                margin-bottom: 18px;
-            }
-            
-            .step:hover {
-                transform: translateY(-3px);
-            }
-        }
-        
-        /* Performance Optimizations */
-        .step, .cta-button, .logo-pill {
-            will-change: transform;
-        }
-        
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Focus styles for accessibility */
-        .cta-button:focus {
-            outline: 3px solid #fbbf24;
-            outline-offset: 2px;
-        }
-        
-        .legal-link:focus {
-            outline: 2px solid rgba(255, 255, 255, 0.6);
-            outline-offset: 1px;
-        }
-        
-        /* Additional animations */
-        .step {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .step:nth-child(1) { animation-delay: 0.1s; }
-        .step:nth-child(2) { animation-delay: 0.2s; }
-        .step:nth-child(3) { animation-delay: 0.3s; }
-        .step:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        
-        .logo-pill {
-            animation: bounceIn 0.8s ease-out;
         }
         
         @keyframes bounceIn {
@@ -489,6 +400,55 @@
                 opacity: 1;
                 transform: scale(1);
             }
+        }
+        
+        /* Performance Optimizations for Mobile */
+        .step, .cta-button, .logo-pill {
+            will-change: transform;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        
+        /* Accessibility and Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        .cta-button:focus {
+            outline: 3px solid #fbbf24;
+            outline-offset: 3px;
+        }
+        
+        .legal-link:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.6);
+            outline-offset: 2px;
+        }
+        
+        /* Mobile-specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        /* Prevent zoom on input focus */
+        input, select, textarea {
+            font-size: 16px;
+        }
+        
+        /* Optimize for mobile browsers */
+        body {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
     </style>
 </head>
@@ -570,7 +530,7 @@
     <!-- Call-to-Action Section -->
     <section class="cta-section">
         <div class="container">
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=1897&aff_id=28197" class="cta-button" role="button" aria-label="Start earning with Swagbucks">
+            <a href="https://t.afftrackr.com/?nc2u=QQiQKlAF9KIooMPjfMtVJhbP2jh7vf4HvQJDRoz7h5U%3D&s1=H1" class="cta-button" role="button" aria-label="Start earning with Swagbucks">
                 GET SWAGBUCKS NOW
             </a>
             <p class="cta-microcopy">Start earning in under 2 minutes.</p>
@@ -598,63 +558,118 @@
         </div>
     </footer>
 
-    <!-- Performance and Analytics Scripts -->
+    <!-- Mobile-Optimized Performance Scripts -->
     <script>
-        // Preload critical resources
+        // Mobile-specific optimizations
         document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scroll behavior for better UX
+            // Smooth scrolling with momentum for iOS
             document.documentElement.style.scrollBehavior = 'smooth';
+            document.body.style.webkitOverflowScrolling = 'touch';
+            
+            // Optimize viewport for mobile
+            const viewport = document.querySelector('meta[name=viewport]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover');
+            }
+            
+            // Enhanced touch feedback for mobile
+            const touchElements = document.querySelectorAll('.cta-button, .step, .logo-pill, .legal-link');
+            
+            touchElements.forEach(element => {
+                element.addEventListener('touchstart', function(e) {
+                    this.style.transition = 'transform 0.1s ease';
+                    if (this.classList.contains('cta-button')) {
+                        this.style.transform = 'translateY(2px) scale(0.98)';
+                    } else if (this.classList.contains('step')) {
+                        this.style.transform = 'translateY(2px) scale(0.98)';
+                    } else {
+                        this.style.transform = 'scale(0.95)';
+                    }
+                }, { passive: true });
+                
+                element.addEventListener('touchend', function(e) {
+                    setTimeout(() => {
+                        this.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                        this.style.transform = '';
+                    }, 100);
+                }, { passive: true });
+                
+                element.addEventListener('touchcancel', function(e) {
+                    this.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    this.style.transform = '';
+                }, { passive: true });
+            });
             
             // Track CTA button clicks
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
                 ctaButton.addEventListener('click', function(e) {
-                    // Allow default behavior to follow the href
                     console.log('CTA button clicked - redirecting to:', this.href);
                 });
             }
             
-            // Add subtle parallax effect on scroll
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const parallax = document.body;
-                const speed = scrolled * 0.5;
-                
-                if (parallax) {
-                    parallax.style.transform = `translateY(${speed}px)`;
-                }
-            });
+            // Intersection Observer for smooth animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
             
-            // Optimize for mobile performance
-            if ('serviceWorker' in navigator) {
-                // Register service worker for caching if needed
-            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe animated elements
+            document.querySelectorAll('.step, .hero-title, .hero-subtitle, .hero-description').forEach(el => {
+                observer.observe(el);
+            });
         });
 
-        // Viewport height fix for mobile browsers
+        // Optimized viewport height fix for mobile browsers
         function setVH() {
-            let vh = window.innerHeight * 0.01;
+            const vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
         
         setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', setVH);
         
-        // Add touch feedback for better mobile experience
-        document.addEventListener('touchstart', function(e) {
-            if (e.target.classList.contains('cta-button') || e.target.classList.contains('step')) {
-                e.target.style.transform = 'scale(0.98)';
-            }
-        });
+        // Throttled resize handler for better performance
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(setVH, 100);
+        }, { passive: true });
         
-        document.addEventListener('touchend', function(e) {
-            if (e.target.classList.contains('cta-button') || e.target.classList.contains('step')) {
-                setTimeout(() => {
-                    e.target.style.transform = '';
-                }, 150);
+        window.addEventListener('orientationchange', function() {
+            setTimeout(setVH, 100);
+        }, { passive: true });
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
             }
-        });
+            lastTouchEnd = now;
+        }, { passive: false });
+        
+        // Optimize scroll performance
+        let ticking = false;
+        function updateScrollEffects() {
+            // Add any scroll-based effects here if needed
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        }, { passive: true });
     </script>
 </body>
 </html>
