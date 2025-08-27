@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Offers Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f9fafb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 448px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .checkmark-container {
+            width: 80px;
+            height: 80px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkmark {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .heading {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 0 16px;
+        }
+
+        .cta-button {
+            background-color: #000000;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding: 16px 48px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-button:hover {
+            background-color: #1f2937;
+            transform: scale(1.05);
+        }
+
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+
+        .bottom-spacing {
+            height: 64px;
+        }
+
+        @media (max-width: 640px) {
+            .heading {
+                font-size: 1.875rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                font-size: 1rem;
+                padding: 14px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Checkmark icon -->
+        <div class="checkmark-container">
+            <svg class="checkmark" viewBox="0 0 24 24">
+                <polyline points="20,6 9,17 4,12"></polyline>
+            </svg>
+        </div>
+        
+        <!-- Main heading -->
+        <h1 class="heading">Hey Everyone!</h1>
+        
+        <!-- Description text -->
+        <p class="description">
+            All you need to do is sign up and check out a few games and try them inside the app. 
+            Many people discover special offers as they go — and it can add up really quickly 
+            the more you explore. I hope i was able to cover your lunches and snacks :)
+        </p>
+        
+        <!-- CTA Button -->
+        <button class="cta-button" onclick="handleRedirect()">
+            START HERE
+        </button>
+        
+        <!-- Bottom spacing -->
+        <div class="bottom-spacing"></div>
+    </div>
+
+    <script>
+        function handleRedirect() {
+            // Replace this URL with your actual offer link
+            const offerUrl = 'https://rewarduplevel.com/aff_c?offer_id=2211&aff_id=28197';
+            window.location.href = offerUrl;
+        }
+    </script>
+</body>
+</html>
